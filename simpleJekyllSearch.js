@@ -7,7 +7,8 @@
             searchResults   : '.results',
             searchResultsTitle   : '<h4>Search results</h4>',
             limit           : '10',
-            noResults       : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+            noResults       : '<p>Oh shucks<br/><small>Nothing found :(</small></p>',
+            dataType        : 'json'
         }, options);
 
         var properties = settings.jsonFormat.split(',');
@@ -21,16 +22,19 @@
             $.ajax({
                 type: "GET",
                 url: settings.jsonFile,
-                dataType: "html",
+                dataType: settings.dataType,
                 success: function(data, textStatus, jqXHR) {
-                    if(formatMatchesWithJSON(data)){
-                        registerEvent();
-                    }else{
-                        console.log('the properties do not match the keys of the JSON file');
-                    }
+                    //jsonData = $.parseJSON(data);
+                    if(settings.dataType === 'json' || settings.dataType === 'JSON')
+                        jsonData = data;
+                    else
+                        jsonData = $.parseJSON(data);
+                    registerEvent();
                 },
                 error: function(x,y,z) {
-                    console.log('error');
+                    console.log(x);
+                    console.log(y);
+                    console.log(z);
                     // x.responseText should have what's wrong
                 }
             });
@@ -38,6 +42,7 @@
 
 
         function formatMatchesWithJSON(d){
+            console.log(d);
             jsonData = $.parseJSON(d);
             var tmpprop='',
                 match = true,
