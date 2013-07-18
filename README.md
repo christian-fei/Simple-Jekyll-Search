@@ -9,4 +9,4 @@ Works out of the box.
 
 Fast, lightweight, super easy to set up and fully customizable with CSS!
 
-<a href="http://christian-fei.com/tutorials/simple-jekyll-search-jquery-plugin/"><h3>A detailed tutorial can be found here!</h3></a>
+<h3><a href="http://christian-fei.com/tutorials/simple-jekyll-search-jquery-plugin/">A detailed tutorial can be found here!</a></h3>
