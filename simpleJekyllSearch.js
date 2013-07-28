@@ -7,12 +7,10 @@
             searchResults   : '.results',
             searchResultsTitle   : '<h4>Search results</h4>',
             limit           : '10',
-            noResults       : '<p>Oh shucks<br/><small>Nothing found :(</small></p>',
-            dataType        : 'json'
+            noResults       : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
         }, options);
 
         var properties = settings.jsonFormat.split(',');
-        //console.log(properties);
         
         var jsonData = [],
             origThis = this,
@@ -24,14 +22,11 @@
                 url: settings.jsonFile,
                 dataType: settings.dataType,
                 success: function(data, textStatus, jqXHR) {
-                    //jsonData = $.parseJSON(data);
-                    if(settings.dataType === 'json' || settings.dataType === 'JSON')
-                        jsonData = data;
-                    else
-                        jsonData = $.parseJSON(data);
+                    jsonData = data;
                     registerEvent();
                 },
                 error: function(x,y,z) {
+                	console.log("***ERROR in simpleJekyllSearch.js***");
                     console.log(x);
                     console.log(y);
                     console.log(z);
@@ -40,27 +35,6 @@
             });
         }
 
-
-        function formatMatchesWithJSON(d){
-            console.log(d);
-            jsonData = $.parseJSON(d);
-            var tmpprop='',
-                match = true,
-                c=0;
-            for(var i in jsonData[0]){
-                if(i !== properties[c]){
-                    match=false;
-                    break;
-                }
-                c++;
-            }                
-            return match;
-        }
-
-
-           
-        console.log($(this));
-        console.log(this);
 
         function registerEvent(){
             origThis.keyup(function(e){
@@ -97,9 +71,7 @@
                         for(var i=0;i<properties.length;i++){
                             var regex = new RegExp("\{" + properties[i] + "\}", 'g');
                             output = output.replace(regex, entry[properties[i]]);
-                            //console.log('o ' + output);
                         }
-                        //console.log('push ' + output);
                         searchResults.append($(output));
                     }
                 });
