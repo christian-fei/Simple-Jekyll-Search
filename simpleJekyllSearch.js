@@ -20,13 +20,13 @@
             $.ajax({
                 type: "GET",
                 url: settings.jsonFile,
-                dataType: settings.dataType,
+                dataType: 'json',
                 success: function(data, textStatus, jqXHR) {
                     jsonData = data;
                     registerEvent();
                 },
                 error: function(x,y,z) {
-                	console.log("***ERROR in simpleJekyllSearch.js***");
+                    console.log("***ERROR in simpleJekyllSearch.js***");
                     console.log(x);
                     console.log(y);
                     console.log(z);
