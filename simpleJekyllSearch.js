@@ -59,7 +59,6 @@
                 for (key in obj) {
                     if (obj.hasOwnProperty(key) && obj[key].toLowerCase().indexOf(str.toLowerCase()) >= 0){
                         matches.push(obj);
-                        // i=jsonData.length;
                         break;
                     }
                 }
@@ -73,19 +72,13 @@
             searchResults.append( $(settings.searchResultsTitle) );
 
             if(m && m.length){
-                for (var i = 0; i < m.length; i++) {
+                for (var i = 0; i < m.length && i < settings.limit; i++) {
                     var obj = m[i];
                     output = settings.template;
-                    for (key in obj) {
-                        if (obj.hasOwnProperty(key)) {
-                            var regexp = new RegExp('\{' + key + '\}', 'g');
-                            output = output.replace(regexp, obj[key]);
-                        }
-                    }
-                    if(i < settings.limit)
-                        searchResults.append($(output));
-                    else
-                        break;
+                    output = output.replace(/\{(.*?)\}/g, function(match, property) {
+                        return obj[property];
+                    });
+                    searchResults.append($(output));
                 }
             }else{
                 searchResults.append( settings.noResults );
