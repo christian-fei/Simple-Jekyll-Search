@@ -57,9 +57,19 @@
             for (var i = 0; i < jsonData.length; i++) {
                 var obj = jsonData[i];
                 for (key in obj) {
-                    if (obj.hasOwnProperty(key) && obj[key].toLowerCase().indexOf(str.toLowerCase()) >= 0){
-                        matches.push(obj);
-                        break;
+                    if(obj.hasOwnProperty(key)){
+                        if (obj[key] instanceof Array){
+                            var seen = false;
+                            for (var j = 0; j < obj[key].length; j++){
+                                if(obj[key][j].toLowerCase().indexOf(str.toLowerCase()) >= 0){
+                                    matches.push(obj);
+                                    break;
+                                }
+                            }
+                        }else if (obj[key].toLowerCase().indexOf(str.toLowerCase()) >= 0){
+                            matches.push(obj);
+                            break;
+                        }
                     }
                 }
             }
