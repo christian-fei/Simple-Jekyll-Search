@@ -18,7 +18,7 @@ These people helped with suggestions, improvements and bug reports to make this 
 - [dashaman](http://dashaman.com/)
 - [Todd Motto](http://toddmotto.com/)
 - [Dillon de Voor](http://www.crocodillon.com/)
-- 
+
 
 #License
 ##MIT licensed
