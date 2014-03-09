@@ -60,6 +60,7 @@ JekyllSearch.init({
 
 
 <h2 id="template">Template</h2>
+
 <h2 id="fuzzysearch">Fuzzy search</h2>
 
 
