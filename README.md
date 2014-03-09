@@ -16,7 +16,7 @@ Version 2 comes with improved *search* and *templating* engine!
 But what if I don't want jQuery? No problem, I got you covered. `jekyll-search.js` is what you've been looking for on the second page of Google search results.
 
 
-##How to 
+##Setup
 
 First of all include the script
 ```html
@@ -65,14 +65,16 @@ The only thing left to do is to put the  <a href="https://github.com/christian-f
 
 <h2 id="fuzzy-search">Fuzzy search</h2>
 
+<h2 id="bs">Browser support</h2>
 
+Browser support should be pretty decent with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
 
 
 
 ####Special thanks
 
-These people helped with suggestions, improvements and bug reports to make this plugin better :
+These awesome people helped with suggestions, improvements and bug reports to make this plugin better :
 
 - [dashaman](http://dashaman.com/)
 - [Todd Motto](http://toddmotto.com/)
