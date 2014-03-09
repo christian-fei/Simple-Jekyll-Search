@@ -7,15 +7,6 @@ Works out of the box.
 
 Fast, lightweight, super easy to set up and fully customizable with CSS!
 
-#####v2
-
-Version 2 comes with improved *search* and *templating* engine!
-
-#####v3
-
-But what if I don't want jQuery? No problem, I got you covered. `jekyll-search.js` is what you've been looking for on the second page of Google search results.
-
-
 ##Setup
 
 First of all include the script
