@@ -35,7 +35,7 @@ If you want, you can customize several options of this plugin:
 - `template`				(String) <a href="#template">template</a> (Mustache-like)
 - `searchResultsHeader`		(String) Heading of the search results
 - `limit`					(Integer) Limit the search results to a sane amount (10-15)
-- `fuzzy`					(Boolean) Turn on/off <a href="#fuzzysearch">fuzzy search</a>
+- `fuzzy`					(Boolean) Turn on/off <a href="#fuzzy-search">fuzzy search</a>
 - `noResults`				(String) Text to display if nothing matched the search criteria
 
 ---
@@ -46,7 +46,7 @@ Let's say I want to apply JekyllSearch to a non-default input field (`.search`),
 
 I also changed the location of the JSON file, which is now `site-search.json` and I have a different <a href="#template">template</a>.
 
-Plus I want to turn on <a href="#fuzzysearch">fuzzy search</a>:
+Plus I want to turn on <a href="#fuzzy-search">fuzzy search</a>:
 
 
 ```javascript
@@ -61,7 +61,7 @@ JekyllSearch.init({
 
 <h2 id="template">Template</h2>
 
-<h2 id="fuzzysearch">Fuzzy search</h2>
+<h2 id="fuzzy-search">Fuzzy search</h2>
 
 
 
