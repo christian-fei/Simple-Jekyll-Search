@@ -25,6 +25,8 @@ First of all include the script
 
 This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
 
+#Customize the plugin
+
 If you want, you can customize several options of this plugin:
 
 - `searchInput`				(Element) the input field to listen on
@@ -35,6 +37,27 @@ If you want, you can customize several options of this plugin:
 - `limit`					(Integer) Limit the search results to a sane amount (10-15)
 - `fuzzy`					(Boolean) Turn on/off <a href="#fuzzysearch">fuzzy search</a>
 - `noResults`				(String) Text to display if nothing matched the search criteria
+
+---
+
+You can pass the customized properties into an object when you invoke the init function, like this:
+
+Let's say I want to apply JekyllSearch to a non-default input field (`.search`), e.g. `#search-this-page`.
+
+I also changed the location of the JSON file, which is now `site-search.json` and I have a different <a href="#template">template</a>.
+
+Plus I want to turn on <a href="#fuzzysearch">fuzzy search</a>:
+
+
+```javascript
+JekyllSearch.init({
+	searchInput: document.getElementById("search-this-page"),
+	jsonFile: "site-search.json",
+	template: "<a href='{url}' title='{title}'>{title} <span class='tooltip'>{description}</span></a>",
+	fuzzy: true
+});
+```
+
 
 <h2 id="template">Template</h2>
 <h2 id="fuzzysearch">Fuzzy search</h2>
