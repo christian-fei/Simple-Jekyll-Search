@@ -89,6 +89,11 @@ Finds the string `lorem ipsum dolor sit amet` even if you mistype several charac
 Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
 
+##jQuery
+
+```javascript
+$(".search").jekyllSearch( options );
+```
 
 
 ##Special thanks

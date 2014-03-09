@@ -1,5 +1,5 @@
 (function($) {
-    $.fn.simpleJekyllSearch = function(options) {
+    $.fn.jekyllSearch = function(options) {
         var settings = $.extend({
             jsonFile            : '/search.json',
             template            : '<a href="{url}" title="{desc}">{title}</a>',
@@ -25,7 +25,7 @@
                     registerEvent();
                 },
                 error: function(x,y,z) {
-                    console.log("***ERROR in simpleJekyllSearch.js***");
+                    console.log("***ERROR in jekyllSearch.js***");
                     console.log(x);
                     console.log(y);
                     console.log(z);
