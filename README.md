@@ -16,6 +16,8 @@ First of all include the script
 
 This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
 
+Check out <a href="#bs">this section</a> for higher browser support.
+
 ##Customize the plugin
 
 If you want, you can customize several options of this plugin:
@@ -44,7 +46,7 @@ Plus I want to turn on <a href="#fuzzy-search">fuzzy search</a>:
 JekyllSearch.init({
 	searchInput: document.getElementById("search-this-page"),
 	jsonFile: "site-search.json",
-	template: https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js,
+	template: "<a href='{url}' title='{desc}'>{title}</a>",
 	fuzzy: true
 });
 ```
