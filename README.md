@@ -16,7 +16,7 @@ First of all include the script
 
 This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
 
-#Customize the plugin
+##Customize the plugin
 
 If you want, you can customize several options of this plugin:
 
@@ -44,7 +44,7 @@ Plus I want to turn on <a href="#fuzzy-search">fuzzy search</a>:
 JekyllSearch.init({
 	searchInput: document.getElementById("search-this-page"),
 	jsonFile: "site-search.json",
-	template: "<a href='{url}' title='{title}'>{title} <span class='tooltip'>{description}</span></a>",
+	template: https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js,
 	fuzzy: true
 });
 ```
@@ -54,7 +54,32 @@ The only thing left to do is to put the  <a href="https://github.com/christian-f
 
 <h2 id="template">Template</h2>
 
+Templates in JekyllSearch are very dependent on your `search.json` file. You can only use properties that are listed in your mini-database.
+
+In the default `search.json` file, these fields are defined and contains relevant information about an article:
+
+"title", "category", "url" and "data".
+
+So you can only use these fields in the template.
+
+---
+
+The syntax is fairly straightforward, put curly braces around a property and it will be replaced by JekyllSearch in that exact position.
+
+E.g.
+
+`<a href='{url}' title='{desc}'>{title}</a>` results in the following output for the first article:
+
+`<a href='/jekyll-search-example/' title='This is an example description'>JekyllSearch example</a>`
+
 <h2 id="fuzzy-search">Fuzzy search</h2>
+
+Ahh, good old fuzzy search..
+
+I try to explain it with an example:
+
+Finds the string `lorem ipsum dolor sit amet` even if you mistype several characters, like `lorm isum dlor st amt`
+
 
 <h2 id="bs">Browser support</h2>
 
@@ -63,7 +88,7 @@ Browser support should be about IE6+ with this `addEventListener` [shim](https:/
 
 
 
-####Special thanks
+##Special thanks
 
 These awesome people helped with suggestions, improvements and bug reports to make this plugin better :
 
