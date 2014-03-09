@@ -7,16 +7,42 @@ Works out of the box.
 
 Fast, lightweight, super easy to set up and fully customizable with CSS!
 
-#v2
+#####v2
 
 Version 2 comes with improved *search* and *templating* engine!
 
-#v3
+#####v3
 
 But what if I don't want jQuery? No problem, I got you covered. `jekyll-search.js` is what you've been looking for on the second page of Google search results.
 
 
-<h3><a href="http://christian-fei.com/tutorials/simple-jekyll-search-jquery-plugin/">A detailed tutorial can be found here!</a></h3>
+##How to 
+
+First of all include the script
+```html
+<script src="js/jekyll-search.js"></script>
+```
+
+This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
+
+If you want, you can customize several options of this plugin:
+
+- `searchInput`				(Element) the input field to listen on
+- `searchResults`			(Element) the container to which JekyllSearch will write the matched search results 
+- `jsonFile`				(String) location of the JSON file, our little "database"
+- `template`				(String) <a href="#template">template</a> (Mustache-like)
+- `searchResultsHeader`		(String) Heading of the search results
+- `limit`					(Integer) Limit the search results to a sane amount (10-15)
+- `fuzzy`					(Boolean) Turn on/off <a href="#fuzzysearch">fuzzy search</a>
+- `noResults`				(String) Text to display if nothing matched the search criteria
+
+<h2 id="template">Template</h2>
+<h2 id="fuzzysearch">Fuzzy search</h2>
+
+
+
+
+
 
 ####Special thanks
 
