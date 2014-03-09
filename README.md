@@ -67,7 +67,7 @@ The only thing left to do is to put the  <a href="https://github.com/christian-f
 
 <h2 id="bs">Browser support</h2>
 
-Browser support should be pretty decent with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
+Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
 
 
