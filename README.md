@@ -58,6 +58,8 @@ JekyllSearch.init({
 });
 ```
 
+The only thing left to do is to put the  <a href="https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/search.json">search.json</a> file in the root directory of your Jekyll site to generate the JSON needed by JekyllSearch.
+
 
 <h2 id="template">Template</h2>
 
