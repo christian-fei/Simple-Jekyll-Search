@@ -10,13 +10,14 @@ Fast, lightweight, super easy to set up and fully customizable with CSS!
 ##Setup
 
 First of all include the script
+
 ```html
 <script src="js/jekyll-search.js"></script>
 ```
 
 This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
 
-Check out <a href="#bs">this section</a> for higher browser support.
+Check out <a href="#browser-support">this section</a> for higher browser support.
 
 ##Customize the plugin
 
@@ -54,7 +55,7 @@ JekyllSearch.init({
 The only thing left to do is to put the  <a href="https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/search.json">search.json</a> file in the root directory of your Jekyll site to generate the JSON needed by JekyllSearch.
 
 
-<h2 id="template">Template</h2>
+##Template
 
 Templates in JekyllSearch are very dependent on your `search.json` file. You can only use properties that are listed in your mini-database.
 
@@ -74,7 +75,7 @@ E.g.
 
 `<a href='/jekyll-search-example/' title='This is an example description'>JekyllSearch example</a>`
 
-<h2 id="fuzzy-search">Fuzzy search</h2>
+##Fuzzy search
 
 Ahh, good old fuzzy search..
 
@@ -83,7 +84,7 @@ I try to explain it with an example:
 Finds the string `lorem ipsum dolor sit amet` even if you mistype several characters, like `lorm isum dlor st amt`
 
 
-<h2 id="bs">Browser support</h2>
+##Browser support
 
 Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
