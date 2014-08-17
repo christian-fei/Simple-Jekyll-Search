@@ -103,6 +103,7 @@ These awesome people helped with suggestions, improvements and bug reports to ma
 - [dashaman](http://dashaman.com/)
 - [Todd Motto](http://toddmotto.com/)
 - [Dillon de Voor](http://www.crocodillon.com/)
+- [Abdel Raoof Olakara](http://abdelraoof.com/)
 
 
 #License
