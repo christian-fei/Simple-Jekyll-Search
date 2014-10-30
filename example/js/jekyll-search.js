@@ -1,1 +1,1 @@
-../jekyll-search.js
+/Users/saiph/Documents/playground/Simple-Jekyll-Search/jekyll-search.js
