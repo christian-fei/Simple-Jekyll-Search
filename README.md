@@ -18,26 +18,26 @@ There's an example included in this repo, check it out to fiddle around with the
 Just `jekyll serve` the page and there you go.
 
 
----
+### Steps
 
+1) Include the basic `search.json` in the root of your Jekyll site
 
-
----
-
-
-
-
-First of all include the script
+2) Include the script in your page
 
 ```html
 <script src="js/jekyll-search.js"></script>
 ```
 
-This will create a global object called `JekyllSearch`, on which you can invoke the `init()` function.
+3) Add an input field for searching and an element to render the search results in.
 
-Check out <a href="#browser-support">this section</a> for higher browser support.
+E.g.:
 
+```html
+<input type="text" id="search" placeholder="search this site">
+<ul id="search-results"></ul>
+```
 
+4) [#customize-the-plugin](Customize the plugin)
 
 
 
