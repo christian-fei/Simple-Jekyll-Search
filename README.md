@@ -37,7 +37,7 @@ E.g.:
 <ul id="search-results"></ul>
 ```
 
-4) [#customize-the-plugin](Customize the plugin)
+4) <a href="#customize-the-plugin">Customize the plugin</a>
 
 
 
