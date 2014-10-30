@@ -3,17 +3,42 @@
 
   {% include head.html %}
 
+  <style type="text/css">
+    .header {
+      max-width: 700px;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+      padding: .5em;
+    }
+  </style>
+
   <body>
 
     {% include header.html %}
 
     <div class="page-content">
+      <div class="header">
+        <input type="text" id="search" placeholder="search this site">
+        <ul id="search-results"></ul>
+      </div>
       <div class="wrapper">
         {{ content }}
       </div>
     </div>
 
     {% include footer.html %}
+
+    <script src="js/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      JekyllSearch.init({
+        searchInput: document.getElementById("search"),
+        searchResults: document.getElementById("search-results"),
+        jsonFile: "search.json",
+        template: "<li><a href='{url}' title='{desc}'>{title}</a></li>",
+        noResults: "no results found",
+        fuzzy: true
+      });
+    </script>
 
   </body>
 
