@@ -1,0 +1,28 @@
+{
+  "name": "Simple-Jekyll-Search",
+  "version": "1.0.0",
+  "description": "Simple-Jekyll-Search ====================",
+  "main": "jekyll-search.jquery.js",
+  "scripts": {
+    "test": "./node_modules/gulp/bin/gulp.js && ./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
+    "watch-test": "./node_modules/karma/bin/karma start test/karma.conf.js --auto-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christian-fei/Simple-Jekyll-Search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-fei/Simple-Jekyll-Search/issues"
+  },
+  "homepage": "https://github.com/christian-fei/Simple-Jekyll-Search",
+  "dependencies": {
+    "gulp": "^3.8.9",
+    "gulp-browserify": "^0.5.0",
+    "gulp-rename": "^1.2.0",
+    "karma": "^0.12.24",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
