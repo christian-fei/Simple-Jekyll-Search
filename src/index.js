@@ -24,6 +24,24 @@
       fuzzy: false,
     };
 
+
+    self.init = function(_opt){
+      validateOptions(_opt);
+      assignOptions(_opt);
+      if( !isJSON(opt.dataSource) ){
+        JSONLoader.load(opt.dataSource, function gotJSON(err,json){
+          if( !err ){
+            store.put(json);
+          }else{
+            throwError('failed to get JSON (' + opt.dataSource + ')');
+          }
+        });
+      }else{
+        store.put(opt.dataSource);
+      }
+    };
+
+
     function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message); }
 
     function validateOptions(_opt){
@@ -35,9 +53,16 @@
       for(var option in opt) opt[option] = _opt[option] || opt[option];
     }
 
-    self.init = function(_opt){
-      validateOptions(_opt);
-      assignOptions(_opt);
-    };
+    function isJSON(json){
+      try{
+        JSON.parse(JSON.stringify(json));
+        return true;
+      }catch(e){
+        return false;
+      }
+    }
+
+
+
   };
 })(window,document);
