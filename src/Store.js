@@ -14,15 +14,17 @@ function Store(){
 
   function addObject(data){
     store.push(data);
+    return data;
   }
 
   function addArray(data){
+    var added = [];
     for (var i = 0; i < data.length; i++){
       if( isObject(data[i]) ){
-        addObject(data);
+        added.push(addObject(data[i]));
       }
     }
-
+    return added;
   }
 
   self.get = function(){
@@ -31,10 +33,10 @@ function Store(){
 
   self.put = function(data){
     if( isObject(data) ){
-      addObject(data);
+      return addObject(data);
     }
     if( isArray(data) ){
-      addArray(data);
+      return addArray(data);
     }
   };
 };
