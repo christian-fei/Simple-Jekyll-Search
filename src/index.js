@@ -30,11 +30,10 @@
       assignOptions(_opt);
       if( !isJSON(opt.dataSource) ){
         JSONLoader.load(opt.dataSource, function gotJSON(err,json){
-          if( !err ){
+          if( !err )
             store.put(json);
-          }else{
+          else
             throwError('failed to get JSON (' + opt.dataSource + ')');
-          }
         });
       }else{
         store.put(opt.dataSource);
