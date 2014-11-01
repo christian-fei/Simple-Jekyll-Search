@@ -73,11 +73,12 @@
     }
 
     function render(results){
-      opt.resultsContainer.innerHTML = '';
+      while (opt.resultsContainer.firstChild)
+        opt.resultsContainer.removeChild(opt.resultsContainer.firstChild);
       for (var i = 0; i < results.length; i++) {
         var result = results[i];
         var rendered = templater.render(opt.searchResultTemplate, result);
-        opt.resultsContainer.innerHTML += rendered;
+        opt.resultsContainer.appendChild(document.createTextNode(rendered));
       };
     }
 
