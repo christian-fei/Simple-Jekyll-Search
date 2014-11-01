@@ -1,6 +1,56 @@
 Simple-Jekyll-Search
 ====================
 
+A JavaScript library to add search functionality to any Jekyll blog.
+
+
+
+# Dev setup
+
+- `npm install` the dependencies.
+
+- `gulp watch` during development
+
+- `npm test` or `npm run watch-test` to run the unit tests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Simple-Jekyll-Search
+====================
+
 * No additional gems required
 * Works out of the box
 * Even works with [Jekyll GitHub Pages](https://help.github.com/articles/using-jekyll-with-pages/)!
