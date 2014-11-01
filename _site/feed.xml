@@ -9,7 +9,7 @@
     <pubDate>Sat, 01 Nov 2014 17:30:22 +0100</pubDate>
     <lastBuildDate>Sat, 01 Nov 2014 17:30:22 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
-    
+
       <item>
         <title>Welcome to Jekyll!</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
@@ -30,13 +30,13 @@
         <pubDate>Thu, 30 Oct 2014 19:22:32 +0100</pubDate>
         <link>http://yourdomain.com/jekyll/update/2014/10/30/welcome-to-jekyll.html</link>
         <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2014/10/30/welcome-to-jekyll.html</guid>
-        
-        
+
+
         <category>jekyll</category>
-        
+
         <category>update</category>
-        
+
       </item>
-    
+
   </channel>
 </rss>
