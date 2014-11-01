@@ -13,10 +13,115 @@ A JavaScript library to add search functionality to any Jekyll blog.
 
 # Getting started
 
-- Grab a copy of `dest/jekyll-search.js` 
+- Place the following code in a file called `search.json` in the **root** of your Jekyll blog. This file will be used as a small data source to perform the searches on the client side:
+
+```
+---
+layout: none
+---
+[
+  {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | array_to_sentence_string }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+```
+
+- Grab a copy of `dest/jekyll-search.js` and include it in your page
+
+- This will make the library available on the window object through `SimpleJekyllSearch`
+
+- initialize the library following the available [options](#options)
 
 
 
+
+# Options
+
+You can customize several aspects of the plugin.
+
+The library exposes one method called `init`, to which you can pass your preferences.
+
+### searchInput (Element) [required]
+
+The input element on which the plugin should listen for keyboard event and trigger the searching and rendering for articles.
+
+
+### resultsContainer (Element) [required]
+
+The container element in which the search results should be rendered in. Typically and `<ul>`.
+
+
+### dataSource (String|JSON) [required]
+
+You can either pass in an URL to the `search.json` file, or the results in form of JSON directly, to save one round trip to get the data.
+
+
+### searchResultTemplate
+
+The template of a single rendered search result.
+
+The templating syntax is very simple: You just enclose the properties you want to replace with curly braces.
+
+E.g.
+
+The template
+
+```
+<li><a href="{url}">{title}</a></li>
+```
+
+will render to the following
+
+```
+<li><a href="/jekyll/update/2014/11/01/welcome-to-jekyll.html">Welcome to Jekyll!</a></li>
+```
+
+If the `search.json` contains this data
+
+```
+[
+  
+    {
+      "title"    : "Welcome to Jekyll!",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/jekyll/update/2014/11/01/welcome-to-jekyll.html",
+      "date"     : "2014-11-01 21:07:22 +0100"
+    } 
+  
+]
+```
+
+
+### noResultsText
+
+The HTML that will be shown if the query didn't match anything.
+
+
+### limit
+
+You can limit the number of posts rendered on the page.
+
+
+
+### fuzzy
+
+Enable fuzzy search to allow less restrictive matching.
+
+
+
+
+
+
+##Browser support
+
+Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
 
 
@@ -35,177 +140,11 @@ A JavaScript library to add search functionality to any Jekyll blog.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Simple-Jekyll-Search
-====================
-
-* No additional gems required
-* Works out of the box
-* Even works with [Jekyll GitHub Pages](https://help.github.com/articles/using-jekyll-with-pages/)!
-* Fast, lightweight, super easy to set up and fully customizable with CSS!
-
-
-##Setup
-
-There's an example included in this repo, check it out to fiddle around with the plugin really quickly.
-Just `jekyll serve` the page and there you go.
-
-
-### Steps
-
-1) Include the basic `search.json` in the root of your Jekyll site
-
-2) Include the script in your page
-
-```html
-<script src="js/jekyll-search.js"></script>
-```
-
-3) Add an input field for searching and an element to render the search results in.
-
-E.g.:
-
-```html
-<input type="text" id="search" placeholder="search this site">
-<ul id="search-results"></ul>
-```
-
-4) <a href="#customize-the-plugin">Customize the plugin</a>
-
-
-
-
-##Customize the plugin
-
-If you want, you can customize several options of this plugin:
-
-- `searchInput`				(Element) the input field to listen on
-- `searchResults`			(Element) the container to which JekyllSearch will write the matched search results 
-- `jsonFile`				(String) location of the JSON file, our little "database"
-- `template`				(String) <a href="#template">template</a> (Mustache-like)
-- `searchResultsHeader`		(String) Heading of the search results
-- `limit`					(Integer) Limit the search results to a sane amount (10-15)
-- `fuzzy`					(Boolean) Turn on/off <a href="#fuzzy-search">fuzzy search</a>
-- `noResults`				(String) Text to display if nothing matched the search criteria
-
----
-
-You can pass the customized properties into an object when you invoke the init function, like this:
-
-Let's say I want to apply JekyllSearch to a non-default input field (`.search`), e.g. `#search-this-page`.
-
-I also changed the location of the JSON file, which is now `site-search.json` and I have a different <a href="#template">template</a>.
-
-Plus I want to turn on <a href="#fuzzy-search">fuzzy search</a>:
-
-
-```javascript
-JekyllSearch.init({
-    searchInput: document.getElementById("search"),
-    searchResults: document.getElementById("search-results"),
-    jsonFile: "search.json",
-    template: "<li><a href='{url}' title='{desc}'>{title}</a></li>",
-    noResults: "no results found",
-    fuzzy: true
-});
-```
-
-The only thing left to do is to put the  <a href="https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/search.json">search.json</a> file in the root directory of your Jekyll site to generate the JSON needed by JekyllSearch.
-
-
-
-
-##Template
-
-Templates in JekyllSearch are very dependent on your `search.json` file. You can only use properties that are listed in your mini-database.
-
-In the default `search.json` file, these fields are defined and contains relevant information about an article:
-
-"title", "category", "url" and "data".
-
-So you can only use these fields in the template.
-
----
-
-The syntax is fairly straightforward, put curly braces around a property and it will be replaced by JekyllSearch in that exact position.
-
-E.g.
-
-`<a href='{url}' title='{desc}'>{title}</a>` results in the following output for the first article:
-
-`<a href='/jekyll-search-example/' title='This is an example description'>JekyllSearch example</a>`
-
-
-
-
-
-##Fuzzy search
-
-Ahh, good old fuzzy search..
-
-I try to explain it with an example:
-
-Finds the string `lorem ipsum dolor sit amet` even if you mistype several characters, like `lorm isum dlor st amt`
-
-
-
-
-
-
-
-##Browser support
-
-Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
-
-
-
-
-
-
-
-##jQuery
-
-```javascript
-$(".search").jekyllSearch( options );
-```
-
-
-
-
-
 ##Special thanks
 
 These awesome people helped with suggestions, improvements and bug reports to make this plugin better :
 
+- [David Darnes](https://github.com/daviddarnes)
 - [dashaman](http://dashaman.com/)
 - [Todd Motto](http://toddmotto.com/)
 - [Dillon de Voor](http://www.crocodillon.com/)
