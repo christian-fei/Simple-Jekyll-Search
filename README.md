@@ -1,6 +1,8 @@
 Simple-Jekyll-Search
 ====================
 
+[![Build Status](https://travis-ci.org/christian-fei/Simple-Jekyll-Search.svg?branch=master)](https://travis-ci.org/christian-fei/Simple-Jekyll-Search)
+
 A JavaScript library to add search functionality to any Jekyll blog.
 
 
