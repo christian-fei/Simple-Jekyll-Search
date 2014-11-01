@@ -6,7 +6,10 @@
     "Christian Fei"
   ],
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "jekyll-search.js",
+  "main": [
+    "jekyll-search.js",
+    "search.json"
+  ],
   "keywords": [
     "search",
     "jekyll",
