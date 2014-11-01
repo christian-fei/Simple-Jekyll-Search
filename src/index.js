@@ -68,23 +68,18 @@
 
     function registerInput(){
       opt.searchInput.addEventListener('keyup', function(e){
-        render( search(e.target.value) );
+        render( searcher.search(store.get(), e.target.value) );
       });
     }
 
-    function search(crit){
-      return searcher.search(store.get(), crit);
-    }
-
     function render(results){
+      opt.resultsContainer.innerHTML = '';
       for (var i = 0; i < results.length; i++) {
         var result = results[i];
         var rendered = templater.render(opt.searchResultTemplate, result);
-        console.log( 'rendered', rendered );
+        opt.resultsContainer.innerHTML += rendered;
       };
     }
-
-
 
   };
 })(window,document);
