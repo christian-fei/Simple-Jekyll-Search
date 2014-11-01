@@ -26,6 +26,6 @@ gulp.task('js:test:unit', function() {
 gulp.task('default', ['js:src','js:test:unit'])
 
 gulp.task('watch', function(){
-  gulp.watch(['!'+browserifyEntryPoint,'src/**/*.js'], ['js:src']);
+  gulp.watch(['!'+browserifyEntryPoint,'src/**/*.js'], ['js:src','js:test:unit']);
   gulp.watch(['!test/unit/browserifiedTests.js','test/unit/**/*.js'], ['js:test:unit']);
 });
