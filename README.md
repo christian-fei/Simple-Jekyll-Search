@@ -1,15 +1,10 @@
 Simple-Jekyll-Search
 ====================
 
-No additional gems required. 
-
-Works out of the box. 
-
-Fast, lightweight, super easy to set up and fully customizable with CSS!
-
-
-
-
+* No additional gems required
+* Works out of the box
+* Even works with [Jekyll GitHub Pages](https://help.github.com/articles/using-jekyll-with-pages/)!
+* Fast, lightweight, super easy to set up and fully customizable with CSS!
 
 
 ##Setup
