@@ -1,4 +1,6 @@
 ;(function(window,document,undefined){
+  'use strict'
+  
   var templater = require('./Templater');
   var store = require('./Store');
   var searcher = require('./Searcher');
