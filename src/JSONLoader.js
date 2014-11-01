@@ -9,6 +9,7 @@ function JSONLoader(){
       if (xhr.status==200 && xhr.readyState==4){
         try{
           callback(null,JSON.parse(xhr.responseText) );
+          console.log( 'got json' );
         }catch(err){
           callback(err,null);
         }
