@@ -3,6 +3,7 @@ var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
 var using = require('gulp-using');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
 var browserifyEntryPoint = 'src/index.js';
 
@@ -28,6 +29,7 @@ gulp.task('js:src', function() {
       // insertGlobals : true,
       debug : !process.env.PROD
     }))
+    .pipe(uglify({mangle: false,compress:true}))
     .pipe(gulp.dest('./dest/'))
 });
 
