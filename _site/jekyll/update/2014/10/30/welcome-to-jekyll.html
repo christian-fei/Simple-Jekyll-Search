@@ -155,10 +155,10 @@
 
     <script src="/dest/index.js" type="text/javascript"></script>
     <script type="text/javascript">
-      JekyllSearch.init({
+      SimpleJekyllSearch.init({
         searchInput: document.getElementById("search"),
-        searchResults: document.getElementById("search-results"),
-        jsonFile: "search.json",
+        resultsContainer: document.getElementById("search-results"),
+        dataSource: "search.json",
         template: "<li><a href='{url}' title='{desc}'>{title}</a></li>",
         noResults: "no results found",
         fuzzy: true

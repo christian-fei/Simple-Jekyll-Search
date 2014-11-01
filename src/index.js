@@ -6,7 +6,8 @@
   var searcher = require('./Searcher');
   var JSONLoader = require('./JSONLoader');
 
-  window.SimpleJekyllSearch = function SimpleJekyllSearch(){
+  window.SimpleJekyllSearch = new SimpleJekyllSearch();
+  function SimpleJekyllSearch(){
     var self = this;
 
     var requiredOptions = [
@@ -17,7 +18,7 @@
     var opt = {
       searchInput: null,
       resultsContainer: null,
-      dataSource: null,
+      dataSource: [],
       searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
       noResultsText: 'No results found',
       limit: 10,
@@ -30,10 +31,13 @@
       assignOptions(_opt);
       if( isJSON(opt.dataSource) ){
         store.put(opt.dataSource);
+        registerInput();
       }else{
         JSONLoader.load(opt.dataSource, function gotJSON(err,json){
-          if( !err )
+          if( !err ) {
             store.put(json);
+            registerInput();
+          }
           else
             throwError('failed to get JSON (' + opt.dataSource + ')');
         });
@@ -44,8 +48,10 @@
     function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message); }
 
     function validateOptions(_opt){
-      for (var i = 0, req = requiredOptions[i]; i < requiredOptions.length; i++)
+      for (var i = 0; i < requiredOptions.length; i++){
+        var req = requiredOptions[i];
         if( !_opt[req] ) throwError('You must specify a ' + req);
+      }
     }
 
     function assignOptions(_opt){
@@ -54,11 +60,20 @@
 
     function isJSON(json){
       try{
-        JSON.parse(JSON.stringify(json));
-        return true;
+        return json instanceof Object && JSON.parse(JSON.stringify(json));
       }catch(e){
         return false;
       }
+    }
+
+    function registerInput(){
+      opt.searchInput.addEventListener('keyup', function(e){
+        search(e.target.value);
+      });
+    }
+    function search(crit){
+      console.log('search', crit);
+      console.log( searcher.search(store.get(), crit) );
     }
 
 
