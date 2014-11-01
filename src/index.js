@@ -1,1 +1,2 @@
 require('./Templater');
+require('./Store');
