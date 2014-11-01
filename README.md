@@ -7,6 +7,21 @@ A JavaScript library to add search functionality to any Jekyll blog.
 
 
 
+# [Demo](http://christian-fei.github.io/Simple-Jekyll-Search/)
+
+
+
+# Getting started
+
+- Grab a copy of `dest/jekyll-search.js` 
+
+
+
+
+
+
+
+
 # Dev setup
 
 - `npm install` the dependencies.
