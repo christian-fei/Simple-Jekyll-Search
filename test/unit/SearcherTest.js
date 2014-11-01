@@ -32,4 +32,12 @@ describe("Searcher", function() {
       [element]
     );
   });
+
+  it("should not search when an empty criteria is provided", function() {
+    expect(
+      searcher.search(data,'')
+    ).toEqual(
+      []
+    );
+  });
 });
