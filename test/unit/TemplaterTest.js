@@ -1,6 +1,11 @@
 describe("Templater", function() {
   var Templater = require('../../src/Templater.js');
-  var templater = new Templater();
+
+  var templater;
+  beforeEach(function() {
+    templater = new Templater();
+  });
+
   it("should render the template with the provided data", function() {
     expect(
       templater.render('{foo}',{foo:'bar'})
@@ -15,11 +20,22 @@ describe("Templater", function() {
     );
   });
 
-  it("should throw if template doesn't match provided data", function() {
-    var invalidData = {foo:'bar'};
-    var _throws = function(){
-      templater.render('{unknown_key}',invalidData);
-    };
-    expect(_throws).toThrow();
+  it("should replace not found properties with an the original pattern", function() {
+    var template = '{foo}';
+    expect(
+      templater.render(template,{x:'bar'})
+    ).toEqual(
+      template
+    );
   });
+
+  it("should allow custom patterns to be set", function() {
+    templater.setTemplatePattern(/\{\{(.*?)\}\}/g);
+    expect(
+      templater.render('{{foo}}',{foo:'bar'})
+    ).toEqual(
+      'bar'
+    );
+  });
+
 });

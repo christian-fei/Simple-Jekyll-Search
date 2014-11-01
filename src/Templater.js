@@ -1,15 +1,15 @@
 module.exports = function Templater(){
   var self = this;
 
-  var placeholderPattern = /\{(.*?)\}/g;
+  var templatePattern = /\{(.*?)\}/g;
+
+  self.setTemplatePattern = function(newTemplatePattern){
+    templatePattern = newTemplatePattern;
+  };
 
   self.render = function(t, data){
-    var rendered = t.replace(placeholderPattern, function(match, prop) {
-      if( data[prop] === undefined ){
-        throw new Error('fuck');
-      }
-      return data[prop];
+    return t.replace(templatePattern, function(match, prop) {
+      return data[prop] || match;
     });
-    return rendered;
   };
 };
