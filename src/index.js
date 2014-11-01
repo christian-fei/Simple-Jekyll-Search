@@ -28,15 +28,15 @@
     self.init = function(_opt){
       validateOptions(_opt);
       assignOptions(_opt);
-      if( !isJSON(opt.dataSource) ){
+      if( isJSON(opt.dataSource) ){
+        store.put(opt.dataSource);
+      }else{
         JSONLoader.load(opt.dataSource, function gotJSON(err,json){
           if( !err )
             store.put(json);
           else
             throwError('failed to get JSON (' + opt.dataSource + ')');
         });
-      }else{
-        store.put(opt.dataSource);
       }
     };
 
