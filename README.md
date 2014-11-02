@@ -45,7 +45,15 @@ layout: none
 
 You can customize several aspects of the plugin.
 
-The library exposes one method called `init`, to which you can pass your preferences.
+The library exposes one method called `init`, to which you can pass your preferences in form of a Hashmap, like this:
+
+```
+SimpleJekyllSearch.init({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  dataSource: '/search.json',
+})
+```
 
 ### searchInput (Element) [required]
 
@@ -86,15 +94,15 @@ If the `search.json` contains this data
 
 ```
 [
-  
+
     {
       "title"    : "Welcome to Jekyll!",
       "category" : "",
       "tags"     : "",
       "url"      : "/jekyll/update/2014/11/01/welcome-to-jekyll.html",
       "date"     : "2014-11-01 21:07:22 +0100"
-    } 
-  
+    }
+
 ]
 ```
 
