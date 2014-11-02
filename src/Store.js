@@ -5,12 +5,8 @@ function Store(){
 
   var store = [];
 
-  function isObject(obj){
-    return Object.prototype.toString.call(obj) == '[object Object]';
-  }
-  function isArray(obj){
-    return Object.prototype.toString.call(obj) == '[object Array]';
-  }
+  function isObject(obj){ return Object.prototype.toString.call(obj) == '[object Object]'; }
+  function isArray(obj){ return Object.prototype.toString.call(obj) == '[object Array]'; }
 
   function addObject(data){
     store.push(data);
@@ -19,11 +15,9 @@ function Store(){
 
   function addArray(data){
     var added = [];
-    for (var i = 0; i < data.length; i++){
-      if( isObject(data[i]) ){
+    for (var i = 0; i < data.length; i++)
+      if( isObject(data[i]) )
         added.push(addObject(data[i]));
-      }
-    }
     return added;
   }
 
@@ -36,11 +30,8 @@ function Store(){
   };
 
   self.put = function(data){
-    if( isObject(data) ){
-      return addObject(data);
-    }
-    if( isArray(data) ){
-      return addArray(data);
-    }
+    if( isObject(data) ) return addObject(data);
+    if( isArray(data) ) return addArray(data);
+    return undefined;
   };
 };

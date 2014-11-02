@@ -32,7 +32,6 @@ describe("Store", function() {
       store.get()
     ).toEqual(
       [{foo:'bar'},{foo1:'bar1'}]
-    );        
-
+    );
   });
 });
