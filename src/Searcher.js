@@ -14,6 +14,7 @@ function Searcher(){
   self.search = function(data,crit){
     var matches = [];
     if( !crit ) return matches;
+    crit = crit.replace(/^ */,'').replace(/ *$/,'');
     var strategy = fuzzy ? fuzzySearchStrategy : literalSearchStrategy;
     for(var i = 0; i < data.length; i++) {
       var obj = data[i];

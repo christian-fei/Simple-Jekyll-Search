@@ -1,7 +1,9 @@
 describe("Searcher", function() {
   var searcher;
+  var stringTrimSpy;
   beforeEach(function() {
     searcher = require('../../src/Searcher.js');
+    stringTrimSpy = spyOn(String.prototype,'trim');
   });
 
   var element = {title:'bar', content: 'lorem ipsum dolor sit amet.'};
