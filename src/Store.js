@@ -27,6 +27,10 @@ function Store(){
     return added;
   }
 
+  self.clear = function(){
+    store.length = 0;
+  };
+
   self.get = function(){
     return store;
   };
