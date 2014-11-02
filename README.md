@@ -6,6 +6,9 @@ Simple-Jekyll-Search
 A JavaScript library to add search functionality to any Jekyll blog.
 
 
+### Promotion: check out [Pomodoro.cc](https://pomodoro.cc/)
+
+
 
 # [Demo](http://christian-fei.github.io/Simple-Jekyll-Search/)
 
