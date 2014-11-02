@@ -15,7 +15,7 @@ describe("Templater", function() {
     );
   });
 
-  it("should replace not found properties with an the original pattern", function() {
+  it("should replace not found properties with the original pattern", function() {
     var template = '{foo}';
     expect(
       templater.render(template,{x:'bar'})
@@ -32,5 +32,4 @@ describe("Templater", function() {
       'bar'
     );
   });
-
 });

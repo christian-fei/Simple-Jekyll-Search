@@ -2,25 +2,22 @@ module.exports = new Searcher();
 function Searcher(){
   var self = this;
 
-  var fuzzySearchStrategy = require('./SearchStrategies/fuzzy');
-  var literalSearchStrategy = require('./SearchStrategies/literal');
-
   var fuzzy = false;
   var limit = 10;
 
-  self.setFuzzy = function(_fuzzy){
-    fuzzy = !!_fuzzy;
-  };
+  var fuzzySearchStrategy = require('./SearchStrategies/fuzzy');
+  var literalSearchStrategy = require('./SearchStrategies/literal');
 
-  self.setLimit = function(_limit){
-    limit = parseInt(_limit,10) || limit;
-  };
+  function trim(string){
+    return string.replace(/^ */,'').replace(/ *$/,'');
+  }
 
-  self.search = function(data,crit){
+  function getSearchStrategy(){
+    return fuzzy ? fuzzySearchStrategy : literalSearchStrategy;
+  }
+
+  function findMatchesWithStrategy(data,crit,strategy){
     var matches = [];
-    if( !crit ) return matches;
-    crit = crit.replace(/^ */,'').replace(/ *$/,'');
-    var strategy = fuzzy ? fuzzySearchStrategy : literalSearchStrategy;
     for(var i = 0; i < data.length && i < limit; i++) {
       var obj = data[i];
       for(var key in obj) {
@@ -33,5 +30,14 @@ function Searcher(){
       }
     }
     return matches;
+  }
+
+  self.setFuzzy = function(_fuzzy){ fuzzy = !!_fuzzy; };
+
+  self.setLimit = function(_limit){ limit = parseInt(_limit,10) || limit; };
+
+  self.search = function(data,crit){
+    if( !crit ) return [];
+    return findMatchesWithStrategy(data,trim(crit),getSearchStrategy());
   };
 };
