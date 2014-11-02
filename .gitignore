@@ -5,3 +5,4 @@ test/unit/browserifiedTests.js
 .sass-cache
 _site
 _layouts
+dest/index.js
