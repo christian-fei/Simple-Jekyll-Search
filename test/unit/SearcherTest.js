@@ -3,18 +3,18 @@ describe("Searcher", function() {
   var stringTrimSpy;
   beforeEach(function() {
     searcher = require('../../src/Searcher.js');
-    stringTrimSpy = spyOn(String.prototype,'trim');
   });
 
-  var element = {title:'bar', content: 'lorem ipsum dolor sit amet.'};
+  var barElement = {title:'bar', content: 'bar'};
+  var loremElement = {title:'lorem', content: 'lorem ipsum'};
 
-  var data = [element];
+  var data = [barElement,loremElement];
   
   it("find a simple string", function() {
     expect(
       searcher.search(data,'bar')
     ).toEqual(
-      [element]
+      [barElement]
     );
   });
 
@@ -22,16 +22,16 @@ describe("Searcher", function() {
     expect(
       searcher.search(data,'lorem ipsum')
     ).toEqual(
-      [element]
+      [loremElement]
     );
   });
 
   it("should find a fuzzy string", function() {
     searcher.setFuzzy(true);
     expect(
-      searcher.search(data,'lrm sum')
+      searcher.search(data,'lrm ism')
     ).toEqual(
-      [element]
+      [loremElement]
     );
   });
 
