@@ -6,11 +6,21 @@ describe("Searcher", function() {
   });
 
   var barElement = {title:'bar', content: 'bar'};
+  var almostBarElement = {title:'almostbar', content: 'almostbar'};
   var loremElement = {title:'lorem', content: 'lorem ipsum'};
 
-  var data = [barElement,loremElement];
+  var data = [barElement,almostBarElement,loremElement];
   
   it("find a simple string", function() {
+    expect(
+      searcher.search(data,'bar')
+    ).toEqual(
+      [barElement,almostBarElement]
+    );
+  });
+
+  it("should limit the search results to one even if found more", function() {
+    searcher.setLimit(1);
     expect(
       searcher.search(data,'bar')
     ).toEqual(
@@ -42,4 +52,6 @@ describe("Searcher", function() {
       []
     );
   });
+
+
 });

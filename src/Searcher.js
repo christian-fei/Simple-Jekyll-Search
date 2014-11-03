@@ -18,7 +18,7 @@ function Searcher(){
 
   function findMatchesWithStrategy(data,crit,strategy){
     var matches = [];
-    for(var i = 0; i < data.length && i < limit; i++) {
+    for(var i = 0; i < data.length && matches.length < limit; i++) {
       var obj = data[i];
       for(var key in obj) {
         if( obj.hasOwnProperty(key) && typeof obj[key] == 'string' ){
