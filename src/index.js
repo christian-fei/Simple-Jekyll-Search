@@ -1,5 +1,5 @@
 ;(function(window,document,undefined){
-  'use strict'
+  'use strict';
   
   var templater = require('./Templater');
   var store = require('./Store');
