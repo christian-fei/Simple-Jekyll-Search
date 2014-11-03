@@ -9,6 +9,9 @@ A JavaScript library to add search functionality to any Jekyll blog.
 ### Promotion: check out [Pomodoro.cc](https://pomodoro.cc/)
 
 
+    idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching/#disqus_thread)
+
+
 
 # [Demo](http://christian-fei.github.io/Simple-Jekyll-Search/)
 
