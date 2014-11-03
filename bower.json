@@ -1,0 +1,25 @@
+{
+  "name": "Simple-Jekyll-Search",
+  "version": "2.0.0",
+  "homepage": "http://christian-fei.github.io/Simple-Jekyll-Search/",
+  "authors": [
+    "Christian Fei"
+  ],
+  "description": "Simple Jekyll site search using javascript and json",
+  "main": "dest/jekyll-search.js",
+  "keywords": [
+    "search",
+    "jekyll",
+    "javascript",
+    "json",
+    "simple"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
