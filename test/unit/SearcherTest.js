@@ -18,7 +18,7 @@ describe("Searcher", function() {
 
   var store = new FakeStore(data);
   
-  it("find a simple string", function() {
+  it("should find a simple string", function() {
     expect(
       searcher.search(store,'bar')
     ).toEqual(
