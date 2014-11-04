@@ -1,11 +1,9 @@
 module.exports = function Store(_store){
   var self = this;
 
-  // var store = !!_store && isArray(_store) ? addArray(_store) : [];
-
   var store = [];
 
-  if( !!_store && isArray(_store) ){
+  if( isArray(_store) ){
     addArray(_store);
   }
 
