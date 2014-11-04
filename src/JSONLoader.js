@@ -1,5 +1,4 @@
-module.exports = new JSONLoader();
-function JSONLoader(){
+module.exports = function JSONLoader(){
   var self = this;
 
   function receivedResponse(xhr){
