@@ -75,8 +75,7 @@
     function render(results){
       opt.resultsContainer.innerHTML = '';
       for (var i = 0; i < results.length; i++) {
-        var result = results[i];
-        var rendered = templater.render(opt.searchResultTemplate, result);
+        var rendered = templater.render(opt.searchResultTemplate, results[i]);
         opt.resultsContainer.innerHTML += rendered;
       };
     }
