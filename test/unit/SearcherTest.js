@@ -10,10 +10,17 @@ describe("Searcher", function() {
   var loremElement = {title:'lorem', content: 'lorem ipsum'};
 
   var data = [barElement,almostBarElement,loremElement];
+
+  function FakeStore(_data){
+    var data = _data;
+    this.get = function(){ return data; };
+  }
+
+  var store = new FakeStore(data);
   
   it("find a simple string", function() {
     expect(
-      searcher.search(data,'bar')
+      searcher.search(store,'bar')
     ).toEqual(
       [barElement,almostBarElement]
     );
@@ -22,7 +29,7 @@ describe("Searcher", function() {
   it("should limit the search results to one even if found more", function() {
     searcher.setLimit(1);
     expect(
-      searcher.search(data,'bar')
+      searcher.search(store,'bar')
     ).toEqual(
       [barElement]
     );
@@ -30,7 +37,7 @@ describe("Searcher", function() {
 
   it("should find a long string", function() {
     expect(
-      searcher.search(data,'lorem ipsum')
+      searcher.search(store,'lorem ipsum')
     ).toEqual(
       [loremElement]
     );
@@ -39,7 +46,7 @@ describe("Searcher", function() {
   it("should find a fuzzy string", function() {
     searcher.setFuzzy(true);
     expect(
-      searcher.search(data,'lrm ism')
+      searcher.search(store,'lrm ism')
     ).toEqual(
       [loremElement]
     );
@@ -47,7 +54,7 @@ describe("Searcher", function() {
 
   it("should not search when an empty criteria is provided", function() {
     expect(
-      searcher.search(data,'')
+      searcher.search(store,'')
     ).toEqual(
       []
     );

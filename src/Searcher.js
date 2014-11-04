@@ -20,7 +20,8 @@ function Searcher(){
     return findMatches(data,crit,getSearchStrategy());
   };
 
-  function findMatches(data,crit,strategy){
+  function findMatches(store,crit,strategy){
+    var data = store.get();
     for(var i = 0; i < data.length && matches.length < limit; i++) {
       findMatchesInObject(data[i],crit,strategy);
     }

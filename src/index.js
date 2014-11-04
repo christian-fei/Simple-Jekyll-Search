@@ -68,7 +68,7 @@
 
     function registerInput(){
       opt.searchInput.addEventListener('keyup', function(e){
-        render( searcher.search(store.get(), e.target.value) );
+        render( searcher.search(store, e.target.value) );
       });
     }
 
