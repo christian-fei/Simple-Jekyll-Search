@@ -1,12 +1,16 @@
-module.exports = new Store();
-
-function Store(){
+module.exports = function Store(_store){
   var self = this;
+
+  // var store = !!_store && isArray(_store) ? addArray(_store) : [];
 
   var store = [];
 
-  function isObject(obj){ return Object.prototype.toString.call(obj) == '[object Object]'; }
-  function isArray(obj){ return Object.prototype.toString.call(obj) == '[object Array]'; }
+  if( !!_store && isArray(_store) ){
+    addArray(_store);
+  }
+
+  function isObject(obj){ return !!obj && Object.prototype.toString.call(obj) == '[object Object]'; }
+  function isArray(obj){ return !!obj && Object.prototype.toString.call(obj) == '[object Array]'; }
 
   function addObject(data){
     store.push(data);
@@ -23,6 +27,7 @@ function Store(){
 
   self.clear = function(){
     store.length = 0;
+    return store;
   };
 
   self.get = function(){

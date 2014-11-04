@@ -1,5 +1,10 @@
 describe("Templater", function() {
-  var templater = require('../../src/Templater.js');
+  var Templater = require('../../src/Templater.js');
+  var templater;
+
+  beforeEach(function() {
+    templater = new Templater;
+  });
 
   it("should render the template with the provided data", function() {
     expect(

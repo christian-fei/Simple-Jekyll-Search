@@ -1,9 +1,12 @@
 describe("Searcher", function() {
+  var Searcher = require('../../src/Searcher.js');
   var searcher;
-  var stringTrimSpy;
+
   beforeEach(function() {
-    searcher = require('../../src/Searcher.js');
+    searcher = new Searcher;
   });
+
+
 
   var barElement = {title:'bar', content: 'bar'};
   var almostBarElement = {title:'almostbar', content: 'almostbar'};
@@ -59,6 +62,4 @@ describe("Searcher", function() {
       []
     );
   });
-
-
 });

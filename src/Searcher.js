@@ -1,5 +1,4 @@
-module.exports = new Searcher();
-function Searcher(){
+module.exports = function Searcher(){
   var self = this;
 
   var matches = [];

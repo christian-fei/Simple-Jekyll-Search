@@ -1,6 +1,4 @@
-module.exports = new Templater();
-
-function Templater(){
+module.exports = function Templater(){
   var self = this;
 
   var templatePattern = /\{(.*?)\}/g;

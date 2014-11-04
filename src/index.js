@@ -1,10 +1,16 @@
 ;(function(window,document,undefined){
   'use strict';
   
-  var templater = require('./Templater');
-  var store = require('./Store');
-  var searcher = require('./Searcher');
+  var Searcher = require('./Searcher');
+  var Templater = require('./Templater');
+  var Store = require('./Store');
   var JSONLoader = require('./JSONLoader');
+
+  var searcher = new Searcher();
+  var templater = new Templater();
+  var store = new Store();
+  var jsonLoader = new JSONLoader();
+
 
   window.SimpleJekyllSearch = new SimpleJekyllSearch();
   function SimpleJekyllSearch(){
@@ -33,7 +39,7 @@
         store.put(opt.dataSource);
         registerInput();
       }else{
-        JSONLoader.load(opt.dataSource, function gotJSON(err,json){
+        jsonLoader.load(opt.dataSource, function gotJSON(err,json){
           if( !err ) {
             store.put(json);
             registerInput();
