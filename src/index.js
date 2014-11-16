@@ -80,6 +80,10 @@
 
     function render(results){
       opt.resultsContainer.innerHTML = '';
+      if( results.length == 0 ){
+        opt.resultsContainer.innerHTML += opt.noResultsText;
+        return;
+      }
       for (var i = 0; i < results.length; i++) {
         var rendered = templater.render(opt.searchResultTemplate, results[i]);
         opt.resultsContainer.innerHTML += rendered;
