@@ -31,22 +31,29 @@
       fuzzy: false,
     };
 
+    function initWithJSON(json){
+      store.put(opt.dataSource);
+      registerInput();      
+    }
+
+    function initWithURL(url){
+      jsonLoader.load(url, function gotJSON(err,json){
+        if( !err ) {
+          store.put(json);
+          registerInput();
+        }else{
+          throwError('failed to get JSON (' + url + ')');
+        }
+      });
+    }
 
     self.init = function(_opt){
       validateOptions(_opt);
       assignOptions(_opt);
       if( isJSON(opt.dataSource) ){
-        store.put(opt.dataSource);
-        registerInput();
+        initWithJSON(opt.dataSource);
       }else{
-        jsonLoader.load(opt.dataSource, function gotJSON(err,json){
-          if( !err ) {
-            store.put(json);
-            registerInput();
-          }
-          else
-            throwError('failed to get JSON (' + opt.dataSource + ')');
-        });
+        initWithURL(opt.dataSource);
       }
     };
 
@@ -54,14 +61,16 @@
     function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message); }
 
     function validateOptions(_opt){
-      for (var i = 0; i < requiredOptions.length; i++){
+      for(var i = 0; i < requiredOptions.length; i++){
         var req = requiredOptions[i];
-        if( !_opt[req] ) throwError('You must specify a ' + req);
+        if( !_opt[req] )
+          throwError('You must specify a ' + req);
       }
     }
 
     function assignOptions(_opt){
-      for(var option in opt) opt[option] = _opt[option] || opt[option];
+      for(var option in opt)
+        opt[option] = _opt[option] || opt[option];
     }
 
     function isJSON(json){
@@ -72,21 +81,31 @@
       }
     }
 
+    function emptyResultsContainer(){
+      opt.resultsContainer.innerHTML = '';    
+    }
+
+    function appendToResultsContainer(text){
+      opt.resultsContainer.innerHTML += text;
+    }
+
     function registerInput(){
       opt.searchInput.addEventListener('keyup', function(e){
+        if( e.target.value.length == 0 ){
+          emptyResultsContainer();
+          return;
+        }
         render( searcher.search(store, e.target.value) );
       });
     }
 
     function render(results){
-      opt.resultsContainer.innerHTML = '';
+      emptyResultsContainer();
       if( results.length == 0 ){
-        opt.resultsContainer.innerHTML += opt.noResultsText;
-        return;
+        return appendToResultsContainer(opt.noResultsText);
       }
       for (var i = 0; i < results.length; i++) {
-        var rendered = templater.render(opt.searchResultTemplate, results[i]);
-        opt.resultsContainer.innerHTML += rendered;
+        appendToResultsContainer( templater.render(opt.searchResultTemplate, results[i]) );
       };
     }
 
