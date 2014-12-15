@@ -40,11 +40,16 @@ layout: none
 ]
 ```
 
-- Grab a copy of `dest/jekyll-search.js` and include it in your page
+- initialize the library ( [options](#options) )
 
-- This will make the library available on the window object through `SimpleJekyllSearch`
 
-- initialize the library following the available [options](#options)
+
+# Install with bower
+
+```
+bower install simple-jekyll-search
+```
+
 
 
 
