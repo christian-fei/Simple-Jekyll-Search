@@ -1,5 +1,5 @@
 {
-  "name": "Simple-Jekyll-Search",
+  "name": "simple-jekyll-search",
   "version": "2.0.0",
   "homepage": "http://christian-fei.github.io/Simple-Jekyll-Search/",
   "authors": [
@@ -20,6 +20,17 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "_includes",
+    "_layouts",
+    "_posts",
+    "_site",
+    "css",
+    "_config.yml",
+    "gulpfile.js",
+    "index.html",
+    "package.json"
+  ],
+  "moduleType": [
+    "globals"
   ]
 }
