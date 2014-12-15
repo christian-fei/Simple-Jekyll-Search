@@ -23,12 +23,12 @@
     "_includes",
     "_layouts",
     "_posts",
+    "_sass",
     "_site",
+    "about.md",
     "css",
     "_config.yml",
-    "gulpfile.js",
-    "index.html",
-    "package.json"
+    "index.html"
   ],
   "moduleType": [
     "globals"
