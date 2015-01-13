@@ -75,7 +75,7 @@ The input element on which the plugin should listen for keyboard event and trigg
 
 ### resultsContainer (Element) [required]
 
-The container element in which the search results should be rendered in. Typically and `<ul>`.
+The container element in which the search results should be rendered in. Typically an `<ul>`.
 
 
 ### dataSource (String|JSON) [required]
