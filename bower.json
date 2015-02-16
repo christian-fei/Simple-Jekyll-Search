@@ -17,7 +17,7 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!jekyll-search.js",
+    "!dest/jekyll-search.js",
     "!README.md"
   ],
   "moduleType": [
