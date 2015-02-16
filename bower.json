@@ -16,19 +16,9 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "_includes",
-    "_layouts",
-    "_posts",
-    "_sass",
-    "_site",
-    "about.md",
-    "css",
-    "_config.yml",
-    "index.html"
+    "*",
+    "!jekyll-search.js",
+    "!README.md"
   ],
   "moduleType": [
     "globals"
