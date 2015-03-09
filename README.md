@@ -42,6 +42,12 @@ layout: none
 
 - initialize the library ( [options](#options) )
 
+### Enabling full-text search
+Note that the index generated in `search.json` does not include the posts' content since you may not want to load the whole content of your blog in each single page. However, if some of you want to enable full-text search, you can still add the posts' content to the index, either to the normal search, or on an additional search page with a dedicated second index file. To do this, simply add 
+```
+"content"  : "{{ post.content | strip_html | strip_newlines }}"
+```
+to `search.json` after the `"date"` line to which you must add a comma (`,`).
 
 
 # Install with bower
