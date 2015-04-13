@@ -25,7 +25,6 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 
 ```
 ---
-layout: none
 ---
 [
   {% for post in site.posts %}
@@ -64,6 +63,21 @@ bower install simple-jekyll-search
 
 You can customize several aspects of the plugin.
 
+You need to place the following code within the layout where you want he search to appear.
+
+For example in  **_layouts/default.html**:
+
+```
+<!-- Html Elements for Search -->
+<div id="search-container">
+<input type="text" id="search-input" placeholder="search...">
+<ul id="results-container"></ul>
+</div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
+```
+
 The library exposes one method called `init`, to which you can pass your preferences in form of a Hashmap, like this:
 
 ```
@@ -73,6 +87,7 @@ SimpleJekyllSearch.init({
   dataSource: '/search.json',
 })
 ```
+The above initialization needs to occur after the inclusion of `jekyll-search.js`.
 
 ### searchInput (Element) [required]
 
