@@ -25,7 +25,7 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 
 ```
 ---
-layout: none
+layout: null
 ---
 [
   {% for post in site.posts %}
