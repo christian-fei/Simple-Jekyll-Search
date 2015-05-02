@@ -39,14 +39,18 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 ]
 ```
 
-- initialize the library ( [options](#options) )
+- configure the library ( [options](#options) )
 
 ### Enabling full-text search
-Note that the index generated in `search.json` does not include the posts' content since you may not want to load the whole content of your blog in each single page. However, if some of you want to enable full-text search, you can still add the posts' content to the index, either to the normal search, or on an additional search page with a dedicated second index file. To do this, simply add 
+Note that the index generated in `search.json` does not include the posts' content since you may not want to load the whole content of your blog in each single page. However, if some of you want to enable full-text search, you can still add the posts' content to the index, either to the normal search, or on an additional search page with a dedicated second index file. To do this, simply add
+
 ```
 "content"  : "{{ post.content | strip_html | strip_newlines }}"
 ```
+
 to `search.json` after the `"date"` line to which you must add a comma (`,`).
+
+
 
 
 # Install with bower
@@ -58,10 +62,7 @@ bower install simple-jekyll-search
 
 
 
-
-# Options
-
-You can customize several aspects of the plugin.
+# Setup
 
 You need to place the following code within the layout where you want he search to appear.
 
@@ -78,16 +79,21 @@ For example in  **_layouts/default.html**:
 <script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
 ```
 
-The library exposes one method called `init`, to which you can pass your preferences in form of a Hashmap, like this:
+
+# Options
+
+Customize SimpleJekyllSearch by passing in your configuration options:
 
 ```
-SimpleJekyllSearch.init({
+SimpleJekyllSearch({
   searchInput: document.getElementById('search-input'),
   resultsContainer: document.getElementById('results-container'),
-  dataSource: '/search.json',
+  json: '/search.json',
 })
 ```
+
 The above initialization needs to occur after the inclusion of `jekyll-search.js`.
+
 
 ### searchInput (Element) [required]
 
@@ -99,7 +105,7 @@ The input element on which the plugin should listen for keyboard event and trigg
 The container element in which the search results should be rendered in. Typically an `<ul>`.
 
 
-### dataSource (String|JSON) [required]
+### json (String|JSON) [required]
 
 You can either pass in an URL to the `search.json` file, or the results in form of JSON directly, to save one round trip to get the data.
 
@@ -151,7 +157,6 @@ The HTML that will be shown if the query didn't match anything.
 You can limit the number of posts rendered on the page.
 
 
-
 ### fuzzy
 
 Enable fuzzy search to allow less restrictive matching.
@@ -176,23 +181,6 @@ Browser support should be about IE6+ with this `addEventListener` [shim](https:/
 - `gulp watch` during development
 
 - `npm test` or `npm run watch-test` to run the unit tests
-
-
-
-
-
-
-##Special thanks
-
-These awesome people helped with suggestions, improvements and bug reports to make this plugin better :
-
-- [David Darnes](https://github.com/daviddarnes)
-- [dashaman](http://dashaman.com/)
-- [Todd Motto](http://toddmotto.com/)
-- [Dillon de Voor](http://www.crocodillon.com/)
-- [Abdel Raoof Olakara](http://abdelraoof.com/)
-
-
 
 
 

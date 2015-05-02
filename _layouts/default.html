@@ -21,13 +21,13 @@
     {% include footer.html %}
 
     <script src="{{ site.baseurl }}/dest/jekyll-search.js" type="text/javascript"></script>
-    
-    
+
+
     <script type="text/javascript">
-      SimpleJekyllSearch.init({
+      SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        dataSource: '{{ site.baseurl }}/search.json',
+        json: '{{ site.baseurl }}/search.json',
         searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
         noResultsText: 'No results found',
         limit: 10,
