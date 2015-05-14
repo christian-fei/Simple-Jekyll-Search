@@ -162,28 +162,6 @@ You can limit the number of posts rendered on the page.
 Enable fuzzy search to allow less restrictive matching.
 
 
-## Enable full content search
-
-- Replace 'search.json' with the following code:
-
-```
----
-layout: null
----
-[
-  {% for post in site.posts %}
-    {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | array_to_sentence_string }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "content"  : "{{ post.content | strip_html | strip_newlines | escape }}"
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-]
-```
-
 ## Enable full content search of posts and pages
 
 - Replace 'search.json' with the following code:
