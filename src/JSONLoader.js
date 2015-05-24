@@ -1,13 +1,9 @@
 module.exports = function JSONLoader(){
   var self = this
 
-  function receivedResponse(xhr){
-    return xhr.status==200 && xhr.readyState==4
-  }
-
   function handleResponse(xhr,callback){
     xhr.onreadystatechange = function(){
-      if ( receivedResponse(xhr) ){
+      if ( xhr.status==200 && xhr.readyState==4 ){
         try{
           callback(null,JSON.parse(xhr.responseText) )
         }catch(err){
