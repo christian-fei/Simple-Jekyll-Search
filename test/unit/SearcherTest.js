@@ -30,7 +30,7 @@ describe("Searcher", function() {
   })
 
   it("should limit the search results to one even if found more", function() {
-    searcher.setLimit(1)
+    searcher = new Searcher({limit:1})
     expect(
       searcher.search(store,'bar')
     ).toEqual(
@@ -47,7 +47,7 @@ describe("Searcher", function() {
   })
 
   it("should find a fuzzy string", function() {
-    searcher.setFuzzy(true)
+    searcher = new Searcher({fuzzy:true})
     expect(
       searcher.search(store,'lrm ism')
     ).toEqual(

@@ -1,30 +1,22 @@
 module.exports = function Searcher(opt){
-  var self = this
-
   opt = opt || {}
 
-  var matches = []
+  opt.fuzzy = opt.fuzzy || false
+  opt.limit = opt.limit || 10
+  opt.searchStrategy = opt.fuzzy ? require('./SearchStrategies/fuzzy') : require('./SearchStrategies/literal')
 
-  var fuzzy = false
-  var limit = 10
-
-  var fuzzySearchStrategy = require('./SearchStrategies/fuzzy')
-  var literalSearchStrategy = require('./SearchStrategies/literal')
-
-  self.setFuzzy = function(_fuzzy){ fuzzy = !!_fuzzy }
-
-  self.setLimit = function(_limit){ limit = parseInt(_limit,10) || limit }
-
-  self.search = function(data,crit){
+  this.search = function(data,crit){
     if( !crit ) return []
-    matches.length = 0
-    return findMatches(data,crit,getSearchStrategy(),opt)
+    return findMatches(data,crit,opt.searchStrategy,opt)
   }
 
   function findMatches(store,crit,strategy,opt){
+    var matches = []
     var data = store.get()
-    for(var i = 0; i < data.length && matches.length < limit; i++) {
-      findMatchesInObject(data[i],crit,strategy,opt)
+    for(var i = 0; i < data.length && matches.length < opt.limit; i++) {
+      var match = findMatchesInObject(data[i],crit,strategy,opt)
+      if( match )
+        matches.push(match)
     }
     return matches
   }
@@ -32,8 +24,7 @@ module.exports = function Searcher(opt){
   function findMatchesInObject(obj,crit,strategy,opt){
     for(var key in obj) {
       if( !isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit) ){
-        matches.push(obj)
-        break
+        return obj
       }
     }
   }
@@ -50,7 +41,4 @@ module.exports = function Searcher(opt){
     return excluded
   }
 
-  function getSearchStrategy(){
-    return fuzzy ? fuzzySearchStrategy : literalSearchStrategy
-  }
 }
