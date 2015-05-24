@@ -46,7 +46,7 @@
   }
 
   function initWithURL(url){
-    jsonLoader.load(url, function gotJSON(err,json){
+    jsonLoader.load(url, function(err,json){
       if( !err ) {
         store.put(json)
         registerInput()
