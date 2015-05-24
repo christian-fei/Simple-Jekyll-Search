@@ -1,15 +1,13 @@
 module.exports = function Templater(){
-  var self = this;
+  var templatePattern = /\{(.*?)\}/g
 
-  var templatePattern = /\{(.*?)\}/g;
+  this.setTemplatePattern = function(newTemplatePattern){
+    templatePattern = newTemplatePattern
+  }
 
-  self.setTemplatePattern = function(newTemplatePattern){
-    templatePattern = newTemplatePattern;
-  };
-
-  self.render = function(t, data){
+  this.render = function(t, data){
     return t.replace(templatePattern, function(match, prop) {
-      return data[prop] || match;
-    });
-  };
-};
+      return data[prop] || match
+    })
+  }
+}
