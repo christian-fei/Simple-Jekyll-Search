@@ -30,7 +30,9 @@ describe("Templater", function() {
   });
 
   it("should allow custom patterns to be set", function() {
-    templater.setTemplatePattern(/\{\{(.*?)\}\}/g);
+    templater = new Templater({
+      templatePattern:/\{\{(.*?)\}\}/g
+    })
     expect(
       templater.render('{{foo}}',{foo:'bar'})
     ).toEqual(
