@@ -161,6 +161,10 @@ You can limit the number of posts rendered on the page.
 
 Enable fuzzy search to allow less restrictive matching.
 
+### exclude
+
+Pass in a list of terms you want to exclude (terms will be matched against a regex, so urls, words are allowed).
+
 
 ## Enable full content search of posts and pages
 
@@ -201,11 +205,11 @@ layout: null
 
 - There is a filter plugin in the _plugins folder which should remove most characters that cause invalid JSON. To use it, add the simple_search_filter.rb file to your _plugins folder, and use `remove_chars` as a filter.
 
-For example: in search.json, replace 
+For example: in search.json, replace
 ```
 "content"  : "{{ page.content | strip_html | strip_newlines }}"
 ```
-with 
+with
 ```
 "content"  : "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
 ```

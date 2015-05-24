@@ -20,7 +20,7 @@ describe("Searcher", function() {
   }
 
   var store = new FakeStore(data);
-  
+
   it("should find a simple string", function() {
     expect(
       searcher.search(store,'bar')
@@ -58,6 +58,17 @@ describe("Searcher", function() {
   it("should not search when an empty criteria is provided", function() {
     expect(
       searcher.search(store,'')
+    ).toEqual(
+      []
+    );
+  });
+
+  it('should exclude items', function () {
+    searcher = new Searcher({
+      exclude: ['almostbar']
+    })
+    expect(
+      searcher.search(store,'almostbar')
     ).toEqual(
       []
     );

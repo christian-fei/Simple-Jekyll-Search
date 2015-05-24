@@ -6,11 +6,10 @@
   var Store = require('./Store')
   var JSONLoader = require('./JSONLoader')
 
-  var searcher = new Searcher()
-  var templater = new Templater()
-  var store = new Store()
-  var jsonLoader = new JSONLoader()
-
+  var searcher
+  var templater
+  var store
+  var jsonLoader
 
   var requiredOptions = [
     'searchInput',
@@ -26,11 +25,16 @@
     noResultsText: 'No results found',
     limit: 10,
     fuzzy: false,
+    exclude: []
   }
 
   window.SimpleJekyllSearch = function SimpleJekyllSearch(_opt){
-    validateOptions(_opt)
-    assignOptions(_opt)
+    opt = validateOptions(_opt)
+    searcher = new Searcher(_opt)
+    templater = new Templater()
+    store = new Store()
+    jsonLoader = new JSONLoader()
+
     isJSON(opt.json) ?
       initWithJSON(opt.json) :
       initWithURL(opt.json)
@@ -61,6 +65,10 @@
       if( !_opt[req] )
         throwError('You must specify a ' + req)
     }
+    var ret = _opt
+    for(var option in opt)
+      ret[option] = _opt[option] || opt[option]
+    return ret
   }
 
   function assignOptions(_opt){
