@@ -1,9 +1,8 @@
 describe("Templater", function() {
-  var Templater = require('../../src/Templater.js')
   var templater
 
   beforeEach(function() {
-    templater = new Templater
+    templater = require('../../src/Templater.js')
   })
 
   it("should render the template with the provided data", function() {
@@ -30,7 +29,7 @@ describe("Templater", function() {
   })
 
   it("should allow custom patterns to be set", function() {
-    templater = new Templater({
+    templater.setOptions({
       templatePattern:/\{\{(.*?)\}\}/g
     })
     expect(

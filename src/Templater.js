@@ -1,10 +1,18 @@
-module.exports = function Templater(opt){
-  opt = opt || {}
-  var templatePattern = opt.templatePattern || /\{(.*?)\}/g
+module.exports = {
+  render: render,
+  setOptions: setOptions
+}
 
-  this.render = function(t, data){
-    return t.replace(templatePattern, function(match, prop) {
-      return data[prop] || match
-    })
-  }
+var opt = {}
+opt.templatePattern = /\{(.*?)\}/g
+
+function setOptions(_opt){
+  opt = _opt || {}
+  opt.templatePattern = _opt.templatePattern || /\{(.*?)\}/g
+}
+
+function render(t, data){
+  return t.replace(opt.templatePattern, function(match, prop) {
+    return data[prop] || match
+  })
 }
