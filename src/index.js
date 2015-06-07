@@ -40,6 +40,8 @@
       initWithURL(opt.json)
   }
 
+  window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
+
   function initWithJSON(json){
     store.put(opt.json)
     registerInput()
