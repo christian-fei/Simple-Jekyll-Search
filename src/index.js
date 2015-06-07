@@ -3,10 +3,9 @@
 
   var searcher = require('./Searcher')
   var templater = require('./Templater')
-  var Store = require('./Store')
+  var store = require('./Store')
   var JSONLoader = require('./JSONLoader')
 
-  var store
   var jsonLoader
 
   var requiredOptions = [
@@ -29,7 +28,6 @@
   window.SimpleJekyllSearch = function SimpleJekyllSearch(_opt){
     opt = validateOptions(_opt)
     searcher.setOptions(_opt)
-    store = new Store()
     jsonLoader = new JSONLoader()
 
     isJSON(opt.json) ?

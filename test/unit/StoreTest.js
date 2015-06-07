@@ -1,17 +1,15 @@
 describe("Store", function() {
-  var Store = require('../../src/Store.js');
-  var store;
+  var store = require('../../src/Store.js');
 
   var foo = {foo:'bar'};
   var foo1 = {foo1:'bar1'};
 
   beforeEach(function() {
-    store = new Store;
     store.clear();
   });
 
   it("should instanciate a store with data provided via constructor", function() {
-    store = new Store([foo]);
+    store.put([foo]);
     expect(
       store.get()
     ).toEqual(
@@ -25,7 +23,7 @@ describe("Store", function() {
       store.clear()
     ).toEqual(
       []
-    );    
+    );
   });
 
   it("should store single object", function() {
@@ -43,7 +41,7 @@ describe("Store", function() {
       store.get()
     ).toEqual(
       [{foo:'bar'},{foo1:'bar1'}]
-    );        
+    );
   });
 
   it("should not add other things than objects", function() {
