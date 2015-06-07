@@ -1,9 +1,8 @@
 describe("Searcher", function() {
-  var Searcher = require('../../src/Searcher.js')
   var searcher
 
   beforeEach(function() {
-    searcher = new Searcher
+    searcher = require('../../src/Searcher.js')
   })
 
 
@@ -30,7 +29,7 @@ describe("Searcher", function() {
   })
 
   it("should limit the search results to one even if found more", function() {
-    searcher = new Searcher({limit:1})
+    searcher.setOptions({limit:1})
     expect(
       searcher.search(store,'bar')
     ).toEqual(
@@ -47,7 +46,7 @@ describe("Searcher", function() {
   })
 
   it("should find a fuzzy string", function() {
-    searcher = new Searcher({fuzzy:true})
+    searcher.setOptions({fuzzy:true})
     expect(
       searcher.search(store,'lrm ism')
     ).toEqual(
@@ -64,7 +63,7 @@ describe("Searcher", function() {
   })
 
   it('should exclude items', function () {
-    searcher = new Searcher({
+    searcher.setOptions({
       exclude: ['almostbar']
     })
     expect(

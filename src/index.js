@@ -1,12 +1,11 @@
 ;(function(window,document,undefined){
   'use strict'
 
-  var Searcher = require('./Searcher')
+  var searcher = require('./Searcher')
   var Templater = require('./Templater')
   var Store = require('./Store')
   var JSONLoader = require('./JSONLoader')
 
-  var searcher
   var templater
   var store
   var jsonLoader
@@ -30,7 +29,7 @@
 
   window.SimpleJekyllSearch = function SimpleJekyllSearch(_opt){
     opt = validateOptions(_opt)
-    searcher = new Searcher(_opt)
+    searcher.setOptions(_opt)
     templater = new Templater()
     store = new Store()
     jsonLoader = new JSONLoader()
