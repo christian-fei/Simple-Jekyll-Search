@@ -1,8 +1,8 @@
 {
   "name": "simple-jekyll-search",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "src/index.js",
+  "main": "dest/jekyll-search.js",
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js && ./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
     "watch-test": "./node_modules/karma/bin/karma start test/karma.conf.js --auto-watch"
@@ -13,6 +13,11 @@
   },
   "author": "Christian Fei",
   "license": "MIT",
+  "ignore": [
+    "*",
+    "!dest/jekyll-search.js",
+    "!README.md"
+  ],
   "bugs": {
     "url": "https://github.com/christian-fei/Simple-Jekyll-Search/issues"
   },
