@@ -64,7 +64,7 @@ bower install simple-jekyll-search
 
 # Setup
 
-You need to place the following code within the layout where you want he search to appear.
+You need to place the following code within the layout where you want the search to appear.
 
 For example in  **_layouts/default.html**:
 
