@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "gulp-karma": "0.0.4",
-    "karma-browserify": "^4.3.0"
+    "karma-browserify": "^4.3.0",
+    "karma-mocha-reporter": "^1.1.1"
   }
 }
