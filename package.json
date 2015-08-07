@@ -5,8 +5,8 @@
   "main": "dest/jekyll-search.js",
   "scripts": {
     "build": "./node_modules/gulp/bin/gulp.js",
-    "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
-    "watch-test": "./node_modules/karma/bin/karma start test/karma.conf.js --auto-watch"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js --single-run --no-auto-watch",
+    "watch-test": "./node_modules/karma/bin/karma start karma.conf.js --auto-watch"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ describe("Templater", function() {
   var templater
 
   beforeEach(function() {
-    templater = require('../../src/Templater.js')
+    templater = require('./Templater.js')
   })
 
   it("should render the template with the provided data", function() {

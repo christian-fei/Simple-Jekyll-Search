@@ -1,8 +1,8 @@
-describe("Repository", function() {
+describe('Repository', function() {
   var repository
 
   beforeEach(function() {
-    repository = require('../../src/Repository.js')
+    repository = require('./Repository.js')
     repository.put(data)
   })
 
@@ -18,7 +18,7 @@ describe("Repository", function() {
 
   var data = [barElement,almostBarElement,loremElement]
 
-  it("should find a simple string", function() {
+  it('should find a simple string', function() {
     expect(
       repository.search('bar')
     ).toEqual(
@@ -26,7 +26,7 @@ describe("Repository", function() {
     )
   })
 
-  it("should limit the search results to one even if found more", function() {
+  it('should limit the search results to one even if found more', function() {
     repository.setOptions({limit:1})
     expect(
       repository.search('bar')
@@ -35,7 +35,7 @@ describe("Repository", function() {
     )
   })
 
-  it("should find a long string", function() {
+  it('should find a long string', function() {
     expect(
       repository.search('lorem ipsum')
     ).toEqual(
@@ -43,7 +43,7 @@ describe("Repository", function() {
     )
   })
 
-  it("should find a fuzzy string", function() {
+  it('should find a fuzzy string', function() {
     repository.setOptions({fuzzy:true})
     expect(
       repository.search('lrm ism')
@@ -52,7 +52,7 @@ describe("Repository", function() {
     )
   })
 
-  it("should not search when an empty criteria is provided", function() {
+  it('should not search when an empty criteria is provided', function() {
     expect(
       repository.search('')
     ).toEqual(

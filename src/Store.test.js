@@ -1,5 +1,5 @@
 describe("Repository", function() {
-  var store = require('../../src/Repository.js');
+  var store = require('./Repository.js');
 
   var foo = {foo:'bar'};
   var foo1 = {foo1:'bar1'};

@@ -16,8 +16,8 @@ var ENTRYPOINT = {
 gulp.task('default', ['js:src','js:test:unit'])
 
 gulp.task('watch',['default'], function(){
-  gulp.watch(['!'+ENTRYPOINT.JS,'src/**/*.js'], ['js:src','js:test:unit'])
-  gulp.watch(['test/unit/**/*.js'], ['js:test:unit'])
+  gulp.watch(['!'+ENTRYPOINT.JS,'src/**/*.test.js'], ['js:src','js:test:unit'])
+  gulp.watch(['src/**/*.test.js'], ['js:test:unit'])
 })
 
 
@@ -36,9 +36,9 @@ gulp.task('js:src', function() {
 })
 
 gulp.task('js:test:unit', function() {
-  return gulp.src(['test/unit/**/*.js'])
+  return gulp.src(['src/**/*.test.js'])
     .pipe(karma({
-      configFile: 'test/karma.conf.js',
+      configFile: 'karma.conf.js',
       action: 'run'
     }))
     .on('error', function(err) {
