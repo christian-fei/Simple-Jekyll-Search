@@ -30,7 +30,7 @@ gulp.task('js:src', function() {
       debug : !process.env.PROD
     }))
     .pipe(uglify({mangle: false,compress:true}))
-    .pipe(rename('jekyll-search.js'))
+    .pipe(rename('jekyll-search.min.js'))
     .pipe(gulp.dest('./dest/'))
 });
 

@@ -2,7 +2,7 @@
   "name": "simple-jekyll-search",
   "version": "1.0.7",
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "dest/jekyll-search.js",
+  "main": "dest/jekyll-search.min.js",
   "scripts": {
     "build": "./node_modules/gulp/bin/gulp.js",
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!dest/jekyll-search.js",
+    "!dest/jekyll-search.min.js",
     "!README.md"
   ],
   "bugs": {
