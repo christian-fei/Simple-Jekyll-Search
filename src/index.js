@@ -1,7 +1,6 @@
 ;(function(window,document,undefined){
   'use strict'
 
-  var searcher = require('./Searcher')
   var templater = require('./Templater')
   var store = require('./Repository')
   var jsonLoader = require('./JSONLoader')
@@ -25,7 +24,7 @@
 
   window.SimpleJekyllSearch = function SimpleJekyllSearch(_opt){
     opt = validateOptions(_opt)
-    searcher.setOptions(_opt)
+    store.setOptions(_opt)
 
     isJSON(opt.json) ?
       initWithJSON(opt.json) :
@@ -92,7 +91,7 @@
         emptyResultsContainer()
         return
       }
-      render( searcher.search(store, e.target.value) )
+      render( store.search(e.target.value) )
     })
   }
 

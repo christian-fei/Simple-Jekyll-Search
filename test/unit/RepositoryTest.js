@@ -1,8 +1,13 @@
-describe("Searcher", function() {
-  var searcher
+describe("Repository", function() {
+  var repository
 
   beforeEach(function() {
-    searcher = require('../../src/Searcher.js')
+    repository = require('../../src/Repository.js')
+    repository.put(data)
+  })
+
+  afterEach(function () {
+    repository.clear()
   })
 
 
@@ -13,25 +18,18 @@ describe("Searcher", function() {
 
   var data = [barElement,almostBarElement,loremElement]
 
-  function FakeRepository(_data){
-    var data = _data
-    this.get = function(){ return data }
-  }
-
-  var store = new FakeRepository(data)
-
   it("should find a simple string", function() {
     expect(
-      searcher.search(store,'bar')
+      repository.search('bar')
     ).toEqual(
       [barElement,almostBarElement]
     )
   })
 
   it("should limit the search results to one even if found more", function() {
-    searcher.setOptions({limit:1})
+    repository.setOptions({limit:1})
     expect(
-      searcher.search(store,'bar')
+      repository.search('bar')
     ).toEqual(
       [barElement]
     )
@@ -39,16 +37,16 @@ describe("Searcher", function() {
 
   it("should find a long string", function() {
     expect(
-      searcher.search(store,'lorem ipsum')
+      repository.search('lorem ipsum')
     ).toEqual(
       [loremElement]
     )
   })
 
   it("should find a fuzzy string", function() {
-    searcher.setOptions({fuzzy:true})
+    repository.setOptions({fuzzy:true})
     expect(
-      searcher.search(store,'lrm ism')
+      repository.search('lrm ism')
     ).toEqual(
       [loremElement]
     )
@@ -56,18 +54,18 @@ describe("Searcher", function() {
 
   it("should not search when an empty criteria is provided", function() {
     expect(
-      searcher.search(store,'')
+      repository.search('')
     ).toEqual(
       []
     )
   })
 
   it('should exclude items', function () {
-    searcher.setOptions({
+    repository.setOptions({
       exclude: ['almostbar']
     })
     expect(
-      searcher.search(store,'almostbar')
+      repository.search('almostbar')
     ).toEqual(
       []
     )
