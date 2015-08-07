@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"afte",
+				"aftereach	After Each"
+			],
+			[
+				"brow",
+				"browserifyEntryPoint"
+			],
+			[
 				"trySav",
 				"trySavedFailedPomodoro"
 			],
@@ -100,12 +108,11 @@
 	"buffers":
 	[
 		{
-			"contents": "s",
+			"file": "karma.conf.js",
 			"settings":
 			{
-				"buffer_size": 1,
-				"line_ending": "Unix",
-				"name": "s"
+				"buffer_size": 1622,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -116,10 +123,34 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 101.0,
-		"last_filter": "chekc",
+		"height": 400.0,
+		"last_filter": "delet",
 		"selected_items":
 		[
+			[
+				"delet",
+				"File: Delete"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"nrema",
+				"Package Control: Remove Package"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
 			[
 				"chekc",
 				"Git: Checkout Current File"
@@ -133,16 +164,8 @@
 				"Git: Checkout Current File"
 			],
 			[
-				"delete",
-				"File: Delete"
-			],
-			[
 				"dleete",
 				"File: Delete"
-			],
-			[
-				"renam",
-				"File: Rename"
 			],
 			[
 				"ren",
@@ -163,10 +186,6 @@
 			[
 				"remove",
 				"Package Control: Remove Package"
-			],
-			[
-				"move",
-				"File: Move"
 			],
 			[
 				":W",
@@ -202,10 +221,30 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/saiph/Documents/playground/Simple-Jekyll-Search"
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/SearchStrategies"
 	],
 	"file_history":
 	[
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Repository.test.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Store.test.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/SearchStrategies/literal.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/JSONLoader.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/gulpfile.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/package.json",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/karma.conf.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Templater.test.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Repository.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/unit/RepositoryTest.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Searcher.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/index.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/unit/StoreTest.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/unit/SearcherTest.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/dest/jekyll-search.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/karma.conf.js",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/.travis.yml",
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/unit/browserifiedTests.js",
 		"/Users/saiph/Documents/playground/pomodoro.cc/app/src/init/FailedPomodoriQueue.js",
 		"/Users/saiph/Documents/playground/pomodoro.cc/api/test/integration/api.js",
 		"/Users/saiph/Documents/playground/pomodoro.cc/api/routes/api.js",
@@ -315,28 +354,59 @@
 		"/Users/saiph/Documents/playground/pomodoro.cc/api/config/testdocker.json",
 		"/Users/saiph/Documents/playground/pomodoro.cc/api/opt/test.docker.sh",
 		"/Users/saiph/Documents/playground/pomodoro.cc/api/passport.init.js",
-		"/Users/saiph/Documents/playground/pomodoro.cc/app/src/modules/AuthService.js",
-		"/Users/saiph/Documents/playground/pomodoro.cc/main/Dockerfile",
-		"/Users/saiph/Documents/playground/pomodoro.cc/pomodoro.cc.sublime-project"
+		"/Users/saiph/Documents/playground/pomodoro.cc/app/src/modules/AuthService.js"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
 		"height": 106.0,
 		"where_history":
 		[
+			"",
 			"app/",
 			""
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"test/karma",
+			"src/**/*.js",
+			"test/unit",
+			"karma",
+			";",
+			"\"",
+			"searcher",
+			"data",
+			"Searcher",
+			"store",
+			"store.search",
+			"searcher",
+			"store",
+			"searcher",
+			"Searcher",
+			"store",
+			"search",
+			"store",
+			"FakeRepository",
+			"Searcher",
+			"setOptions",
+			"Store",
+			"progress",
+			"karma",
+			"js",
+			"JS",
+			"browserifyEntryPoint",
+			";",
+			"var",
+			"browserifyEntryPoint",
+			"l",
+			"browserifyEntryPoint",
 			"failedCallback",
 			"fakeUser",
 			"insert",
@@ -432,39 +502,7 @@
 			"getFullPomodoroCount",
 			"PomodoroHours",
 			"pomodoroHours",
-			"getFullPomodoroCount",
-			"pomodoroCount",
-			"h3",
-			"h6",
-			"color_light_grey",
-			"black",
-			"StatisticsNumbers",
-			"Statistics",
-			"Timeline",
-			"timeline",
-			"span",
-			"webkit-flex",
-			"flexbox",
-			"flex",
-			"components",
-			"Timeline",
-			"break",
-			"getPomodoroAmount",
-			"getPomodoroCount",
-			"memo",
-			"json",
-			"getPomodoroCount",
-			"TimelineUtils",
-			"30",
-			"trySaveFailedPomodori",
-			"saveAll",
-			"failedPomodori",
-			"failedPomodoriKey",
-			"queue",
-			"Logger",
-			"  ",
-			"queueu",
-			"restoreQueue"
+			"getFullPomodoroCount"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -472,6 +510,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Repository",
 			"getAllPomodoroCount",
 			"docker.test",
 			"docker.ascii",
@@ -498,24 +537,24 @@
 			[
 				{
 					"buffer": 0,
+					"file": "karma.conf.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1,
+						"buffer_size": 1622,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1,
-								1
+								228,
+								228
 							]
 						],
 						"settings":
 						{
-							"auto_name": "s",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -575,6 +614,38 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"repo",
+				"src/Repository.test.js"
+			],
+			[
+				"store",
+				"src/Store.test.js"
+			],
+			[
+				"karma",
+				"karma.conf.js"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"searcher",
+				"test/unit/SearcherTest.js"
+			],
+			[
+				"searhtest",
+				"test/unit/SearcherTest.js"
+			],
+			[
+				"travis",
+				".travis.yml"
+			],
 			[
 				"ngin",
 				"main/etc/nginx/nginx.conf"
@@ -780,10 +851,6 @@
 				"app/src/app.manifest"
 			],
 			[
-				"gulp",
-				"app/gulpfile.js"
-			],
-			[
 				"footjs",
 				"app/src/components/Footer.js"
 			],
@@ -902,10 +969,6 @@
 			[
 				"timeldata",
 				"app/fixtures/timelineData.json"
-			],
-			[
-				"package",
-				"app/package.json"
 			],
 			[
 				"timelinutils",
@@ -1062,30 +1125,6 @@
 			[
 				"cic",
 				"circle.yml"
-			],
-			[
-				"nginc",
-				"main/etc/nginx/nginx.conf"
-			],
-			[
-				"pac",
-				"package.json"
-			],
-			[
-				"makefile",
-				"Makefile"
-			],
-			[
-				"sounsstl",
-				"app/src/components/SoundSettings.styl"
-			],
-			[
-				"souserv",
-				"app/src/modules/SoundService.js"
-			],
-			[
-				"souser",
-				"app/src/modules/SoundService.js"
 			]
 		],
 		"width": 0.0
