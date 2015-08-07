@@ -13,12 +13,12 @@ describe("Searcher", function() {
 
   var data = [barElement,almostBarElement,loremElement]
 
-  function FakeStore(_data){
+  function FakeRepository(_data){
     var data = _data
     this.get = function(){ return data }
   }
 
-  var store = new FakeStore(data)
+  var store = new FakeRepository(data)
 
   it("should find a simple string", function() {
     expect(

@@ -3,7 +3,7 @@
 
   var searcher = require('./Searcher')
   var templater = require('./Templater')
-  var store = require('./Store')
+  var store = require('./Repository')
   var jsonLoader = require('./JSONLoader')
 
   var requiredOptions = [
