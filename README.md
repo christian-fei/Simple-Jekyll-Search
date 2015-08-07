@@ -75,8 +75,8 @@ For example in  **_layouts/default.html**:
 <ul id="results-container"></ul>
 </div>
 
-<!-- Script pointing to jekyll-search.js -->
-<script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
+<!-- Script pointing to jekyll-search.min.js -->
+<script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.min.js" type="text/javascript"></script>
 ```
 
 
@@ -92,7 +92,7 @@ SimpleJekyllSearch({
 })
 ```
 
-The above initialization needs to occur after the inclusion of `jekyll-search.js`.
+The above initialization needs to occur after the inclusion of `jekyll-search.min.js`.
 
 
 ### searchInput (Element) [required]
