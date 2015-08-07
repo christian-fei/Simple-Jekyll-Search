@@ -4,6 +4,8 @@ node_js:
 - '0.10'
 - '0.11'
 - '0.12'
+script:
+- npm run build
 deploy:
   provider: npm
   email: crifei93@gmail.com

@@ -4,6 +4,7 @@ var rename = require('gulp-rename');
 var using = require('gulp-using');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var karma = require('gulp-karma');
 
 var browserifyEntryPoint = 'src/index.js';
 
@@ -15,7 +16,7 @@ gulp.task('default', ['js:src','js:test:unit'])
 
 gulp.task('watch',['default'], function(){
   gulp.watch(['!'+browserifyEntryPoint,'src/**/*.js'], ['js:src','js:test:unit']);
-  gulp.watch(['!test/unit/browserifiedTests.js','test/unit/**/*Test.js'], ['js:test:unit']);
+  gulp.watch(['test/unit/**/*.js'], ['js:test:unit']);
 });
 
 
@@ -26,7 +27,6 @@ gulp.task('watch',['default'], function(){
 gulp.task('js:src', function() {
   gulp.src(browserifyEntryPoint)
     .pipe(browserify({
-      // insertGlobals : true,
       debug : !process.env.PROD
     }))
     .pipe(uglify({mangle: false,compress:true}))
@@ -35,13 +35,13 @@ gulp.task('js:src', function() {
 });
 
 gulp.task('js:test:unit', function() {
-  gulp.src(['test/unit/**/*Test.js'])
-    .pipe(using())
-    .pipe(concat('browserifiedTests.js'))
-    .pipe(browserify({
-      // insertGlobals : true,
-      debug : !process.env.PROD
+  return gulp.src(['test/unit/**/*.js'])
+    .pipe(karma({
+      configFile: 'test/karma.conf.js',
+      action: 'run'
     }))
-    .pipe(using())
-    .pipe(gulp.dest('./test/unit/'))
+    .on('error', function(err) {
+      this.emit('end')
+      throw err
+    })
 });

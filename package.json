@@ -4,7 +4,8 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/jekyll-search.js",
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js && ./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
+    "build": "./node_modules/gulp/bin/gulp.js",
+    "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch",
     "watch-test": "./node_modules/karma/bin/karma start test/karma.conf.js --auto-watch"
   },
   "repository": {
@@ -33,5 +34,9 @@
     "karma-growl-reporter": "^0.1.1",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1"
+  },
+  "dependencies": {
+    "gulp-karma": "0.0.4",
+    "karma-browserify": "^4.3.0"
   }
 }
