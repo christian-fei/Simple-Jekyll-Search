@@ -1,10 +1,6 @@
 language: node_js
 node_js:
 - '0.10'
-before_script:
-- npm install
-script:
-- npm test
 deploy:
   provider: npm
   email: crifei93@gmail.com
