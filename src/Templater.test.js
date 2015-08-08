@@ -1,11 +1,11 @@
-describe("Templater", function() {
+describe('Templater', function() {
   var templater
 
   beforeEach(function() {
     templater = require('./Templater.js')
   })
 
-  it("should render the template with the provided data", function() {
+  it('renders the template with the provided data', function() {
     expect(
       templater.render('{foo}',{foo:'bar'})
     ).toEqual(
@@ -19,7 +19,7 @@ describe("Templater", function() {
     )
   })
 
-  it("should replace not found properties with the original pattern", function() {
+  it('replaces not found properties with the original pattern', function() {
     var template = '{foo}'
     expect(
       templater.render(template,{x:'bar'})
@@ -28,7 +28,7 @@ describe("Templater", function() {
     )
   })
 
-  it("should allow custom patterns to be set", function() {
+  it('allows custom patterns to be set', function() {
     templater.setOptions({
       templatePattern:/\{\{(.*?)\}\}/g
     })

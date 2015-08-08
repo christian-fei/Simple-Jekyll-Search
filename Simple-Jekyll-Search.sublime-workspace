@@ -107,14 +107,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "karma.conf.js",
-			"settings":
-			{
-				"buffer_size": 1622,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -227,13 +219,13 @@
 	],
 	"file_history":
 	[
+		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/karma.conf.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Repository.test.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Store.test.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/SearchStrategies/literal.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/JSONLoader.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/gulpfile.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/package.json",
-		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/karma.conf.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Templater.test.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/src/Repository.js",
 		"/Users/saiph/Documents/playground/Simple-Jekyll-Search/test/unit/RepositoryTest.js",
@@ -532,37 +524,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "karma.conf.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1622,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								228,
-								228
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
