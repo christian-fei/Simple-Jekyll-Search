@@ -10,7 +10,7 @@ var data = []
 var opt = {}
 opt.fuzzy = false
 opt.limit = 10
-opt.searchStrategy = opt.fuzzy ? require('./SearchStrategies/fuzzy') : require('./SearchStrategies/literal')
+opt.searchStrategy = opt.fuzzy ? require('./SearchStrategies/FuzzySearchStrategy') : require('./SearchStrategies/LiteralSearchStrategy')
 
 
 function put(data){
@@ -56,7 +56,7 @@ function setOptions(_opt){
 
   opt.fuzzy = _opt.fuzzy || false
   opt.limit = _opt.limit || 10
-  opt.searchStrategy = _opt.fuzzy ? require('./SearchStrategies/fuzzy') : require('./SearchStrategies/literal')
+  opt.searchStrategy = _opt.fuzzy ? require('./SearchStrategies/FuzzySearchStrategy') : require('./SearchStrategies/LiteralSearchStrategy')
 }
 
 function findMatches(data,crit,strategy,opt){
