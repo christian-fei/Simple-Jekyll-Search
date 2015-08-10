@@ -38,7 +38,7 @@
       limit: options.limit,
     })
 
-    isJSON(options.json) ?
+    utils.isJSON(options.json) ?
       initWithJSON(options.json) :
       initWithURL(options.json)
 
@@ -63,14 +63,6 @@
   }
 
   function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message) }
-
-  function isJSON(json){
-    try{
-      return json instanceof Object && JSON.parse(JSON.stringify(json))
-    }catch(e){
-      return false
-    }
-  }
 
   function emptyResultsContainer(){
     options.resultsContainer.innerHTML = ''

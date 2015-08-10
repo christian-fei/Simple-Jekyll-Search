@@ -1,5 +1,4 @@
 describe('utils', function() {
-
   var utils = require('./utils')
 
   describe('#merge', function () {
@@ -10,6 +9,12 @@ describe('utils', function() {
 
       expect( mergedOptions.foo ).toEqual( defaultOptions.foo )
       expect( mergedOptions.bar ).toEqual( options.bar )
+    })
+  })
+
+  describe('#isJSON', function () {
+    it('returns true if is JSON object', function () {
+      expect( utils.isJSON({foo:'bar'}) ).toBe( true )
     })
   })
 })

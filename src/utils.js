@@ -1,5 +1,6 @@
 module.exports = {
-  merge: merge
+  merge: merge,
+  isJSON: isJSON,
 }
 
 function merge(defaultParams, mergeParams){
@@ -11,4 +12,14 @@ function merge(defaultParams, mergeParams){
     }
   }
   return mergedOptions
+}
+
+function isJSON(json){
+  try{
+    if( json instanceof Object && JSON.parse(JSON.stringify(json)) )
+      return true
+    return false
+  }catch(e){
+    return false
+  }
 }
