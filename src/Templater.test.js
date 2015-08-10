@@ -7,13 +7,13 @@ describe('Templater', function() {
 
   it('renders the template with the provided data', function() {
     expect(
-      templater.render('{foo}',{foo:'bar'})
+      templater.compile('{foo}',{foo:'bar'})
     ).toEqual(
       'bar'
     )
 
     expect(
-      templater.render('<a href="{url}">url</a>',{url:'http://google.com'})
+      templater.compile('<a href="{url}">url</a>',{url:'http://google.com'})
     ).toEqual(
       '<a href="http://google.com">url</a>'
     )
@@ -22,7 +22,7 @@ describe('Templater', function() {
   it('replaces not found properties with the original pattern', function() {
     var template = '{foo}'
     expect(
-      templater.render(template,{x:'bar'})
+      templater.compile(template,{x:'bar'})
     ).toEqual(
       template
     )
@@ -33,7 +33,7 @@ describe('Templater', function() {
       templatePattern:/\{\{(.*?)\}\}/g
     })
     expect(
-      templater.render('{{foo}}',{foo:'bar'})
+      templater.compile('{{foo}}',{foo:'bar'})
     ).toEqual(
       'bar'
     )

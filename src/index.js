@@ -86,7 +86,7 @@
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < results.length; i++) {
-      appendToResultsContainer( templater.render(options.searchResultTemplate, results[i]) )
+      appendToResultsContainer( templater.compile(options.searchResultTemplate, results[i]) )
     }
   }
 

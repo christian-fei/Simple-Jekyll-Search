@@ -1,5 +1,5 @@
 module.exports = {
-  render: render,
+  compile: compile,
   setOptions: setOptions
 }
 
@@ -11,7 +11,7 @@ function setOptions(_opt){
   opt.templatePattern = _opt.templatePattern || /\{(.*?)\}/g
 }
 
-function render(t, data){
+function compile(t, data){
   return t.replace(opt.templatePattern, function(match, prop) {
     return data[prop] || match
   })
