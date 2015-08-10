@@ -55,9 +55,10 @@
 
   function initWithURL(url){
     jsonLoader.load(url, function(err,json){
-      if( err ){ throwError('failed to get JSON (' + url + ')') }
-      repository.put(json)
-      registerInput()
+      if( err ){
+        throwError('failed to get JSON (' + url + ')')
+      }
+      initWithJSON(json)
     })
   }
 
