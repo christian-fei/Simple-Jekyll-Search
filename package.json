@@ -23,7 +23,7 @@
     "url": "https://github.com/christian-fei/Simple-Jekyll-Search/issues"
   },
   "homepage": "https://github.com/christian-fei/Simple-Jekyll-Search",
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
@@ -33,9 +33,7 @@
     "karma": "^0.13.8",
     "karma-growl-reporter": "^0.1.1",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1"
-  },
-  "dependencies": {
+    "karma-phantomjs-launcher": "^0.2.1",
     "gulp-karma": "0.0.4",
     "karma-browserify": "^4.3.0",
     "karma-mocha-reporter": "^1.1.1"
