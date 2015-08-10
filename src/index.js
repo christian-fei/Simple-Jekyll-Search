@@ -33,6 +33,10 @@
 
     options = utils.merge(options, _options)
 
+    templater.setOptions({
+      template: options.searchResultTemplate,
+    })
+
     repository.setOptions({
       fuzzy: options.fuzzy,
       limit: options.limit,
@@ -41,7 +45,6 @@
     utils.isJSON(options.json) ?
       initWithJSON(options.json) :
       initWithURL(options.json)
-
   }
 
   // for backwards compatibility
@@ -84,7 +87,7 @@
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < results.length; i++) {
-      appendToResultsContainer( templater.compile(options.searchResultTemplate, results[i]) )
+      appendToResultsContainer( templater.compile(results[i]) )
     }
   }
 
