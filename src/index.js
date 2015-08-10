@@ -6,6 +6,7 @@
     resultsContainer: null,
     json: [],
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    templateMiddleware: function(){},
     noResultsText: 'No results found',
     limit: 10,
     fuzzy: false,
@@ -35,6 +36,7 @@
 
     templater.setOptions({
       template: options.searchResultTemplate,
+      middleware: options.templateMiddleware,
     })
 
     repository.setOptions({

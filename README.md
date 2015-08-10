@@ -12,6 +12,7 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 ---
 
 
+
 ### Promotion: check out [Pomodoro.cc](https://pomodoro.cc/)
 
 
@@ -19,9 +20,21 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 
 
 
+
+# Install with bower
+
+```
+bower install simple-jekyll-search
+```
+
+
+
+
 # Getting started
 
-- Place the following code in a file called `search.json` in the **root** of your Jekyll blog. This file will be used as a small data source to perform the searches on the client side:
+Place the following code in a file called `search.json` in the **root** of your Jekyll blog.
+
+This file will be used as a small data source to perform the searches on the client side:
 
 ```
 ---
@@ -39,32 +52,7 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 ]
 ```
 
-- configure the library ( [options](#options) )
-
-### Enabling full-text search
-Note that the index generated in `search.json` does not include the posts' content since you may not want to load the whole content of your blog in each single page. However, if some of you want to enable full-text search, you can still add the posts' content to the index, either to the normal search, or on an additional search page with a dedicated second index file. To do this, simply add
-
-```
-"content"  : "{{ post.content | strip_html | strip_newlines }}"
-```
-
-to `search.json` after the `"date"` line to which you must add a comma (`,`).
-
-
-
-
-# Install with bower
-
-```
-bower install simple-jekyll-search
-```
-
-
-
-
-# Setup
-
-You need to place the following code within the layout where you want the search to appear.
+You need to place the following code within the layout where you want the search to appear. (See the configuration section below to customize it)
 
 For example in  **_layouts/default.html**:
 
@@ -80,7 +68,7 @@ For example in  **_layouts/default.html**:
 ```
 
 
-# Options
+# Configuration
 
 Customize SimpleJekyllSearch by passing in your configuration options:
 
@@ -92,25 +80,22 @@ SimpleJekyllSearch({
 })
 ```
 
-The above initialization needs to occur after the inclusion of `jekyll-search.js`.
-
-
-### searchInput (Element) [required]
+#### searchInput (Element) [required]
 
 The input element on which the plugin should listen for keyboard event and trigger the searching and rendering for articles.
 
 
-### resultsContainer (Element) [required]
+#### resultsContainer (Element) [required]
 
 The container element in which the search results should be rendered in. Typically an `<ul>`.
 
 
-### json (String|JSON) [required]
+#### json (String|JSON) [required]
 
 You can either pass in an URL to the `search.json` file, or the results in form of JSON directly, to save one round trip to get the data.
 
 
-### searchResultTemplate
+#### searchResultTemplate (String) [optional]
 
 The template of a single rendered search result.
 
@@ -147,28 +132,33 @@ If the `search.json` contains this data
 ```
 
 
-### noResultsText
+#### noResultsText (String) [optional]
 
 The HTML that will be shown if the query didn't match anything.
 
 
-### limit
+#### limit (Number) [optional]
 
 You can limit the number of posts rendered on the page.
 
 
-### fuzzy
+#### fuzzy (Boolean) [optional]
 
 Enable fuzzy search to allow less restrictive matching.
 
-### exclude
+#### exclude (Array) [optional]
 
 Pass in a list of terms you want to exclude (terms will be matched against a regex, so urls, words are allowed).
 
 
-## Enable full content search of posts and pages
 
-- Replace 'search.json' with the following code:
+
+
+
+
+## Enabling full-text search
+
+Replace 'search.json' with the following code:
 
 ```
 ---
@@ -201,7 +191,9 @@ layout: null
 ]
 ```
 
-### If search isn't working due to invalid JSON
+
+
+## If search isn't working due to invalid JSON
 
 - There is a filter plugin in the _plugins folder which should remove most characters that cause invalid JSON. To use it, add the simple_search_filter.rb file to your _plugins folder, and use `remove_chars` as a filter.
 
@@ -215,9 +207,14 @@ with
 ```
 
 
+
+
+
 ##Browser support
 
 Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
+
+
 
 
 
@@ -230,6 +227,9 @@ Browser support should be about IE6+ with this `addEventListener` [shim](https:/
 - `gulp watch` during development
 
 - `npm test` or `npm run test-watch` to run the unit tests
+
+
+
 
 
 
