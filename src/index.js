@@ -72,16 +72,14 @@
 
   function registerInput(){
     options.searchInput.addEventListener('keyup', function(e){
-      if( e.target.value.length == 0 ){
-        emptyResultsContainer()
-        return
+      emptyResultsContainer()
+      if( e.target.value.length > 0 ){
+        render( repository.search(e.target.value) )
       }
-      render( repository.search(e.target.value) )
     })
   }
 
   function render(results){
-    emptyResultsContainer()
     if( results.length == 0 ){
       return appendToResultsContainer(options.noResultsText)
     }
