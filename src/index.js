@@ -1,17 +1,7 @@
 ;(function(window,document,undefined){
   'use strict'
 
-  var templater = require('./Templater')
-  var store = require('./Repository')
-  var jsonLoader = require('./JSONLoader')
-
-  var requiredOptions = [
-    'searchInput',
-    'resultsContainer',
-    'json',
-  ]
-
-  var opt = {
+  var options = {
     searchInput: null,
     resultsContainer: null,
     json: [],
@@ -22,52 +12,64 @@
     exclude: []
   }
 
-  window.SimpleJekyllSearch = function SimpleJekyllSearch(_opt){
-    opt = validateOptions(_opt)
-    store.setOptions(_opt)
+  var requiredOptions = ['searchInput','resultsContainer','json']
 
-    isJSON(opt.json) ?
-      initWithJSON(opt.json) :
-      initWithURL(opt.json)
+  var templater = require('./Templater')
+  var store = require('./Repository')
+  var jsonLoader = require('./JSONLoader')
+  var optionsValidator = require('./OptionsValidator')({
+    required: requiredOptions
+  })
+
+
+  window.SimpleJekyllSearch = function SimpleJekyllSearch(_options){
+    var errors = optionsValidator.validate(_options)
+    if( errors.length > 0 ){
+      throwError('You must specify the following required options: ' + requiredOptions)
+    }
+
+    options = mergeOptions(options, _options)
+
+    store.setOptions(options)
+
+    initWith(options.json)
   }
 
   window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
 
+
+
+
+  function mergeOptions(defaultOptions, options){
+    var mergedOptions = {}
+    for(var option in defaultOptions){
+      if( options[option] !== undefined ){
+        mergedOptions[option] = options[option]
+      }
+    }
+    return mergedOptions
+  }
+
+  function initWith(json){
+    isJSON(json) ?
+      initWithJSON(json) :
+      initWithURL(json)
+  }
+
   function initWithJSON(json){
-    store.put(opt.json)
+    store.put(json)
     registerInput()
   }
 
   function initWithURL(url){
     jsonLoader.load(url, function(err,json){
-      if( !err ) {
-        store.put(json)
-        registerInput()
-      }else{
-        throwError('failed to get JSON (' + url + ')')
-      }
+      if( err ){ throwError('failed to get JSON (' + url + ')') }
+      store.put(json)
+      registerInput()
     })
   }
 
-
   function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message) }
-
-  function validateOptions(_opt){
-    for(var i = 0; i < requiredOptions.length; i++){
-      var req = requiredOptions[i]
-      if( !_opt[req] )
-        throwError('You must specify a ' + req)
-    }
-    var ret = _opt
-    for(var option in opt)
-      ret[option] = _opt[option] || opt[option]
-    return ret
-  }
-
-  function assignOptions(_opt){
-    for(var option in opt)
-      opt[option] = _opt[option] || opt[option]
-  }
 
   function isJSON(json){
     try{
@@ -78,15 +80,15 @@
   }
 
   function emptyResultsContainer(){
-    opt.resultsContainer.innerHTML = ''
+    options.resultsContainer.innerHTML = ''
   }
 
   function appendToResultsContainer(text){
-    opt.resultsContainer.innerHTML += text
+    options.resultsContainer.innerHTML += text
   }
 
   function registerInput(){
-    opt.searchInput.addEventListener('keyup', function(e){
+    options.searchInput.addEventListener('keyup', function(e){
       if( e.target.value.length == 0 ){
         emptyResultsContainer()
         return
@@ -98,10 +100,10 @@
   function render(results){
     emptyResultsContainer()
     if( results.length == 0 ){
-      return appendToResultsContainer(opt.noResultsText)
+      return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < results.length; i++) {
-      appendToResultsContainer( templater.render(opt.searchResultTemplate, results[i]) )
+      appendToResultsContainer( templater.render(options.searchResultTemplate, results[i]) )
     }
   }
 })(window,document);
