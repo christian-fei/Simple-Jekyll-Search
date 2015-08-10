@@ -58,14 +58,25 @@ describe('Templater', function() {
       var spy = sinon.spy()
 
       templater.setOptions({
-        template: '{foo}',
-
         middleware: spy
       })
 
       templater.compile({foo:'bar'})
 
       expect( spy.called ).toBe( true )
+    })
+
+    it('overwrites replacement by return value of middleware', function () {
+      var middlewareOverwrite = 'middleware!'
+      templater.setOptions({
+        middleware: function(){
+          return middlewareOverwrite
+        }
+      })
+
+      var compiled = templater.compile({foo:'bar'})
+
+      expect( compiled ).toEqual(middlewareOverwrite)
     })
   })
 
