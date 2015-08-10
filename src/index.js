@@ -1,4 +1,4 @@
-;(function(window,document,undefined){
+;(function(window, document, undefined){
   'use strict'
 
   var options = {
@@ -62,8 +62,6 @@
     })
   }
 
-  function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message) }
-
   function emptyResultsContainer(){
     options.resultsContainer.innerHTML = ''
   }
@@ -91,4 +89,6 @@
       appendToResultsContainer( templater.render(options.searchResultTemplate, results[i]) )
     }
   }
-})(window,document);
+
+  function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message) }
+})(window, document);
