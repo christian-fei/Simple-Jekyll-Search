@@ -119,7 +119,6 @@ If the `search.json` contains this data
 
 ```
 [
-
     {
       "title"    : "Welcome to Jekyll!",
       "category" : "",
@@ -127,9 +126,36 @@ If the `search.json` contains this data
       "url"      : "/jekyll/update/2014/11/01/welcome-to-jekyll.html",
       "date"     : "2014-11-01 21:07:22 +0100"
     }
-
 ]
 ```
+
+
+#### templateMiddleware (Function) [optional]
+
+A function that will be called whenever a match in the template is found.
+
+It gets passed the current property name, property value, and the template.
+
+If the function returns a non-undefined value, it gets replaced in the template.
+
+This can be potentially useful for manipulating URLs etc.
+
+Example:
+
+```
+SimpleJekyllSearch({
+  ...
+  middleware: function(prop, value, template){
+    if( prop === 'bar' ){
+      return value.replace(/^\//, '')
+    }
+  }
+  ...
+})
+```
+
+See the [tests](blob/master/src/Templater.test.js) for an in-depth code example
+
 
 
 #### noResultsText (String) [optional]
