@@ -154,7 +154,7 @@ SimpleJekyllSearch({
 })
 ```
 
-See the [tests](blob/master/src/Templater.test.js) for an in-depth code example
+See the [tests](src/Templater.test.js) for an in-depth code example
 
 
 
