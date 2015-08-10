@@ -1,5 +1,3 @@
-var sinon = require('sinon')
-
 describe('Templater', function() {
   var templater
 
@@ -54,29 +52,20 @@ describe('Templater', function() {
   })
 
   describe('middleware', function () {
-    it('calls middleware', function () {
-      var spy = sinon.spy()
-
-      templater.setOptions({
-        middleware: spy
-      })
-
-      templater.compile({foo:'bar'})
-
-      expect( spy.called ).toBe( true )
-    })
-
-    it('overwrites replacement by return value of middleware', function () {
+    it('middleware gets parameter to return new replacement', function () {
       var middlewareOverwrite = 'middleware!'
       templater.setOptions({
-        middleware: function(){
-          return middlewareOverwrite
+        template: '{foo} - {bar}',
+        middleware: function(prop, value, template){
+          if( prop === 'bar' ){
+            return value.replace(/^\//, '')
+          }
         }
       })
 
-      var compiled = templater.compile({foo:'bar'})
+      var compiled = templater.compile({foo:'foo', bar: '/leading/slash'})
 
-      expect( compiled ).toEqual(middlewareOverwrite)
+      expect( compiled ).toEqual('foo - leading/slash')
     })
   })
 
