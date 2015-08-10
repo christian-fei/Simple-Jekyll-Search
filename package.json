@@ -27,15 +27,16 @@
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
+    "gulp-karma": "0.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.2.0",
     "gulp-using": "0.0.1",
     "karma": "^0.13.8",
+    "karma-browserify": "^4.3.0",
     "karma-growl-reporter": "^0.1.1",
     "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
-    "gulp-karma": "0.0.4",
-    "karma-browserify": "^4.3.0",
-    "karma-mocha-reporter": "^1.1.1"
+    "sinon": "^1.15.4"
   }
 }

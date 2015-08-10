@@ -5,19 +5,23 @@ module.exports = {
 
 var options = {}
 options.pattern = /\{(.*?)\}/g
+options.template = ''
+options.middleware = function(){}
 
 function setOptions(_options){
   options.pattern = _options.pattern || options.pattern
   options.template = _options.template || options.template
-}
-
-function setOptions(_options){
-  options = _options || {}
-  options.pattern = _options.pattern || /\{(.*?)\}/g
+  if( typeof _options.middleware === 'function' ){
+    options.middleware = _options.middleware
+  }
 }
 
 function compile(data){
   return options.template.replace(options.pattern, function(match, prop) {
+    var value = options.middleware()
+    if( value !== undefined ){
+      return value
+    }
     return data[prop] || match
   })
 }

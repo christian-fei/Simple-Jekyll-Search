@@ -1,10 +1,13 @@
+var sinon = require('sinon')
+
 describe('Templater', function() {
   var templater
 
   beforeEach(function() {
     templater = require('./Templater.js')
     templater.setOptions({
-      template: '{foo}'
+      template: '{foo}',
+      pattern: /\{(.*?)\}/g
     })
   })
 
@@ -49,4 +52,21 @@ describe('Templater', function() {
       'bar'
     )
   })
+
+  describe('middleware', function () {
+    it('calls middleware', function () {
+      var spy = sinon.spy()
+
+      templater.setOptions({
+        template: '{foo}',
+
+        middleware: spy
+      })
+
+      templater.compile({foo:'bar'})
+
+      expect( spy.called ).toBe( true )
+    })
+  })
+
 })
