@@ -229,7 +229,7 @@ Browser support should be about IE6+ with this `addEventListener` [shim](https:/
 
 - `gulp watch` during development
 
-- `npm test` or `npm run watch-test` to run the unit tests
+- `npm test` or `npm run test-watch` to run the unit tests
 
 
 

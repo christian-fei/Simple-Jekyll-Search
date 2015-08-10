@@ -1,6 +1,5 @@
 npm-debug.log
-sjs.sublime-project
-sjs.sublime-workspace
+*.sublime-workspace
 node_modules
 test/unit/browserifiedTests.js
 .sass-cache
