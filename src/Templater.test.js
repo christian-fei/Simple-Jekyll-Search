@@ -1,3 +1,4 @@
+'use strict'
 describe('Templater', function() {
   var templater
 

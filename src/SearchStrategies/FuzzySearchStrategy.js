@@ -1,3 +1,4 @@
+'use strict'
 module.exports = new FuzzySearchStrategy()
 
 function FuzzySearchStrategy(){
@@ -6,7 +7,9 @@ function FuzzySearchStrategy(){
   }
 
   this.matches = function(string,crit){
-    if( typeof string !== 'string' ) return false
+    if( typeof string !== 'string' ){
+      return false
+    }
     string = string.trim()
     return !!fuzzyRegexFromString(crit).test(string)
   }

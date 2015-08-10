@@ -1,3 +1,4 @@
+'use strict'
 describe('utils', function() {
   var utils = require('./utils')
 

@@ -44,9 +44,11 @@
       limit: options.limit,
     })
 
-    utils.isJSON(options.json) ?
-      initWithJSON(options.json) :
+    if( utils.isJSON(options.json) ){
+      initWithJSON(options.json)
+    }else{
       initWithURL(options.json)
+    }
   }
 
   // for backwards compatibility
@@ -85,7 +87,7 @@
   }
 
   function render(results){
-    if( results.length == 0 ){
+    if( results.length === 0 ){
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < results.length; i++) {

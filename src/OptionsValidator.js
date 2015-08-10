@@ -1,5 +1,6 @@
+'use strict'
 module.exports = function OptionsValidator(params){
-  if( !params || params.required === undefined || !(params.required instanceof Array) ){
+  if( !validateParams(params) ){
     throw new Error('-- OptionsValidator: required options missing')
   }
   if( !(this instanceof OptionsValidator) ){
@@ -20,5 +21,12 @@ module.exports = function OptionsValidator(params){
       }
     })
     return errors
+  }
+
+  function validateParams(params){
+    if( !params ) {
+      return false
+    }
+    return params.required !== undefined && params.required instanceof Array
   }
 }

@@ -1,3 +1,4 @@
+'use strict'
 describe('OptionsValidator', function() {
   var OptionsValidator
 
@@ -7,7 +8,7 @@ describe('OptionsValidator', function() {
 
   it('can be instanciated with options', function () {
     var requiredOptions = ['foo','bar']
-    optionsValidator = new OptionsValidator({
+    var optionsValidator = new OptionsValidator({
       required: requiredOptions
     })
 
@@ -17,7 +18,7 @@ describe('OptionsValidator', function() {
   describe('#validate', function () {
     it('returns empty errors array for valid options', function () {
       var requiredOptions = ['foo','bar']
-      optionsValidator = new OptionsValidator({
+      var optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 
@@ -30,7 +31,7 @@ describe('OptionsValidator', function() {
     })
     it('returns array with errors for invalid options', function () {
       var requiredOptions = ['foo','bar']
-      optionsValidator = new OptionsValidator({
+      var optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 

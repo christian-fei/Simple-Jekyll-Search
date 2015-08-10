@@ -1,3 +1,4 @@
+'use strict'
 module.exports = {
   merge: merge,
   isJSON: isJSON,
@@ -16,8 +17,9 @@ function merge(defaultParams, mergeParams){
 
 function isJSON(json){
   try{
-    if( json instanceof Object && JSON.parse(JSON.stringify(json)) )
+    if( json instanceof Object && JSON.parse(JSON.stringify(json)) ){
       return true
+    }
     return false
   }catch(e){
     return false
