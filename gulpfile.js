@@ -41,8 +41,10 @@ gulp.task('js:src', function() {
     .pipe(browserify({
       debug : !process.env.PROD
     }))
-    .pipe(uglify({mangle: false,compress:true}))
     .pipe(rename('jekyll-search.js'))
+    .pipe(gulp.dest('./dest/'))
+    .pipe(uglify({mangle: false,compress:true}))
+    .pipe(rename('jekyll-search.min.js'))
     .pipe(gulp.dest('./dest/'))
 })
 
