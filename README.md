@@ -232,6 +232,12 @@ with
 "content"  : "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
 ```
 
+If this doesn't work when using Github pages you can try ```jsonify``` to make sure the content is json compatible:
+```
+"content"   : {{ page.content | jsonify }}
+```
+**Note: you don't need to use quotes ' " ' in this since ```jsonify``` automatically inserts them.**
+
 
 
 
