@@ -5,6 +5,8 @@ Simple-Jekyll-Search
 
 A JavaScript library to add search functionality to any Jekyll blog.
 
+Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search)
+
 ---
 
 idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching/#disqus_thread)
@@ -21,10 +23,12 @@ idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching
 
 
 
-# Install with bower
+# Install
 
 ```
-bower install simple-jekyll-search
+bower install --save simple-jekyll-search
+# or
+npm install --save simple-jekyll-search
 ```
 
 
