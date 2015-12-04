@@ -14,7 +14,7 @@ function load(location,callback){
   xhr.open('GET', location, true)
 
   xhr.onreadystatechange = function(){
-    if ( xhr.status===200 && xhr.readyState===4 ){
+    if ( xhr.readyState===4 && xhr.status===200 ){
       try{
         callback(null, JSON.parse(xhr.responseText) )
       }catch(err){
