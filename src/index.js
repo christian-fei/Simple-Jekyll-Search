@@ -108,7 +108,7 @@
         }
       }
 
-    }, 250)) // timeout
+    }, 100)) // timeout
   }
 
   function render(results){
