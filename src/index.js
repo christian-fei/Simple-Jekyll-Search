@@ -78,7 +78,20 @@
   }
 
   function registerInput(){
-    options.searchInput.addEventListener('keyup', function(e){
+
+    // https://remysharp.com/2010/07/21/throttling-function-calls
+    function debounce(fn, delay) {
+      var timer = null;
+      return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          fn.apply(context, args);
+        }, delay);
+      };
+    }
+
+    options.searchInput.addEventListener('keyup', debounce(function(e){
 
       // whitelist the following keycodes
       var whitelist = [37,38,39,40];
@@ -95,7 +108,7 @@
         }
       }
 
-    })
+    }, 250)) // timeout
   }
 
   function render(results){
