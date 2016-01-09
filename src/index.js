@@ -94,7 +94,7 @@
     options.searchInput.addEventListener('keyup', debounce(function(e){
 
       // whitelist the following keycodes
-      var whitelist = [13,20,37,38,39,40,91];
+      var whitelist = [13,16,20,37,38,39,40,91];
 
       var keyCodes = whitelist.map(function(code){
         return 'e.which != ' + code;
