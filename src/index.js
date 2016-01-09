@@ -79,10 +79,22 @@
 
   function registerInput(){
     options.searchInput.addEventListener('keyup', function(e){
-      emptyResultsContainer()
-      if( e.target.value.length > 0 ){
-        render( repository.search(e.target.value) )
+
+      // whitelist the following keycodes
+      var whitelist = [37,38,39,40];
+
+      var keyCodes = whitelist.map(function(code){
+        return 'e.which != ' + code;
+      }).join(' && ');
+
+      // if the key pressed isn't one of the following whitelisted codes precede
+      if( eval(keyCodes) ){
+        emptyResultsContainer()
+        if( e.target.value.length > 0 ){
+          render( repository.search(e.target.value) )
+        }
       }
+
     })
   }
 
