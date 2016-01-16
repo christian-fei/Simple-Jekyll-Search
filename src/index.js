@@ -89,9 +89,9 @@
 
       // if the key pressed isn't one of the following whitelisted codes precede
       if( eval(keyCodes) ){
-        emptyResultsContainer()
+        emptyResultsContainer();
         if( e.target.value.length > 0 ){
-          render( repository.search(e.target.value) )
+          render( repository.search(e.target.value) );
         }
       }
 
