@@ -79,10 +79,18 @@
 
   function registerInput(){
     options.searchInput.addEventListener('keyup', function(e){
-      emptyResultsContainer()
-      if( e.target.value.length > 0 ){
-        render( repository.search(e.target.value) )
+
+      // whitelist the following keycodes
+      var whitelist = [13,16,20,37,38,39,40,91];
+
+      // if the key pressed isn't whitelisted continue
+      if( whitelist.indexOf(e.which) === -1 ) {
+        emptyResultsContainer();
+        if( e.target.value.length > 0 ){
+          render( repository.search(e.target.value) );
+        }
       }
+
     })
   }
 
