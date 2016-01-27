@@ -83,12 +83,8 @@
       // whitelist the following keycodes
       var whitelist = [13,16,20,37,38,39,40,91];
 
-      var keyCodes = whitelist.map(function(code){
-        return 'e.which != ' + code;
-      }).join(' && ');
-
-      // if the key pressed isn't one of the following whitelisted codes precede
-      if( eval(keyCodes) ){
+      // if the key pressed isn't whitelisted continue
+      if( whitelist.indexOf(e.which) === -1 ) {
         emptyResultsContainer();
         if( e.target.value.length > 0 ){
           render( repository.search(e.target.value) );
