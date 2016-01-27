@@ -79,28 +79,30 @@
 
   function registerInput(){
     options.searchInput.addEventListener('keyup', function(e){
-
-      // whitelist the following keycodes
-      var whitelist = [13,16,20,37,38,39,40,91];
-
-      // if the key pressed isn't whitelisted continue
-      if( whitelist.indexOf(e.which) === -1 ) {
+      var key = e.which
+      var query = e.target.value
+      if( isWhitelistedKey(key) && isValidQuery(query) ) {
         emptyResultsContainer();
-        if( e.target.value.length > 0 ){
-          render( repository.search(e.target.value) );
-        }
+        render( repository.search(query) );
       }
-
     })
   }
 
-  function render(results){
+  function render(results) {
     if( results.length === 0 ){
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < results.length; i++) {
       appendToResultsContainer( templater.compile(results[i]) )
     }
+  }
+
+  function isValidQuery(query) {
+    return query && query.length > 0
+  }
+
+  function isWhitelistedKey(key) {
+    return [13,16,20,37,38,39,40,91].indexOf(key) === -1
   }
 
   function throwError(message){ throw new Error('SimpleJekyllSearch --- '+ message) }
