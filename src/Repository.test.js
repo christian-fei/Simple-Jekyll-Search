@@ -1,4 +1,11 @@
 'use strict'
+
+var barElement = {title:'bar', content: 'bar'}
+var almostBarElement = {title:'almostbar', content: 'almostbar'}
+var loremElement = {title:'lorem', content: 'lorem ipsum'}
+
+var data = [barElement,almostBarElement,loremElement]
+
 describe('Repository', function() {
   var repository
 
@@ -10,14 +17,6 @@ describe('Repository', function() {
   afterEach(function () {
     repository.clear()
   })
-
-
-
-  var barElement = {title:'bar', content: 'bar'}
-  var almostBarElement = {title:'almostbar', content: 'almostbar'}
-  var loremElement = {title:'lorem', content: 'lorem ipsum'}
-
-  var data = [barElement,almostBarElement,loremElement]
 
   it('finds a simple string', function() {
     expect(
@@ -53,7 +52,7 @@ describe('Repository', function() {
     )
   })
 
-  it('nots search when an empty criteria is provided', function() {
+  it('returns empty search results when an empty criteria is provided', function() {
     expect(
       repository.search('')
     ).toEqual(
@@ -61,7 +60,7 @@ describe('Repository', function() {
     )
   })
 
-  it('excludes items', function () {
+  it('excludes items from search', function () {
     repository.setOptions({
       exclude: ['almostbar']
     })
