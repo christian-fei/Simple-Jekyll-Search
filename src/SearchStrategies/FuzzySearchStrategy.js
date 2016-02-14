@@ -2,17 +2,20 @@
 module.exports = new FuzzySearchStrategy()
 
 function FuzzySearchStrategy(){
-  function makeFuzzy(string){
-    string = string.split('').join('.*?')
-    string = string.replace('??','?')
-    return new RegExp( string, 'gi')
-  }
-
   this.matches = function(string, crit){
     if( typeof string !== 'string' || typeof crit !== 'string' ){
       return false
     }
-    string = string.trim()
-    return !!makeFuzzy(crit).test(string)
+    var fuzzy = fuzzyFrom(crit)
+    return !!fuzzy.test(string)
+  }
+
+  function fuzzyFrom(string){
+    var fuzzy = string
+              .trim()
+              .split('')
+              .join('.*?')
+              .replace('??','?')
+    return new RegExp( fuzzy, 'gi')
   }
 }

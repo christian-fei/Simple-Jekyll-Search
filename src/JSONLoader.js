@@ -4,16 +4,14 @@ module.exports = {
 }
 
 function load(location,callback){
-  var xhr
-  if( window.XMLHttpRequest ){
-    xhr = new XMLHttpRequest()
-  }else{
-    xhr = new ActiveXObject('Microsoft.XMLHTTP')
-  }
-
+  var xhr = getXHR()
   xhr.open('GET', location, true)
+  xhr.onreadystatechange = createStateChangeListener(xhr, callback)
+  xhr.send()
+}
 
-  xhr.onreadystatechange = function(){
+function createStateChangeListener(xhr, callback){
+  return function(){
     if ( xhr.readyState===4 && xhr.status===200 ){
       try{
         callback(null, JSON.parse(xhr.responseText) )
@@ -22,6 +20,8 @@ function load(location,callback){
       }
     }
   }
+}
 
-  xhr.send()
+function getXHR(){
+  return (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
 }
