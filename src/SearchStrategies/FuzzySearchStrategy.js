@@ -6,16 +6,9 @@ function FuzzySearchStrategy(){
     if( typeof string !== 'string' || typeof crit !== 'string' ){
       return false
     }
-    var fuzzy = fuzzyFrom(crit)
+    var fuzzy = crit.split("")
+                .reduce(function(a,b){ return a+'[^'+b+']*'+b; })
+    fuzzy = new RegExp( fuzzy, 'gi')
     return !!fuzzy.test(string)
-  }
-
-  function fuzzyFrom(string){
-    var fuzzy = string
-              .trim()
-              .split('')
-              .join('.*?')
-              .replace('??','?')
-    return new RegExp( fuzzy, 'gi')
   }
 }
