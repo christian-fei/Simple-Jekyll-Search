@@ -4,7 +4,7 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/jekyll-search.js",
   "scripts": {
-    "build": "gulp",
+    "build": "npm test && gulp",
     "test": "karma start karma.conf.js --single-run --no-auto-watch",
     "test-watch": "karma start karma.conf.js --auto-watch"
   },
