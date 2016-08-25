@@ -4,7 +4,7 @@ var gulp = require('gulp')
   , using = require('gulp-using')
   , concat = require('gulp-concat')
   , uglify = require('gulp-uglify')
-  , karma = require('gulp-karma')
+  , karma = require('karma').Server
   , jshint = require('gulp-jshint')
 
 var ENTRYPOINT = {
@@ -48,14 +48,9 @@ gulp.task('js:src', function() {
     .pipe(gulp.dest('./dest/'))
 })
 
-gulp.task('js:test:unit', function() {
-  return gulp.src([FILES.TEST])
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function(err) {
-      this.emit('end')
-      throw err
-    })
+gulp.task('js:test:unit', function(done) {
+  new karma({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 })

@@ -28,7 +28,6 @@
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^1.11.2",
-    "gulp-karma": "0.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.2.0",
     "gulp-using": "0.0.1",
