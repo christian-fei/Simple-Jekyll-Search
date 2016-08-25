@@ -1,4 +1,6 @@
 'use strict'
+var expect = require('chai').expect;
+
 describe('Templater', function() {
   var templater
 
@@ -13,7 +15,7 @@ describe('Templater', function() {
   it('renders the template with the provided data', function() {
     expect(
       templater.compile({foo:'bar'})
-    ).toEqual(
+    ).to.eql(
       'bar'
     )
 
@@ -23,7 +25,7 @@ describe('Templater', function() {
 
     expect(
       templater.compile({url:'http://google.com'})
-    ).toEqual(
+    ).to.eql(
       '<a href="http://google.com">url</a>'
     )
   })
@@ -35,7 +37,7 @@ describe('Templater', function() {
     })
     expect(
       templater.compile({x:'bar'})
-    ).toEqual(
+    ).to.eql(
       template
     )
   })
@@ -47,7 +49,7 @@ describe('Templater', function() {
     })
     expect(
       templater.compile({foo:'bar'})
-    ).toEqual(
+    ).to.eql(
       'bar'
     )
   })
@@ -66,7 +68,7 @@ describe('Templater', function() {
 
       var compiled = templater.compile({foo:'foo', bar: '/leading/slash'})
 
-      expect( compiled ).toEqual('foo - leading/slash')
+      expect( compiled ).to.eql('foo - leading/slash')
     })
   })
 

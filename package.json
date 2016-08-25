@@ -42,6 +42,7 @@
     "sinon": "^1.15.4"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "jasmine-core": "^2.4.1",
     "karma-phantomjs-launcher": "^0.2.1"
   }

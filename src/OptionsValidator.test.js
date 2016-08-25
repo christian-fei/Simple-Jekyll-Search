@@ -1,4 +1,6 @@
 'use strict'
+var expect = require('chai').expect;
+
 describe('OptionsValidator', function() {
   var OptionsValidator
 
@@ -12,7 +14,7 @@ describe('OptionsValidator', function() {
       required: requiredOptions
     })
 
-    expect( optionsValidator.getRequiredOptions() ).toEqual( requiredOptions )
+    expect( optionsValidator.getRequiredOptions() ).to.equal( requiredOptions )
   })
 
   describe('#validate', function () {
@@ -27,7 +29,7 @@ describe('OptionsValidator', function() {
         bar: '',
       })
 
-      expect( errors.length ).toEqual( 0 )
+      expect( errors.length ).to.eql( 0 )
     })
     it('returns array with errors for invalid options', function () {
       var requiredOptions = ['foo','bar']
@@ -39,7 +41,7 @@ describe('OptionsValidator', function() {
         foo: '',
       })
 
-      expect( errors.length ).toEqual( 1 )
+      expect( errors.length ).to.eql( 1 )
     })
   })
 

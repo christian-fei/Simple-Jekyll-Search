@@ -1,4 +1,6 @@
 'use strict'
+var expect = require('chai').expect;
+
 describe('utils', function() {
   var utils = require('./utils')
 
@@ -8,14 +10,14 @@ describe('utils', function() {
       var options = {bar: 'overwritten'}
       var mergedOptions = utils.merge(defaultOptions, options)
 
-      expect( mergedOptions.foo ).toEqual( defaultOptions.foo )
-      expect( mergedOptions.bar ).toEqual( options.bar )
+      expect( mergedOptions.foo ).to.eql( defaultOptions.foo )
+      expect( mergedOptions.bar ).to.eql( options.bar )
     })
   })
 
   describe('#isJSON', function () {
     it('returns true if is JSON object', function () {
-      expect( utils.isJSON({foo:'bar'}) ).toBe( true )
+      expect( utils.isJSON({foo:'bar'}) ).to.be.true
     })
   })
 })

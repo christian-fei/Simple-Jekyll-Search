@@ -1,4 +1,6 @@
 'use strict'
+var expect = require('chai').expect;
+
 describe('FuzzySearchStrategy', function () {
   var FuzzySearchStrategy
 
@@ -7,16 +9,16 @@ describe('FuzzySearchStrategy', function () {
   })
 
   it('matches only on strings', function () {
-    expect( FuzzySearchStrategy.matches({},'') ).toEqual(false)
-    expect( FuzzySearchStrategy.matches(false,'') ).toEqual(false)
-    expect( FuzzySearchStrategy.matches(true,'') ).toEqual(false)
-    expect( FuzzySearchStrategy.matches(1,'') ).toEqual(false)
+    expect( FuzzySearchStrategy.matches({},'') ).to.eql(false)
+    expect( FuzzySearchStrategy.matches(false,'') ).to.eql(false)
+    expect( FuzzySearchStrategy.matches(true,'') ).to.eql(false)
+    expect( FuzzySearchStrategy.matches(1,'') ).to.eql(false)
   })
 
   it('matches fuzzy', function () {
-    expect( FuzzySearchStrategy.matches('fuzzy','fzy') ).toEqual(true)
-    expect( FuzzySearchStrategy.matches('react','rct') ).toEqual(true)
+    expect( FuzzySearchStrategy.matches('fuzzy','fzy') ).to.eql(true)
+    expect( FuzzySearchStrategy.matches('react','rct') ).to.eql(true)
 
-    expect( FuzzySearchStrategy.matches('what the heck','wth?') ).toEqual(true)
+    expect( FuzzySearchStrategy.matches('what the heck','wth?') ).to.eql(true)
   })
 })

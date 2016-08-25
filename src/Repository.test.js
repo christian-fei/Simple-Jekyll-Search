@@ -1,4 +1,5 @@
 'use strict'
+var expect = require('chai').expect;
 
 var barElement = {title:'bar', content: 'bar'}
 var almostBarElement = {title:'almostbar', content: 'almostbar'}
@@ -21,7 +22,7 @@ describe('Repository', function() {
   it('finds a simple string', function() {
     expect(
       repository.search('bar')
-    ).toEqual(
+    ).to.eql(
       [barElement,almostBarElement]
     )
   })
@@ -30,7 +31,7 @@ describe('Repository', function() {
     repository.setOptions({limit:1})
     expect(
       repository.search('bar')
-    ).toEqual(
+    ).to.eql(
       [barElement]
     )
   })
@@ -38,7 +39,7 @@ describe('Repository', function() {
   it('finds a long string', function() {
     expect(
       repository.search('lorem ipsum')
-    ).toEqual(
+    ).to.eql(
       [loremElement]
     )
   })
@@ -47,7 +48,7 @@ describe('Repository', function() {
     repository.setOptions({fuzzy:true})
     expect(
       repository.search('lrm ism')
-    ).toEqual(
+    ).to.eql(
       [loremElement]
     )
   })
@@ -55,7 +56,7 @@ describe('Repository', function() {
   it('returns empty search results when an empty criteria is provided', function() {
     expect(
       repository.search('')
-    ).toEqual(
+    ).to.eql(
       []
     )
   })
@@ -66,7 +67,7 @@ describe('Repository', function() {
     })
     expect(
       repository.search('almostbar')
-    ).toEqual(
+    ).to.eql(
       []
     )
   })
