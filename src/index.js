@@ -82,11 +82,13 @@
 
   function registerInput(){
     options.searchInput.addEventListener('keyup', function(e){
-      emptyResultsContainer();
       var key = e.which
-      var query = e.target.value
-      if( isWhitelistedKey(key) && isValidQuery(query) ) {
-        render( repository.search(query) );
+      if( isWhitelistedKey(key) ) {
+        emptyResultsContainer();
+        var query = e.target.value
+        if( isValidQuery(query) ) {
+          render( repository.search(query) );
+        }
       }
     })
   }
