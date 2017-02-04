@@ -149,7 +149,7 @@ Example:
 ```
 SimpleJekyllSearch({
   ...
-  middleware: function(prop, value, template){
+  templateMiddleware: function(prop, value, template){
     if( prop === 'bar' ){
       return value.replace(/^\//, '')
     }
