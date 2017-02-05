@@ -28,23 +28,23 @@
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^1.11.2",
+    "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-using": "0.0.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-using": "0.1.1",
     "jshint-stylish": "^2.0.1",
-    "karma": "^0.13.8",
-    "karma-browserify": "^4.3.0",
-    "karma-growl-reporter": "^0.1.1",
-    "karma-jasmine": "^0.3.6",
-    "karma-mocha-reporter": "^1.1.1",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.19",
+    "karma": "^1.4.1",
+    "karma-browserify": "^5.1.1",
+    "karma-growl-reporter": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs": "^2.1.7",
     "sinon": "^1.15.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "jasmine-core": "^2.4.1",
-    "karma-phantomjs-launcher": "^0.2.1"
+    "karma-phantomjs-launcher": "^1.0.2"
   }
 }
