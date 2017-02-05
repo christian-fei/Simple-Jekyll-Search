@@ -5,7 +5,6 @@ var gulp = require('gulp')
   , concat = require('gulp-concat')
   , uglify = require('gulp-uglify')
   , karma = require('karma').Server
-  , jshint = require('gulp-jshint')
 
 var ENTRYPOINT = {
   JS: 'src/index.js'
@@ -19,22 +18,14 @@ var FILES = {
 
 
 
-gulp.task('default', ['js:src','lint'])
+gulp.task('default', ['js:src'])
 
 gulp.task('watch',['default', 'js:test:unit'], function(){
   gulp.watch(['!'+ENTRYPOINT.JS,FILES.TEST], ['js:src','js:test:unit'])
-  gulp.watch([FILES.JS], ['lint'])
   gulp.watch([FILES.TEST], ['js:test:unit'])
 })
 
 
-
-
-gulp.task('lint', function() {
-  return gulp.src(['src/**/*.js','!'+FILES.TEST])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-})
 
 gulp.task('js:src', function() {
   gulp.src(ENTRYPOINT.JS)
