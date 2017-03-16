@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/christian-fei/Simple-Jekyll-Search",
   "dependencies": {
-    "fuzzysearch": "^1.0.3",
+    "fuzzysearch": "^1.0.3"
+  },
+  "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
@@ -40,9 +42,7 @@
     "karma-mocha-reporter": "^2.2.2",
     "karma-phantomjs-launcher": "^1.0.2",
     "phantomjs": "^2.1.7",
-    "sinon": "^1.15.4"
-  },
-  "devDependencies": {
+    "sinon": "^1.15.4",
     "chai": "^3.5.0",
     "jasmine-core": "^2.4.1",
     "karma-phantomjs-launcher": "^1.0.2"
