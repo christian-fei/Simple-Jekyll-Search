@@ -6,7 +6,7 @@
     "Christian Fei"
   ],
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "dest/jekyll-search.js",
+  "main": "dest/jekyll-search.min.js",
   "keywords": [
     "search",
     "jekyll",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!dest/jekyll-search.js",
+    "!dest/jekyll-search.mni.js",
     "!README.md"
   ],
   "moduleType": [
