@@ -8,7 +8,8 @@
     "prebuild": "npm run lint",
     "build": "mkdir -p dest; uglifyjs --compress --mangle --output dest/simple-jekyll-search.min.js src/index.js",
     "pretest": "npm run lint",
-    "test": "m.test src/**.test.js"
+    "test": "m.test src/**.test.js",
+    "testling": "testling"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "m.test": "0.0.54",
     "standard": "^9.0.2",
+    "testling": "^1.7.1",
     "uglifyjs": "^2.4.10"
   },
   "standard": {
@@ -44,6 +46,19 @@
     "ignore": [
       "example",
       "dest"
+    ]
+  },
+  "testling": {
+    "files": "src/*.test.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
     ]
   }
 }
