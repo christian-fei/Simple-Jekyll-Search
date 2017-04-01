@@ -7,20 +7,20 @@ module.exports = {
 var options = {}
 options.pattern = /\{(.*?)\}/g
 options.template = ''
-options.middleware = function(){}
+options.middleware = function () {}
 
-function setOptions(_options){
+function setOptions (_options) {
   options.pattern = _options.pattern || options.pattern
   options.template = _options.template || options.template
-  if( typeof _options.middleware === 'function' ){
+  if (typeof _options.middleware === 'function') {
     options.middleware = _options.middleware
   }
 }
 
-function compile(data){
-  return options.template.replace(options.pattern, function(match, prop) {
+function compile (data) {
+  return options.template.replace(options.pattern, function (match, prop) {
     var value = options.middleware(prop, data[prop], options.template)
-    if( value !== undefined ){
+    if (value !== undefined) {
       return value
     }
     return data[prop] || match

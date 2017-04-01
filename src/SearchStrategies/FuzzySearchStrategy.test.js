@@ -1,24 +1,20 @@
+/* globals test */
 'use strict'
-var expect = require('chai').expect;
+const {equal} = require('assert')
+const FuzzySearchStrategy = require('./FuzzySearchStrategy')
 
-describe('FuzzySearchStrategy', function () {
-  var FuzzySearchStrategy
+test('FuzzySearchStrategy', function () {
+  test('does not match words that don\'t contain the search criteria', function () {
+    equal(FuzzySearchStrategy.matches('fuzzy', 'fzyyy'), false)
+    equal(FuzzySearchStrategy.matches('react', 'angular'), false)
 
-  beforeEach(function () {
-    FuzzySearchStrategy = require('./FuzzySearchStrategy')
+    equal(FuzzySearchStrategy.matches('what the heck', 'wth?'), false)
   })
 
-  it('does not match words that don\'t contain the search criteria', function () {
-    expect( FuzzySearchStrategy.matches('fuzzy','fzyyy') ).to.eql(false)
-    expect( FuzzySearchStrategy.matches('react','angular') ).to.eql(false)
+  test('matches words containing the search criteria', function () {
+    equal(FuzzySearchStrategy.matches('fuzzy', 'fzy'), true)
+    equal(FuzzySearchStrategy.matches('react', 'rct'), true)
 
-    expect( FuzzySearchStrategy.matches('what the heck','wth?') ).to.eql(false)
-  })
-
-  it('matches words containing the search criteria', function () {
-    expect( FuzzySearchStrategy.matches('fuzzy','fzy') ).to.eql(true)
-    expect( FuzzySearchStrategy.matches('react','rct') ).to.eql(true)
-
-    expect( FuzzySearchStrategy.matches('what the heck','wth') ).to.eql(true)
+    equal(FuzzySearchStrategy.matches('what the heck', 'wth'), true)
   })
 })

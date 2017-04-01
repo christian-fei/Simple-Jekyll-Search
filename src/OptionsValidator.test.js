@@ -1,48 +1,42 @@
+/* globals test */
 'use strict'
-var expect = require('chai').expect;
-
-describe('OptionsValidator', function() {
-  var OptionsValidator
-
-  beforeEach(function () {
-    OptionsValidator = require('./OptionsValidator.js')
-  })
-
-  it('can be instanciated with options', function () {
-    var requiredOptions = ['foo','bar']
+const OptionsValidator = require('./OptionsValidator.js')
+const {equal} = require('assert')
+test('OptionsValidator', function () {
+  test('can be instanciated with options', function () {
+    var requiredOptions = ['foo', 'bar']
     var optionsValidator = new OptionsValidator({
       required: requiredOptions
     })
 
-    expect( optionsValidator.getRequiredOptions() ).to.equal( requiredOptions )
+    equal(optionsValidator.getRequiredOptions(), requiredOptions)
   })
 
-  describe('#validate', function () {
-    it('returns empty errors array for valid options', function () {
-      var requiredOptions = ['foo','bar']
+  test('#validate', function () {
+    test('returns empty errors array for valid options', function () {
+      var requiredOptions = ['foo', 'bar']
       var optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 
       var errors = optionsValidator.validate({
         foo: '',
-        bar: '',
+        bar: ''
       })
 
-      expect( errors.length ).to.eql( 0 )
+      equal(errors.length, 0)
     })
-    it('returns array with errors for invalid options', function () {
-      var requiredOptions = ['foo','bar']
+    test('returns array with errors for invalid options', function () {
+      var requiredOptions = ['foo', 'bar']
       var optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 
       var errors = optionsValidator.validate({
-        foo: '',
+        foo: ''
       })
 
-      expect( errors.length ).to.eql( 1 )
+      equal(errors.length, 1)
     })
   })
-
 })

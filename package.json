@@ -4,9 +4,11 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/jekyll-search.min.js",
   "scripts": {
-    "build": "npm test && gulp",
-    "test": "karma start karma.conf.js --single-run --no-auto-watch",
-    "test-watch": "karma start karma.conf.js --auto-watch"
+    "lint": "standard",
+    "prebuild": "npm run lint",
+    "build": "mkdir -p dest; uglifyjs --compress --mangle --output dest/simple-jekyll-search.min.js src/index.js",
+    "pretest": "npm run lint",
+    "test": "m.test src/**.test.js"
   },
   "repository": {
     "type": "git",
@@ -27,24 +29,17 @@
     "fuzzysearch": "^1.0.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.1",
-    "gulp-using": "0.1.1",
-    "jshint-stylish": "^2.0.1",
-    "karma": "^1.4.1",
-    "karma-browserify": "^5.1.1",
-    "karma-growl-reporter": "^1.0.0",
-    "karma-jasmine": "^1.1.0",
-    "karma-mocha-reporter": "^2.2.2",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "phantomjs": "^2.1.7",
-    "sinon": "^1.15.4",
-    "chai": "^3.5.0",
-    "jasmine-core": "^2.4.1",
-    "karma-phantomjs-launcher": "^1.0.2"
+    "m.test": "0.0.54",
+    "uglifyjs": "^2.4.10"
+  },
+  "standard": {
+    "globals": [
+      "test",
+      "beforeEach",
+      "afterEach",
+      "XMLHttpRequest",
+      "ActiveXObject"
+    ],
+    "ignore": ["example", "dest"]
   }
 }
