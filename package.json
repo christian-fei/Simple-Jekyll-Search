@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "m.test": "0.0.54",
+    "standard": "^9.0.2",
     "uglifyjs": "^2.4.10"
   },
   "standard": {
@@ -40,6 +41,9 @@
       "XMLHttpRequest",
       "ActiveXObject"
     ],
-    "ignore": ["example", "dest"]
+    "ignore": [
+      "example",
+      "dest"
+    ]
   }
 }
