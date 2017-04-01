@@ -3,15 +3,15 @@ Simple-Jekyll-Search
 
 [![Build Status](https://travis-ci.org/christian-fei/Simple-Jekyll-Search.svg?branch=master)](https://travis-ci.org/christian-fei/Simple-Jekyll-Search)
 
+[![browser support](https://ci.testling.com/christian-fei/Simple-Jekyll-Search.png)
+](https://ci.testling.com/christian-fei/Simple-Jekyll-Search)
+
 A JavaScript library to add search functionality to any Jekyll blog.
 
 Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search)
 
----
+Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
 
-idea from this [blog post](https://alexpearce.me/2012/04/simple-jekyll-searching/#disqus_thread)
-
----
 
 # Install
 
@@ -22,9 +22,9 @@ npm install --save simple-jekyll-search
 ```
 
 
-
-
 # Getting started
+
+# Create `search.json`
 
 Place the following code in a file called `search.json` in the **root** of your Jekyll blog.
 
@@ -46,6 +46,9 @@ This file will be used as a small data source to perform the searches on the cli
 ]
 ```
 
+
+# Using the plugin
+
 You need to place the following code within the layout where you want the search to appear. (See the configuration section below to customize it)
 
 For example in  **_layouts/default.html**:
@@ -60,6 +63,7 @@ For example in  **_layouts/default.html**:
 <!-- Script pointing to jekyll-search.js -->
 <script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
 ```
+
 
 
 # Configuration
@@ -171,85 +175,13 @@ Enable fuzzy search to allow less restrictive matching.
 Pass in a list of terms you want to exclude (terms will be matched against a regex, so urls, words are allowed).
 
 
+# Wiki
 
-
-
-
-
-## Enabling full-text search
-
-Replace 'search.json' with the following code:
-
-```
----
-layout: null
----
-[
-  {% for post in site.posts %}
-    {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "content"  : "{{ post.content | strip_html | strip_newlines }}"
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-  ,
-  {% for page in site.pages %}
-   {
-     {% if page.title != nil %}
-        "title"    : "{{ page.title | escape }}",
-        "category" : "{{ page.category }}",
-        "tags"     : "{{ page.tags | join: ', ' }}",
-        "url"      : "{{ site.baseurl }}{{ page.url }}",
-        "date"     : "{{ page.date }}",
-        "content"  : "{{ page.content | strip_html | strip_newlines }}"
-     {% endif %}
-   } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-]
-```
-
-
-
-## If search isn't working due to invalid JSON
-
-- There is a filter plugin in the _plugins folder which should remove most characters that cause invalid JSON. To use it, add the simple_search_filter.rb file to your _plugins folder, and use `remove_chars` as a filter.
-
-For example: in search.json, replace
-```
-"content"  : "{{ page.content | strip_html | strip_newlines }}"
-```
-with
-```
-"content"  : "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
-```
-
-If this doesn't work when using Github pages you can try ```jsonify``` to make sure the content is json compatible:
-```
-"content"   : {{ page.content | jsonify }}
-```
-**Note: you don't need to use quotes ' " ' in this since ```jsonify``` automatically inserts them.**
-
-
-
-
-
-##Browser support
-
-Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js)
-
-
-
-
-
+Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki)!
 
 
 # Dev setup
 
-- `npm install` the dependencies.
+- `npm install`
 
-- `gulp watch` during development
-
-- `npm test` or `npm run test-watch` to run the unit tests
+- `npm test`
