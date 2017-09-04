@@ -19,7 +19,7 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!dest/jekyll-search.js",
+    "!dest/simple-jekyll-search.js",
     "!README.md"
   ],
   "bugs": {
