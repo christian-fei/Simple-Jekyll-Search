@@ -2,7 +2,7 @@
   "name": "simple-jekyll-search",
   "version": "1.2.1",
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "dest/jekyll-search.min.js",
+  "main": "dest/simple-jekyll-search.min.js",
   "scripts": {
     "lint": "standard",
     "prebuild": "npm run lint",
