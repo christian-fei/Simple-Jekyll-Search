@@ -4,16 +4,18 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/simple-jekyll-search.js",
   "scripts": {
+    "browserify": "browserify src/index.js > dest/simple-jekyll-search.js",
+    "build": "npm run browserify && npm run uglify",
     "lint": "standard",
     "prebuild": "npm run lint",
-    "build": "mkdir -p dest; uglifyjs --compress --mangle --output dest/simple-jekyll-search.min.js src/index.js",
     "pretest": "npm run lint",
     "test": "m.test src/**.test.js",
-    "testling": "testling"
+    "testling": "testling",
+    "uglify": "uglifyjs --compress --mangle --ie8 --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/christian-fei/Simple-Jekyll-Search.git"
+    "url": "git+https://github.com/christian-fei/Simple-Jekyll-Search.git"
   },
   "author": "Christian Fei",
   "license": "MIT",
@@ -29,10 +31,11 @@
     "fuzzysearch": "^1.0.3"
   },
   "devDependencies": {
-    "m.test": "0.0.54",
-    "standard": "^9.0.2",
+    "browserify": "^14.4.0",
+    "m.test": "^0.0.57",
+    "standard": "^10.0.3",
     "testling": "^1.7.1",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^3.0.28"
   },
   "standard": {
     "globals": [
@@ -59,5 +62,11 @@
       "ipad/6",
       "android-browser/latest"
     ]
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
+  "directories": {
+    "example": "example"
   }
 }
