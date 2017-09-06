@@ -1,5 +1,7 @@
 /* globals test beforeEach */
+
 'use strict'
+
 const {equal} = require('assert')
 
 test('Templater', function () {
@@ -49,7 +51,7 @@ test('Templater', function () {
   })
 
   beforeEach(function () {
-    templater = require('./Templater.js')
+    templater = require('../src/Templater.js')
     templater.setOptions({
       template: '{foo}',
       pattern: /\{(.*?)\}/g

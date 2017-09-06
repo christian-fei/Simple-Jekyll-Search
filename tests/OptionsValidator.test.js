@@ -1,7 +1,10 @@
 /* globals test */
+
 'use strict'
-const OptionsValidator = require('./OptionsValidator.js')
+
+const OptionsValidator = require('../src/OptionsValidator.js')
 const {equal} = require('assert')
+
 test('OptionsValidator', function () {
   test('can be instanciated with options', function () {
     var requiredOptions = ['foo', 'bar']
