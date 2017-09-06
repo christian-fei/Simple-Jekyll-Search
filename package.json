@@ -2,7 +2,7 @@
   "name": "simple-jekyll-search",
   "version": "1.4.0",
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "dest/simple-jekyll-search.min.js",
+  "main": "dest/simple-jekyll-search.js",
   "scripts": {
     "lint": "standard",
     "prebuild": "npm run lint",
@@ -17,10 +17,9 @@
   },
   "author": "Christian Fei",
   "license": "MIT",
-  "ignore": [
-    "*",
-    "!dest/simple-jekyll-search.js",
-    "!README.md"
+  "files": [
+    "dest",
+    "src"
   ],
   "bugs": {
     "url": "https://github.com/christian-fei/Simple-Jekyll-Search/issues"
