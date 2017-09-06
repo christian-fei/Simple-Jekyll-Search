@@ -1,12 +1,12 @@
 {
   "name": "simple-jekyll-search",
-  "version": "1.0.7",
-  "homepage": "http://christian-fei.github.io/Simple-Jekyll-Search/",
+  "version": "1.4.0",
+  "homepage": "https://christian-fei.github.io/Simple-Jekyll-Search/",
   "authors": [
     "Christian Fei"
   ],
   "description": "Simple Jekyll site search using javascript and json",
-  "main": "dest/jekyll-search.min.js",
+  "main": "dest/simple-jekyll-search.min.js",
   "keywords": [
     "search",
     "jekyll",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!dest/jekyll-search.mni.js",
+    "!dest/simple-jekyll-search.min.js",
     "!README.md"
   ],
   "moduleType": [
