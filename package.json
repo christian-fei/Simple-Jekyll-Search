@@ -9,7 +9,7 @@
     "lint": "standard",
     "prebuild": "npm run lint",
     "pretest": "npm run lint",
-    "test": "m.test src/**.test.js",
+    "test": "m.test tests/**",
     "testling": "testling",
     "uglify": "uglifyjs --compress --mangle --ie8 --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
   },

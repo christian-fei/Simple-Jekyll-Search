@@ -1,4 +1,5 @@
 /* globals test beforeEach afterEach */
+
 'use strict'
 
 const {deepEqual} = require('assert')
@@ -42,7 +43,7 @@ test('Repository', function () {
   })
 
   beforeEach(function () {
-    repository = require('./Repository.js')
+    repository = require('../src/Repository.js')
     repository.put(data)
   })
 

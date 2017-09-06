@@ -1,7 +1,9 @@
 'use strict'
+
 const {equal, ok} = require('assert')
+
 test('utils', function () {
-  var utils = require('./utils')
+  var utils = require('../src/utils')
 
   test('#merge', function () {
     test('merges objects', function () {

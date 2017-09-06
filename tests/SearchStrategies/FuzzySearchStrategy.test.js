@@ -1,7 +1,9 @@
 /* globals test */
+
 'use strict'
+
 const {equal} = require('assert')
-const FuzzySearchStrategy = require('./FuzzySearchStrategy')
+const FuzzySearchStrategy = require('../../src/SearchStrategies/FuzzySearchStrategy')
 
 test('FuzzySearchStrategy', function () {
   test('does not match words that don\'t contain the search criteria', function () {
