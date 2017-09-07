@@ -16,7 +16,7 @@ module.exports = function OptionsValidator (params) {
   this.validate = function (parameters) {
     var errors = []
     requiredOptions.forEach(function (requiredOptionName) {
-      if (parameters[requiredOptionName] === undefined) {
+      if (typeof parameters[requiredOptionName] === 'undefined') {
         errors.push(requiredOptionName)
       }
     })
@@ -27,6 +27,6 @@ module.exports = function OptionsValidator (params) {
     if (!params) {
       return false
     }
-    return params.required !== undefined && params.required instanceof Array
+    return typeof params.required !== 'undefined' && params.required instanceof Array
   }
 }

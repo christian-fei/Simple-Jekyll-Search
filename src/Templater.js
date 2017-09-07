@@ -20,7 +20,7 @@ function setOptions (_options) {
 function compile (data) {
   return options.template.replace(options.pattern, function (match, prop) {
     var value = options.middleware(prop, data[prop], options.template)
-    if (value !== undefined) {
+    if (typeof value !== 'undefined') {
       return value
     }
     return data[prop] || match
