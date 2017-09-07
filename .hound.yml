@@ -1,0 +1,7 @@
+fail_on_violations: true
+
+jshint:
+  enabled: false
+
+eslint:
+  ignore_file: .houndignore
