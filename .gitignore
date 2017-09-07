@@ -1,7 +1,6 @@
-npm-debug.log
 *.sublime-workspace
-node_modules
-test/unit/browserifiedTests.js
-.sass-cache
-_site
-dest/index.js
+npm-debug.log
+
+.sass-cache/
+_site/
+node_modules/
