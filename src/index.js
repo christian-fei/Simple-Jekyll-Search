@@ -1,4 +1,3 @@
-'use strict'
 ;(function (window, document) {
   'use strict'
 
@@ -95,10 +94,11 @@
   }
 
   function render (results) {
-    if (results.length === 0) {
+    var len = results.length
+    if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < len; i++) {
       appendToResultsContainer(templater.compile(results[i]))
     }
   }
