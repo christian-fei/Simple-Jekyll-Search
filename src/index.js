@@ -1,3 +1,9 @@
+/*!
+  * Simple-Jekyll-Search v1.4.0 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Copyright 2015, Christian Fei
+  * Licensed under MIT (https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/LICENSE.md)
+  */
+
 ;(function (window, document) {
   'use strict'
 
