@@ -24,9 +24,9 @@ bower install --save simple-jekyll-search
 ```
 
 
-## Getting started
+1# Getting started
 
-### Create `search.json`
+## Create `search.json`
 
 Place the following code in a file called `search.json` in the **root** of your Jekyll blog.
 
@@ -180,7 +180,7 @@ Pass in a list of terms you want to exclude (terms will be matched against a reg
 Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki)!
 
 
-# Dev setup
+# Development
 
 - `npm install`
 - `npm test`
@@ -199,3 +199,4 @@ Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Sear
 [@kremalicious](https://github.com/kremalicious)
 [@tibotiber](https://github.com/tibotiber)
 and many others!
+
