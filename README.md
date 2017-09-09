@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/christian-fei/Simple-Jekyll-Search.svg?branch=master)](https://travis-ci.org/christian-fei/Simple-Jekyll-Search)
 
-[![browser support](https://ci.testling.com/christian-fei/Simple-Jekyll-Search.png)](https://ci.testling.com/christian-fei/Simple-Jekyll-Search)
-
 A JavaScript library to add search functionality to any Jekyll blog.
 
 Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search).
