@@ -184,3 +184,9 @@ Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki)
 
 - `npm install`
 - `npm test`
+
+# Contributors
+
+Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Search/graphs/contributors) over the years! You are the best :)
+
+@daviddarnes @XhmikosR @PeterDaveHello @mikeybeck @egladman @midzer @eduardoboucas @kremalicious @tibotiber
