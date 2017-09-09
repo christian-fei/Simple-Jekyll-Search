@@ -189,4 +189,13 @@ Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki)
 
 Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Search/graphs/contributors) over the years! You are the best :)
 
-@daviddarnes @XhmikosR @PeterDaveHello @mikeybeck @egladman @midzer @eduardoboucas @kremalicious @tibotiber
+> [@daviddarnes](https://github.com/daviddarnes)
+[@XhmikosR](https://github.com/XhmikosR)
+[@PeterDaveHello](https://github.com/PeterDaveHello)
+[@mikeybeck](https://github.com/mikeybeck)
+[@egladman](https://github.com/egladman)
+[@midzer](https://github.com/midzer)
+[@eduardoboucas](https://github.com/eduardoboucas)
+[@kremalicious](https://github.com/kremalicious)
+[@tibotiber](https://github.com/tibotiber)
+and many others!
