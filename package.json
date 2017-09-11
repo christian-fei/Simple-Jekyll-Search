@@ -11,6 +11,7 @@
     "pretest": "npm run lint",
     "test": "m.test tests/**",
     "testling": "testling",
+    "copy-example-code": "cp dest/* example/js/",
     "uglify": "uglifyjs --compress --mangle --ie8 --comments \"/^/*!/\" --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
   },
   "repository": {

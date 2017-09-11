@@ -55,6 +55,10 @@
     } else {
       initWithURL(options.json)
     }
+
+    return {
+      search: search
+    }
   }
 
   // for backwards compatibility
@@ -92,11 +96,15 @@
       if (isWhitelistedKey(key)) {
         emptyResultsContainer()
         var query = e.target.value
-        if (isValidQuery(query)) {
-          render(repository.search(query))
-        }
+        search(query)
       }
     })
+  }
+
+  function search (query) {
+    if (isValidQuery(query)) {
+      render(repository.search(query))
+    }
   }
 
   function render (results) {
