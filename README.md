@@ -9,22 +9,22 @@ Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search).
 Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js).
 
 
-## Install
+# Installation
 
-# npm
+## npm
 
 ```
 npm install simple-jekyll-search
 ```
 
-# bower
+## bower
 
 ```
 bower install --save simple-jekyll-search
 ```
 
 
-1# Getting started
+# Getting started
 
 ## Create `search.json`
 
