@@ -9,24 +9,24 @@ Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search).
 Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js).
 
 
-# Installation
+## Installation
 
-## npm
+### npm
 
 ```
 npm install simple-jekyll-search
 ```
 
-## bower
+### bower
 
 ```
 bower install --save simple-jekyll-search
 ```
 
 
-# Getting started
+## Getting started
 
-## Create `search.json`
+### Create `search.json`
 
 Place the following code in a file called `search.json` in the **root** of your Jekyll blog.
 
@@ -49,7 +49,7 @@ This file will be used as a small data source to perform the searches on the cli
 ```
 
 
-## Using the plugin
+### Using the plugin
 
 You need to place the following code within the layout where you want the search to appear. (See the configuration section below to customize it)
 
@@ -67,7 +67,7 @@ For example in  **_layouts/default.html**:
 ```
 
 
-# Configuration
+## Configuration
 
 Customize SimpleJekyllSearch by passing in your configuration options:
 
@@ -79,22 +79,22 @@ SimpleJekyllSearch({
 })
 ```
 
-## searchInput (Element) [required]
+### searchInput (Element) [required]
 
 The input element on which the plugin should listen for keyboard event and trigger the searching and rendering for articles.
 
 
-## resultsContainer (Element) [required]
+### resultsContainer (Element) [required]
 
 The container element in which the search results should be rendered in. Typically an `<ul>`.
 
 
-## json (String|JSON) [required]
+### json (String|JSON) [required]
 
 You can either pass in an URL to the `search.json` file, or the results in form of JSON directly, to save one round trip to get the data.
 
 
-## searchResultTemplate (String) [optional]
+### searchResultTemplate (String) [optional]
 
 The template of a single rendered search result.
 
@@ -129,7 +129,7 @@ If the `search.json` contains this data
 ```
 
 
-## templateMiddleware (Function) [optional]
+### templateMiddleware (Function) [optional]
 
 A function that will be called whenever a match in the template is found.
 
@@ -156,36 +156,36 @@ SimpleJekyllSearch({
 See the [tests](src/Templater.test.js) for an in-depth code example
 
 
-## noResultsText (String) [optional]
+### noResultsText (String) [optional]
 
 The HTML that will be shown if the query didn't match anything.
 
 
-## limit (Number) [optional]
+### limit (Number) [optional]
 
 You can limit the number of posts rendered on the page.
 
 
-## fuzzy (Boolean) [optional]
+### fuzzy (Boolean) [optional]
 
 Enable fuzzy search to allow less restrictive matching.
 
-## exclude (Array) [optional]
+### exclude (Array) [optional]
 
 Pass in a list of terms you want to exclude (terms will be matched against a regex, so urls, words are allowed).
 
 
-# Wiki
+## Wiki
 
 Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki)!
 
 
-# Development
+## Development
 
 - `npm install`
 - `npm test`
 
-# Contributors
+## Contributors
 
 Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Search/graphs/contributors) over the years! You are the best :)
 
