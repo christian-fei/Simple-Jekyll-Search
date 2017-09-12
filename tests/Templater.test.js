@@ -5,7 +5,7 @@
 const {equal} = require('assert')
 
 test('Templater', function () {
-  var templater
+  let templater
 
   test('renders the template with the provided data', function () {
     equal(templater.compile({foo: 'bar'}), 'bar')
@@ -18,7 +18,7 @@ test('Templater', function () {
   })
 
   test('replaces not found properties with the original pattern', function () {
-    var template = '{foo}'
+    const template = '{foo}'
     templater.setOptions({
       template: template
     })
@@ -44,7 +44,7 @@ test('Templater', function () {
         }
       })
 
-      var compiled = templater.compile({foo: 'foo', bar: '/leading/slash'})
+      const compiled = templater.compile({foo: 'foo', bar: '/leading/slash'})
 
       equal(compiled, 'foo - leading/slash')
     })

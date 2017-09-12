@@ -7,8 +7,8 @@ const {equal} = require('assert')
 
 test('OptionsValidator', function () {
   test('can be instanciated with options', function () {
-    var requiredOptions = ['foo', 'bar']
-    var optionsValidator = new OptionsValidator({
+    const requiredOptions = ['foo', 'bar']
+    const optionsValidator = new OptionsValidator({
       required: requiredOptions
     })
 
@@ -17,12 +17,12 @@ test('OptionsValidator', function () {
 
   test('#validate', function () {
     test('returns empty errors array for valid options', function () {
-      var requiredOptions = ['foo', 'bar']
-      var optionsValidator = new OptionsValidator({
+      const requiredOptions = ['foo', 'bar']
+      const optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 
-      var errors = optionsValidator.validate({
+      const errors = optionsValidator.validate({
         foo: '',
         bar: ''
       })
@@ -30,12 +30,12 @@ test('OptionsValidator', function () {
       equal(errors.length, 0)
     })
     test('returns array with errors for invalid options', function () {
-      var requiredOptions = ['foo', 'bar']
-      var optionsValidator = new OptionsValidator({
+      const requiredOptions = ['foo', 'bar']
+      const optionsValidator = new OptionsValidator({
         required: requiredOptions
       })
 
-      var errors = optionsValidator.validate({
+      const errors = optionsValidator.validate({
         foo: ''
       })
 
