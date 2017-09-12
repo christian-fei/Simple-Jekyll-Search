@@ -40,16 +40,9 @@
     "uglify-js": "^3.0.28"
   },
   "standard": {
-    "globals": [
-      "test",
-      "beforeEach",
-      "afterEach",
-      "XMLHttpRequest",
-      "ActiveXObject"
-    ],
     "ignore": [
-      "example",
-      "dest"
+      "dest/",
+      "example/"
     ]
   },
   "testling": {
