@@ -4,14 +4,14 @@
 
 const {deepEqual} = require('assert')
 
-var barElement = {title: 'bar', content: 'bar'}
-var almostBarElement = {title: 'almostbar', content: 'almostbar'}
-var loremElement = {title: 'lorem', content: 'lorem ipsum'}
+const barElement = {title: 'bar', content: 'bar'}
+const almostBarElement = {title: 'almostbar', content: 'almostbar'}
+const loremElement = {title: 'lorem', content: 'lorem ipsum'}
 
-var data = [barElement, almostBarElement, loremElement]
+const data = [barElement, almostBarElement, loremElement]
 
 test('Repository', function () {
-  var repository
+  let repository
 
   test('finds a simple string', function () {
     deepEqual(repository.search('bar'), [barElement, almostBarElement])
