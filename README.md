@@ -34,6 +34,7 @@ This file will be used as a small data source to perform the searches on the cli
 
 ```
 ---
+layout: null
 ---
 [
   {% for post in site.posts %}
