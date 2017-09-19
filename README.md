@@ -157,7 +157,7 @@ SimpleJekyllSearch({
 })
 ```
 
-See the [tests](src/Templater.test.js) for an in-depth code example
+See the [tests](tests/Templater.test.js) for an in-depth code example
 
 
 ### noResultsText (String) [optional]
@@ -203,4 +203,3 @@ Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Sear
 [@kremalicious](https://github.com/kremalicious)
 [@tibotiber](https://github.com/tibotiber)
 and many others!
-
