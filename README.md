@@ -16,13 +16,13 @@ Browser support should be about IE6+ with this `addEventListener` [shim](https:/
 
 ### npm
 
-```
+```sh
 npm install simple-jekyll-search
 ```
 
 ### bower
 
-```
+```sh
 bower install --save simple-jekyll-search
 ```
 
