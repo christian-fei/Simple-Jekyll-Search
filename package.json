@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "browser-pack-flat": "^3.0.5",
-    "browserify": "^14.4.0",
+    "browserify": "^14.5.0",
     "browserify-header": "^0.9.2",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "standard": "^10.0.3",
     "testling": "^1.7.1",
-    "uglify-js": "^3.0.28"
+    "uglify-js": "^3.2.2"
   },
   "standard": {
     "ignore": [
