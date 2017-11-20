@@ -2,7 +2,6 @@
 module.exports = {
   put: put,
   clear: clear,
-  get: get,
   search: search,
   setOptions: setOptions
 }
@@ -27,10 +26,6 @@ function put (data) {
 }
 function clear () {
   data.length = 0
-  return data
-}
-
-function get () {
   return data
 }
 
