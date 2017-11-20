@@ -39,7 +39,7 @@ function addObject (_data) {
 
 function addArray (_data) {
   var added = []
-  for (var i = 0; i < _data.length; i++) {
+  for (var i = 0, len = _data.length; i < len; i++) {
     if (isObject(_data[i])) {
       added.push(addObject(_data[i]))
     }
@@ -84,7 +84,7 @@ function findMatchesInObject (obj, crit, strategy, opt) {
 function isExcluded (term, excludedTerms) {
   var excluded = false
   excludedTerms = excludedTerms || []
-  for (var i = 0; i < excludedTerms.length; i++) {
+  for (var i = 0, len = excludedTerms.length; i < len; i++) {
     var excludedTerm = excludedTerms[i]
     if (!excluded && new RegExp(term).test(excludedTerm)) {
       excluded = true
