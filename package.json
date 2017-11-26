@@ -4,7 +4,7 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/simple-jekyll-search.js",
   "scripts": {
-    "browserify": "browserify -p browserify-header -p browser-pack-flat/plugin -o dest/simple-jekyll-search.js src/index.js",
+    "browserify": "browserify -p browser-pack-flat/plugin src/index.js | node scripts/stamp.js > dest/simple-jekyll-search.js",
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
     "lint": "standard",
@@ -35,7 +35,6 @@
   "devDependencies": {
     "browser-pack-flat": "^3.0.5",
     "browserify": "^14.5.0",
-    "browserify-header": "^0.9.2",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "standard": "^10.0.3",
