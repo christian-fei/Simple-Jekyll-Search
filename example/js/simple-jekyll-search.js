@@ -1,10 +1,76 @@
 /*!
-  * Simple-Jekyll-Search v1.4.1 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Simple-Jekyll-Search v1.6.0 (https://github.com/christian-fei/Simple-Jekyll-Search)
   * Copyright 2015-2017, Christian Fei
-  * Licensed under MIT (https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/LICENSE.md)
+  * Licensed under the MIT License.
   */
 
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(){
+/* globals ActiveXObject:false */
+
+'use strict'
+
+var _$JSONLoader_2 = {
+  load: load
+}
+
+function load(location, callback) {
+  var xhr = getXHR()
+  xhr.open('GET', location, true)
+  xhr.onreadystatechange = createStateChangeListener(xhr, callback)
+  xhr.send()
+}
+
+function createStateChangeListener(xhr, callback) {
+  return function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      try {
+        callback(null, JSON.parse(xhr.responseText))
+      } catch (err) {
+        callback(err, null)
+      }
+    }
+  }
+}
+
+function getXHR() {
+  return window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+}
+
+'use strict'
+
+var _$OptionsValidator_3 = function OptionsValidator(params) {
+  if (!validateParams(params)) {
+    throw new Error('-- OptionsValidator: required options missing')
+  }
+
+  if (!(this instanceof OptionsValidator)) {
+    return new OptionsValidator(params)
+  }
+
+  var requiredOptions = params.required
+
+  this.getRequiredOptions = function () {
+    return requiredOptions
+  }
+
+  this.validate = function (parameters) {
+    var errors = []
+    requiredOptions.forEach(function (requiredOptionName) {
+      if (typeof parameters[requiredOptionName] === 'undefined') {
+        errors.push(requiredOptionName)
+      }
+    })
+    return errors
+  }
+
+  function validateParams(params) {
+    if (!params) {
+      return false
+    }
+    return typeof params.required !== 'undefined' && params.required instanceof Array
+  }
+}
+
 'use strict';
 
 function fuzzysearch (needle, haystack) {
@@ -28,91 +94,54 @@ function fuzzysearch (needle, haystack) {
   return true;
 }
 
-module.exports = fuzzysearch;
+var _$fuzzysearch_1 = fuzzysearch;
 
-},{}],2:[function(require,module,exports){
 'use strict'
-module.exports = {
-  load: load
-}
 
-function load (location, callback) {
-  var xhr = getXHR()
-  xhr.open('GET', location, true)
-  xhr.onreadystatechange = createStateChangeListener(xhr, callback)
-  xhr.send()
-}
+/* removed: var _$fuzzysearch_1 = require('fuzzysearch') */;
 
-function createStateChangeListener (xhr, callback) {
-  return function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      try {
-        callback(null, JSON.parse(xhr.responseText))
-      } catch (err) {
-        callback(err, null)
-      }
-    }
+var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy()
+
+function FuzzySearchStrategy() {
+  this.matches = function (string, crit) {
+    return _$fuzzysearch_1(crit, string)
   }
 }
 
-function getXHR () {
-  return (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
-}
-
-},{}],3:[function(require,module,exports){
 'use strict'
-module.exports = function OptionsValidator (params) {
-  if (!validateParams(params)) {
-    throw new Error('-- OptionsValidator: required options missing')
-  }
-  if (!(this instanceof OptionsValidator)) {
-    return new OptionsValidator(params)
-  }
 
-  var requiredOptions = params.required
+var _$LiteralSearchStrategy_6 = new LiteralSearchStrategy()
 
-  this.getRequiredOptions = function () {
-    return requiredOptions
-  }
-
-  this.validate = function (parameters) {
-    var errors = []
-    requiredOptions.forEach(function (requiredOptionName) {
-      if (typeof parameters[requiredOptionName] === 'undefined') {
-        errors.push(requiredOptionName)
-      }
-    })
-    return errors
-  }
-
-  function validateParams (params) {
-    if (!params) {
+function LiteralSearchStrategy() {
+  this.matches = function (str, crit) {
+    if (typeof str !== 'string') {
       return false
     }
-    return typeof params.required !== 'undefined' && params.required instanceof Array
+    str = str.trim()
+    return str.toLowerCase().indexOf(crit.toLowerCase()) >= 0
   }
 }
 
-},{}],4:[function(require,module,exports){
 'use strict'
-module.exports = {
+
+var _$Repository_4 = {
   put: put,
   clear: clear,
-  get: get,
   search: search,
   setOptions: setOptions
 }
 
-var FuzzySearchStrategy = require('./SearchStrategies/FuzzySearchStrategy')
-var LiteralSearchStrategy = require('./SearchStrategies/LiteralSearchStrategy')
+/* removed: var _$FuzzySearchStrategy_5 = require('./SearchStrategies/FuzzySearchStrategy') */;
+/* removed: var _$LiteralSearchStrategy_6 = require('./SearchStrategies/LiteralSearchStrategy') */;
 
 var data = []
 var opt = {}
+
 opt.fuzzy = false
 opt.limit = 10
-opt.searchStrategy = opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
+opt.searchStrategy = opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
 
-function put (data) {
+function put(data) {
   if (isObject(data)) {
     return addObject(data)
   }
@@ -121,26 +150,27 @@ function put (data) {
   }
   return undefined
 }
-function clear () {
+function clear() {
   data.length = 0
   return data
 }
 
-function get () {
-  return data
+function isObject(obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Object]'
 }
 
-function isObject (obj) { return !!obj && Object.prototype.toString.call(obj) === '[object Object]' }
-function isArray (obj) { return !!obj && Object.prototype.toString.call(obj) === '[object Array]' }
+function isArray(obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Array]'
+}
 
-function addObject (_data) {
+function addObject(_data) {
   data.push(_data)
   return data
 }
 
-function addArray (_data) {
+function addArray(_data) {
   var added = []
-  for (var i = 0; i < _data.length; i++) {
+  for (var i = 0, len = _data.length; i < len; i++) {
     if (isObject(_data[i])) {
       added.push(addObject(_data[i]))
     }
@@ -148,22 +178,22 @@ function addArray (_data) {
   return added
 }
 
-function search (crit) {
+function search(crit) {
   if (!crit) {
     return []
   }
   return findMatches(data, crit, opt.searchStrategy, opt)
 }
 
-function setOptions (_opt) {
+function setOptions(_opt) {
   opt = _opt || {}
 
   opt.fuzzy = _opt.fuzzy || false
   opt.limit = _opt.limit || 10
-  opt.searchStrategy = _opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
+  opt.searchStrategy = _opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
 }
 
-function findMatches (data, crit, strategy, opt) {
+function findMatches(data, crit, strategy, opt) {
   var matches = []
   for (var i = 0; i < data.length && matches.length < opt.limit; i++) {
     var match = findMatchesInObject(data[i], crit, strategy, opt)
@@ -174,7 +204,7 @@ function findMatches (data, crit, strategy, opt) {
   return matches
 }
 
-function findMatchesInObject (obj, crit, strategy, opt) {
+function findMatchesInObject(obj, crit, strategy, opt) {
   for (var key in obj) {
     if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
       return obj
@@ -182,10 +212,10 @@ function findMatchesInObject (obj, crit, strategy, opt) {
   }
 }
 
-function isExcluded (term, excludedTerms) {
+function isExcluded(term, excludedTerms) {
   var excluded = false
   excludedTerms = excludedTerms || []
-  for (var i = 0; i < excludedTerms.length; i++) {
+  for (var i = 0, len = excludedTerms.length; i < len; i++) {
     var excludedTerm = excludedTerms[i]
     if (!excluded && new RegExp(term).test(excludedTerm)) {
       excluded = true
@@ -194,37 +224,11 @@ function isExcluded (term, excludedTerms) {
   return excluded
 }
 
-},{"./SearchStrategies/FuzzySearchStrategy":5,"./SearchStrategies/LiteralSearchStrategy":6}],5:[function(require,module,exports){
 'use strict'
-var fuzzysearch = require('fuzzysearch')
 
-module.exports = new FuzzySearchStrategy()
-
-function FuzzySearchStrategy () {
-  this.matches = function (string, crit) {
-    return fuzzysearch(crit, string)
-  }
-}
-
-},{"fuzzysearch":1}],6:[function(require,module,exports){
-'use strict'
-module.exports = new LiteralSearchStrategy()
-
-function LiteralSearchStrategy () {
-  this.matches = function (string, crit) {
-    if (typeof string !== 'string') {
-      return false
-    }
-    string = string.trim()
-    return string.toLowerCase().indexOf(crit.toLowerCase()) >= 0
-  }
-}
-
-},{}],7:[function(require,module,exports){
-'use strict'
-module.exports = {
+var _$Templater_7 = {
   compile: compile,
-  setOptions: setOptions
+  setOptions: __setOptions_7
 }
 
 var options = {}
@@ -232,7 +236,7 @@ options.pattern = /\{(.*?)\}/g
 options.template = ''
 options.middleware = function () {}
 
-function setOptions (_options) {
+function __setOptions_7(_options) {
   options.pattern = _options.pattern || options.pattern
   options.template = _options.template || options.template
   if (typeof _options.middleware === 'function') {
@@ -240,7 +244,7 @@ function setOptions (_options) {
   }
 }
 
-function compile (data) {
+function compile(data) {
   return options.template.replace(options.pattern, function (match, prop) {
     var value = options.middleware(prop, data[prop], options.template)
     if (typeof value !== 'undefined') {
@@ -250,14 +254,39 @@ function compile (data) {
   })
 }
 
-},{}],8:[function(require,module,exports){
-/*!
-  * Simple-Jekyll-Search v1.4.1 (https://github.com/christian-fei/Simple-Jekyll-Search)
-  * Copyright 2015-2017, Christian Fei
-  * Licensed under MIT (https://github.com/christian-fei/Simple-Jekyll-Search/blob/master/LICENSE.md)
-  */
+'use strict'
 
-;(function (window, document) {
+var _$utils_9 = {
+  merge: merge,
+  isJSON: isJSON
+}
+
+function merge(defaultParams, mergeParams) {
+  var mergedOptions = {}
+  for (var option in defaultParams) {
+    if (Object.prototype.hasOwnProperty.call(defaultParams, option)) {
+      mergedOptions[option] = defaultParams[option]
+      if (typeof mergeParams[option] !== 'undefined') {
+        mergedOptions[option] = mergeParams[option]
+      }
+    }
+  }
+  return mergedOptions
+}
+
+function isJSON(json) {
+  try {
+    if (json instanceof Object && JSON.parse(JSON.stringify(json))) {
+      return true
+    }
+    return false
+  } catch (err) {
+    return false
+  }
+}
+
+var _$src_8 = {};
+(function (window) {
   'use strict'
 
   var options = {
@@ -274,36 +303,36 @@ function compile (data) {
 
   var requiredOptions = ['searchInput', 'resultsContainer', 'json']
 
-  var templater = require('./Templater')
-  var repository = require('./Repository')
-  var jsonLoader = require('./JSONLoader')
-  var optionsValidator = require('./OptionsValidator')({
+  /* removed: var _$Templater_7 = require('./Templater') */;
+  /* removed: var _$Repository_4 = require('./Repository') */;
+  /* removed: var _$JSONLoader_2 = require('./JSONLoader') */;
+  var optionsValidator = _$OptionsValidator_3({
     required: requiredOptions
   })
-  var utils = require('./utils')
+  /* removed: var _$utils_9 = require('./utils') */;
 
   /*
     Public API
   */
-  window.SimpleJekyllSearch = function SimpleJekyllSearch (_options) {
+  window.SimpleJekyllSearch = function (_options) {
     var errors = optionsValidator.validate(_options)
     if (errors.length > 0) {
       throwError('You must specify the following required options: ' + requiredOptions)
     }
 
-    options = utils.merge(options, _options)
+    options = _$utils_9.merge(options, _options)
 
-    templater.setOptions({
+    _$Templater_7.setOptions({
       template: options.searchResultTemplate,
       middleware: options.templateMiddleware
     })
 
-    repository.setOptions({
+    _$Repository_4.setOptions({
       fuzzy: options.fuzzy,
       limit: options.limit
     })
 
-    if (utils.isJSON(options.json)) {
+    if (_$utils_9.isJSON(options.json)) {
       initWithJSON(options.json)
     } else {
       initWithURL(options.json)
@@ -314,20 +343,20 @@ function compile (data) {
     }
   }
 
-  // for backwards compatibility
+  // For backwards compatibility
   window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
 
   if (typeof window.SimpleJekyllSearchInit === 'function') {
     window.SimpleJekyllSearchInit.call(this, window.SimpleJekyllSearch)
   }
 
-  function initWithJSON (json) {
-    repository.put(json)
+  function initWithJSON(json) {
+    _$Repository_4.put(json)
     registerInput()
   }
 
-  function initWithURL (url) {
-    jsonLoader.load(url, function (err, json) {
+  function initWithURL(url) {
+    _$JSONLoader_2.load(url, function (err, json) {
       if (err) {
         throwError('failed to get JSON (' + url + ')')
       }
@@ -335,79 +364,50 @@ function compile (data) {
     })
   }
 
-  function emptyResultsContainer () {
+  function emptyResultsContainer() {
     options.resultsContainer.innerHTML = ''
   }
 
-  function appendToResultsContainer (text) {
+  function appendToResultsContainer(text) {
     options.resultsContainer.innerHTML += text
   }
 
-  function registerInput () {
+  function registerInput() {
     options.searchInput.addEventListener('keyup', function (e) {
-      var key = e.which
-      if (isWhitelistedKey(key)) {
+      if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
-        var query = e.target.value
-        search(query)
+        search(e.target.value)
       }
     })
   }
 
-  function search (query) {
+  function search(query) {
     if (isValidQuery(query)) {
-      render(repository.search(query))
+      render(_$Repository_4.search(query))
     }
   }
 
-  function render (results) {
+  function render(results) {
     var len = results.length
     if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < len; i++) {
-      appendToResultsContainer(templater.compile(results[i]))
+      appendToResultsContainer(_$Templater_7.compile(results[i]))
     }
   }
 
-  function isValidQuery (query) {
+  function isValidQuery(query) {
     return query && query.length > 0
   }
 
-  function isWhitelistedKey (key) {
+  function isWhitelistedKey(key) {
     return [13, 16, 20, 37, 38, 39, 40, 91].indexOf(key) === -1
   }
 
-  function throwError (message) { throw new Error('SimpleJekyllSearch --- ' + message) }
-})(window, document)
-
-},{"./JSONLoader":2,"./OptionsValidator":3,"./Repository":4,"./Templater":7,"./utils":9}],9:[function(require,module,exports){
-'use strict'
-module.exports = {
-  merge: merge,
-  isJSON: isJSON
-}
-
-function merge (defaultParams, mergeParams) {
-  var mergedOptions = {}
-  for (var option in defaultParams) {
-    mergedOptions[option] = defaultParams[option]
-    if (typeof mergeParams[option] !== 'undefined') {
-      mergedOptions[option] = mergeParams[option]
-    }
+  function throwError(message) {
+    throw new Error('SimpleJekyllSearch --- ' + message)
   }
-  return mergedOptions
-}
+})(window)
 
-function isJSON (json) {
-  try {
-    if (json instanceof Object && JSON.parse(JSON.stringify(json))) {
-      return true
-    }
-    return false
-  } catch (e) {
-    return false
-  }
-}
-
-},{}]},{},[8]);
+}());
