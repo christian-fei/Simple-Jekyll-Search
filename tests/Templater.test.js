@@ -1,13 +1,11 @@
-/* globals test beforeEach */
-
 'use strict'
 
 const {equal} = require('assert')
 
-test('Templater', function () {
+test('Templater', () => {
   let templater
 
-  test('renders the template with the provided data', function () {
+  test('renders the template with the provided data', () => {
     equal(templater.compile({foo: 'bar'}), 'bar')
 
     templater.setOptions({
@@ -17,15 +15,15 @@ test('Templater', function () {
     equal(templater.compile({url: 'http://google.com'}), '<a href="http://google.com">url</a>')
   })
 
-  test('replaces not found properties with the original pattern', function () {
+  test('replaces not found properties with the original pattern', () => {
     const template = '{foo}'
     templater.setOptions({
-      template: template
+      template
     })
     equal(templater.compile({x: 'bar'}), template)
   })
 
-  test('allows custom patterns to be set', function () {
+  test('allows custom patterns to be set', () => {
     templater.setOptions({
       template: '{{foo}}',
       pattern: /\{\{(.*?)\}\}/g
@@ -33,11 +31,11 @@ test('Templater', function () {
     equal(templater.compile({foo: 'bar'}), 'bar')
   })
 
-  test('middleware', function () {
-    test('middleware gets parameter to return new replacement', function () {
+  test('middleware', () => {
+    test('middleware gets parameter to return new replacement', () => {
       templater.setOptions({
         template: '{foo} - {bar}',
-        middleware: function (prop, value, template) {
+        middleware(prop, value) {
           if (prop === 'bar') {
             return value.replace(/^\//, '')
           }
@@ -50,7 +48,7 @@ test('Templater', function () {
     })
   })
 
-  beforeEach(function () {
+  beforeEach(() => {
     templater = require('../src/Templater.js')
     templater.setOptions({
       template: '{foo}',

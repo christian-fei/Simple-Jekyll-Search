@@ -1,12 +1,10 @@
-/* globals test */
-
 'use strict'
 
-const OptionsValidator = require('../src/OptionsValidator.js')
 const {equal} = require('assert')
+const OptionsValidator = require('../src/OptionsValidator.js')
 
-test('OptionsValidator', function () {
-  test('can be instanciated with options', function () {
+test('OptionsValidator', () => {
+  test('can be instanciated with options', () => {
     const requiredOptions = ['foo', 'bar']
     const optionsValidator = new OptionsValidator({
       required: requiredOptions
@@ -15,8 +13,8 @@ test('OptionsValidator', function () {
     equal(optionsValidator.getRequiredOptions(), requiredOptions)
   })
 
-  test('#validate', function () {
-    test('returns empty errors array for valid options', function () {
+  test('#validate', () => {
+    test('returns empty errors array for valid options', () => {
       const requiredOptions = ['foo', 'bar']
       const optionsValidator = new OptionsValidator({
         required: requiredOptions
@@ -29,7 +27,7 @@ test('OptionsValidator', function () {
 
       equal(errors.length, 0)
     })
-    test('returns array with errors for invalid options', function () {
+    test('returns array with errors for invalid options', () => {
       const requiredOptions = ['foo', 'bar']
       const optionsValidator = new OptionsValidator({
         required: requiredOptions

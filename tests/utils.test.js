@@ -1,14 +1,12 @@
-/* globals test */
-
 'use strict'
 
 const {equal, ok} = require('assert')
 
-test('utils', function () {
+test('utils', () => {
   const utils = require('../src/utils')
 
-  test('#merge', function () {
-    test('merges objects', function () {
+  test('#merge', () => {
+    test('merges objects', () => {
       const defaultOptions = {foo: '', bar: ''}
       const options = {bar: 'overwritten'}
       const mergedOptions = utils.merge(defaultOptions, options)
@@ -18,8 +16,8 @@ test('utils', function () {
     })
   })
 
-  test('#isJSON', function () {
-    test('returns true if is JSON object', function () {
+  test('#isJSON', () => {
+    test('returns true if is JSON object', () => {
       ok(utils.isJSON({foo: 'bar'}))
     })
   })

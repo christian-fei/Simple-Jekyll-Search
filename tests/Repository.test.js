@@ -1,5 +1,3 @@
-/* globals test beforeEach afterEach */
-
 'use strict'
 
 const {deepEqual} = require('assert')
@@ -10,44 +8,44 @@ const loremElement = {title: 'lorem', content: 'lorem ipsum'}
 
 const data = [barElement, almostBarElement, loremElement]
 
-test('Repository', function () {
+test('Repository', () => {
   let repository
 
-  test('finds a simple string', function () {
+  test('finds a simple string', () => {
     deepEqual(repository.search('bar'), [barElement, almostBarElement])
   })
 
-  test('limits the search results to one even if found more', function () {
+  test('limits the search results to one even if found more', () => {
     repository.setOptions({limit: 1})
     deepEqual(repository.search('bar'), [barElement])
   })
 
-  test('finds a long string', function () {
+  test('finds a long string', () => {
     deepEqual(repository.search('lorem ipsum'), [loremElement])
   })
 
-  test('finds a fuzzy string', function () {
+  test('finds a fuzzy string', () => {
     repository.setOptions({fuzzy: true})
     deepEqual(repository.search('lrm ism'), [loremElement])
   })
 
-  test('returns empty search results when an empty criteria is provided', function () {
+  test('returns empty search results when an empty criteria is provided', () => {
     deepEqual(repository.search(''), [])
   })
 
-  test('excludes items from search', function () {
+  test('excludes items from search', () => {
     repository.setOptions({
       exclude: ['almostbar']
     })
     deepEqual(repository.search('almostbar'), [])
   })
 
-  beforeEach(function () {
+  beforeEach(() => {
     repository = require('../src/Repository.js')
     repository.put(data)
   })
 
-  afterEach(function () {
+  afterEach(() => {
     repository.clear()
   })
 })
