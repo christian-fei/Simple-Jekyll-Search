@@ -17,7 +17,7 @@ opt.fuzzy = false
 opt.limit = 10
 opt.searchStrategy = opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
 
-function put (data) {
+function put(data) {
   if (isObject(data)) {
     return addObject(data)
   }
@@ -26,25 +26,25 @@ function put (data) {
   }
   return undefined
 }
-function clear () {
+function clear() {
   data.length = 0
   return data
 }
 
-function isObject (obj) {
-  return !!obj && Object.prototype.toString.call(obj) === '[object Object]'
+function isObject(obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Object]'
 }
 
-function isArray (obj) {
-  return !!obj && Object.prototype.toString.call(obj) === '[object Array]'
+function isArray(obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Array]'
 }
 
-function addObject (_data) {
+function addObject(_data) {
   data.push(_data)
   return data
 }
 
-function addArray (_data) {
+function addArray(_data) {
   var added = []
   for (var i = 0, len = _data.length; i < len; i++) {
     if (isObject(_data[i])) {
@@ -54,14 +54,14 @@ function addArray (_data) {
   return added
 }
 
-function search (crit) {
+function search(crit) {
   if (!crit) {
     return []
   }
   return findMatches(data, crit, opt.searchStrategy, opt)
 }
 
-function setOptions (_opt) {
+function setOptions(_opt) {
   opt = _opt || {}
 
   opt.fuzzy = _opt.fuzzy || false
@@ -69,7 +69,7 @@ function setOptions (_opt) {
   opt.searchStrategy = _opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
 }
 
-function findMatches (data, crit, strategy, opt) {
+function findMatches(data, crit, strategy, opt) {
   var matches = []
   for (var i = 0; i < data.length && matches.length < opt.limit; i++) {
     var match = findMatchesInObject(data[i], crit, strategy, opt)
@@ -80,7 +80,7 @@ function findMatches (data, crit, strategy, opt) {
   return matches
 }
 
-function findMatchesInObject (obj, crit, strategy, opt) {
+function findMatchesInObject(obj, crit, strategy, opt) {
   for (var key in obj) {
     if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
       return obj
@@ -88,7 +88,7 @@ function findMatchesInObject (obj, crit, strategy, opt) {
   }
 }
 
-function isExcluded (term, excludedTerms) {
+function isExcluded(term, excludedTerms) {
   var excluded = false
   excludedTerms = excludedTerms || []
   for (var i = 0, len = excludedTerms.length; i < len; i++) {
