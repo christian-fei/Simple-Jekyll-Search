@@ -1,4 +1,4 @@
-# Simple-Jekyll-Search
+# [Simple-Jekyll-Search](https://www.npmjs.com/package/simple-jekyll-search)
 
 [![Build Status](https://img.shields.io/travis/christian-fei/Simple-Jekyll-Search/master.svg?)](https://travis-ci.org/christian-fei/Simple-Jekyll-Search)
 [![dependencies Status](https://img.shields.io/david/christian-fei/Simple-Jekyll-Search.svg)](https://david-dm.org/christian-fei/Simple-Jekyll-Search)
@@ -6,9 +6,17 @@
 
 A JavaScript library to add search functionality to any Jekyll blog.
 
-Find it on [npmjs.com](https://www.npmjs.com/package/simple-jekyll-search).
+🚀 Check it out [on my website](https://christianfei.com/posts) and [read this guide](https://christianfei.com/posts/Use-Simple-Jekyll-Search-on-your-blog-in-these-easy-steps/) 📖 to get started!
 
-Browser support should be about IE6+ with this `addEventListener` [shim](https://gist.github.com/eirikbacker/2864711#file-addeventlistener-polyfill-js).
+## Use case
+
+You have a blog, built with Jekyll, and want a lightweight search functionality on your blog, purely client-side?
+
+No server configurations or databases to maintain.
+
+Just 5 minutes to have a fully working searchable blog.
+
+---
 
 
 ## Installation
