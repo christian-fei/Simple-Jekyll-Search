@@ -86,11 +86,9 @@
 
   function registerInput () {
     options.searchInput.addEventListener('keyup', function (e) {
-      var key = e.which
-      if (isWhitelistedKey(key)) {
+      if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
-        var query = e.target.value
-        search(query)
+        search(e.target.value)
       }
     })
   }
@@ -119,5 +117,7 @@
     return [13, 16, 20, 37, 38, 39, 40, 91].indexOf(key) === -1
   }
 
-  function throwError (message) { throw new Error('SimpleJekyllSearch --- ' + message) }
+  function throwError (message) {
+    throw new Error('SimpleJekyllSearch --- ' + message)
+  }
 })(window, document)

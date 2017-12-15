@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = {
   put: put,
   clear: clear,
@@ -11,6 +12,7 @@ var LiteralSearchStrategy = require('./SearchStrategies/LiteralSearchStrategy')
 
 var data = []
 var opt = {}
+
 opt.fuzzy = false
 opt.limit = 10
 opt.searchStrategy = opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
@@ -29,8 +31,13 @@ function clear () {
   return data
 }
 
-function isObject (obj) { return !!obj && Object.prototype.toString.call(obj) === '[object Object]' }
-function isArray (obj) { return !!obj && Object.prototype.toString.call(obj) === '[object Array]' }
+function isObject (obj) {
+  return !!obj && Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+function isArray (obj) {
+  return !!obj && Object.prototype.toString.call(obj) === '[object Array]'
+}
 
 function addObject (_data) {
   data.push(_data)

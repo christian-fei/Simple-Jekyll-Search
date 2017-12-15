@@ -1,4 +1,5 @@
 'use strict'
+
 var fuzzysearch = require('fuzzysearch')
 
 module.exports = new FuzzySearchStrategy()
