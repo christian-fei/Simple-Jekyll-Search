@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = {
   compile: compile,
   setOptions: setOptions

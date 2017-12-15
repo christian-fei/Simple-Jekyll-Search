@@ -1,6 +1,7 @@
 /* globals ActiveXObject:false, XMLHttpRequest:false */
 
 'use strict'
+
 module.exports = {
   load: load
 }
