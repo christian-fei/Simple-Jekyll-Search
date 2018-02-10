@@ -51,6 +51,7 @@ function addObject(_data) {
 
 function addArray(_data) {
   var added = []
+  clear()
   for (var i = 0, len = _data.length; i < len; i++) {
     if (isObject(_data[i])) {
       added.push(addObject(_data[i]))
