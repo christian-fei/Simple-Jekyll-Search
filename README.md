@@ -166,6 +166,25 @@ SimpleJekyllSearch({
 
 See the [tests](tests/Templater.test.js) for an in-depth code example
 
+### sortMiddleware (Function) [optional]
+
+A function that will be used to sort the filtered results.
+
+It can be used for example to group the sections together.
+
+Example:
+
+```js
+SimpleJekyllSearch({
+  ...
+  sortMiddleware: function(a, b) {
+    var astr = String(a.section) + "-" + String(a.caption);
+    var bstr = String(b.section) + "-" + String(b.caption);
+    return astr.localeCompare(bstr)
+  }
+  ...
+})
+```
 
 ### noResultsText (String) [optional]
 

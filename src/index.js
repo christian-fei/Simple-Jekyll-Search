@@ -7,6 +7,9 @@
     json: [],
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
     templateMiddleware: function () {},
+    sortMiddleware: function () {
+      return 0
+    },
     noResultsText: 'No results found',
     limit: 10,
     fuzzy: false,
@@ -41,7 +44,8 @@
 
     repository.setOptions({
       fuzzy: options.fuzzy,
-      limit: options.limit
+      limit: options.limit,
+      sort: options.sortMiddleware
     })
 
     if (utils.isJSON(options.json)) {

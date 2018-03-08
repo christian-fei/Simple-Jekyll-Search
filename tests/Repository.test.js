@@ -40,6 +40,15 @@ test('Repository', () => {
     deepEqual(repository.search('almostbar'), [])
   })
 
+  test('excludes items from search', () => {
+    repository.setOptions({
+      sort: (a, b) => {
+        return a.title.localeCompare(b.title)
+      }
+    })
+    deepEqual(repository.search('r'), [almostBarElement, barElement, loremElement])
+  })
+
   beforeEach(() => {
     repository = require('../src/Repository.js')
     repository.put(data)

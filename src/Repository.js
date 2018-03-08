@@ -10,12 +10,17 @@ module.exports = {
 var FuzzySearchStrategy = require('./SearchStrategies/FuzzySearchStrategy')
 var LiteralSearchStrategy = require('./SearchStrategies/LiteralSearchStrategy')
 
+function NoSort() {
+  return 0
+}
+
 var data = []
 var opt = {}
 
 opt.fuzzy = false
 opt.limit = 10
 opt.searchStrategy = opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
+opt.sort = NoSort
 
 function put(data) {
   if (isObject(data)) {
@@ -58,7 +63,7 @@ function search(crit) {
   if (!crit) {
     return []
   }
-  return findMatches(data, crit, opt.searchStrategy, opt)
+  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
 }
 
 function setOptions(_opt) {
@@ -67,6 +72,7 @@ function setOptions(_opt) {
   opt.fuzzy = _opt.fuzzy || false
   opt.limit = _opt.limit || 10
   opt.searchStrategy = _opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
+  opt.sort = _opt.sort || NoSort
 }
 
 function findMatches(data, crit, strategy, opt) {
