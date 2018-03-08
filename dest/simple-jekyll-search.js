@@ -1,6 +1,6 @@
 /*!
   * Simple-Jekyll-Search v1.6.0 (https://github.com/christian-fei/Simple-Jekyll-Search)
-  * Copyright 2015-2017, Christian Fei
+  * Copyright 2015-2018, Christian Fei
   * Licensed under the MIT License.
   */
 
@@ -134,12 +134,17 @@ var _$Repository_4 = {
 /* removed: var _$FuzzySearchStrategy_5 = require('./SearchStrategies/FuzzySearchStrategy') */;
 /* removed: var _$LiteralSearchStrategy_6 = require('./SearchStrategies/LiteralSearchStrategy') */;
 
+function NoSort() {
+  return 0
+}
+
 var data = []
 var opt = {}
 
 opt.fuzzy = false
 opt.limit = 10
 opt.searchStrategy = opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+opt.sort = NoSort
 
 function put(data) {
   if (isObject(data)) {
@@ -182,7 +187,7 @@ function search(crit) {
   if (!crit) {
     return []
   }
-  return findMatches(data, crit, opt.searchStrategy, opt)
+  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
 }
 
 function setOptions(_opt) {
@@ -191,6 +196,7 @@ function setOptions(_opt) {
   opt.fuzzy = _opt.fuzzy || false
   opt.limit = _opt.limit || 10
   opt.searchStrategy = _opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+  opt.sort = _opt.sort || NoSort
 }
 
 function findMatches(data, crit, strategy, opt) {
@@ -295,6 +301,9 @@ var _$src_8 = {};
     json: [],
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
     templateMiddleware: function () {},
+    sortMiddleware: function () {
+      return 0
+    },
     noResultsText: 'No results found',
     limit: 10,
     fuzzy: false,
@@ -329,7 +338,8 @@ var _$src_8 = {};
 
     _$Repository_4.setOptions({
       fuzzy: options.fuzzy,
-      limit: options.limit
+      limit: options.limit,
+      sort: options.sortMiddleware
     })
 
     if (_$utils_9.isJSON(options.json)) {
