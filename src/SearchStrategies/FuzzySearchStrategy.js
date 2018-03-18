@@ -6,6 +6,6 @@ module.exports = new FuzzySearchStrategy()
 
 function FuzzySearchStrategy() {
   this.matches = function (string, crit) {
-    return fuzzysearch(crit, string)
+    return fuzzysearch(crit.toLowerCase(), string.toLowerCase())
   }
 }

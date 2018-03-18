@@ -104,7 +104,7 @@ var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy()
 
 function FuzzySearchStrategy() {
   this.matches = function (string, crit) {
-    return _$fuzzysearch_1(crit, string)
+    return _$fuzzysearch_1(crit.toLowerCase(), string.toLowerCase())
   }
 }
 
