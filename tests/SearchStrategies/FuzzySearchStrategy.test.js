@@ -19,9 +19,9 @@ test('FuzzySearchStrategy', () => {
   })
 
   test('is case insensitive', () => {
-    equal(FuzzySearchStrategy.matches('Different Cases', 'dc', true))
-    equal(FuzzySearchStrategy.matches('UPPERCASE', 'upprcs', true))
-    equal(FuzzySearchStrategy.matches('lowercase', 'lc', true))
-    equal(FuzzySearchStrategy.matches('DiFfErENt cASeS', 'dc', true))
+    equal(FuzzySearchStrategy.matches('Different Cases', 'dc'), true)
+    equal(FuzzySearchStrategy.matches('UPPERCASE', 'upprcs'), true)
+    equal(FuzzySearchStrategy.matches('lowercase', 'lc'), true)
+    equal(FuzzySearchStrategy.matches('DiFfErENt cASeS', 'dc'), true)
   })
 })
