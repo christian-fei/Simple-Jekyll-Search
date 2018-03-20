@@ -7,9 +7,6 @@
     "browserify": "browserify -p browser-pack-flat/plugin src/index.js | node scripts/stamp.js > dest/simple-jekyll-search.js",
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
-    "lint": "xo",
-    "prebuild": "npm run lint",
-    "pretest": "npm run lint",
     "test": "m.test tests/**",
     "testling": "testling",
     "copy-example-code": "shx cp dest/* example/js/",
@@ -38,40 +35,7 @@
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "testling": "^1.7.1",
-    "uglify-js": "^3.2.2",
-    "xo": "^0.18.2"
-  },
-  "xo": {
-    "esnext": false,
-    "ignores": [
-      "dest/**",
-      "example/**"
-    ],
-    "semicolon": false,
-    "space": 2,
-    "rules": {
-      "unicorn/filename-case": "off"
-    },
-    "overrides": [
-      {
-        "files": "src/**",
-        "envs": [
-          "browser"
-        ],
-        "rules": {
-          "unicorn/no-array-instanceof": "off"
-        }
-      },
-      {
-        "files": "tests/**",
-        "esnext": true,
-        "globals": [
-          "test",
-          "afterEach",
-          "beforeEach"
-        ]
-      }
-    ]
+    "uglify-js": "^3.2.2"
   },
   "testling": {
     "files": "src/*.test.js",
