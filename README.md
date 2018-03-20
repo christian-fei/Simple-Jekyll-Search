@@ -81,12 +81,25 @@ For example in  **_layouts/default.html**:
 Customize SimpleJekyllSearch by passing in your configuration options:
 
 ```js
-SimpleJekyllSearch({
+var sjs = SimpleJekyllSearch({
   searchInput: document.getElementById('search-input'),
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json'
 })
+
+/* to trigger search programmatically */
+setTimeout(function () {
+  sjs.search('Hel')
+}, 2000)
 ```
+
+### returns { search }
+
+A new instance of SimpleJekyllSearch returns an object, with the only property `search`.
+
+`search` is a function used to simulate a user input and display the matching results. 
+
+💡 it can be used to filter posts by tags or categories!
 
 ### searchInput (Element) [required]
 
