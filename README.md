@@ -60,7 +60,18 @@ layout: null
 ```
 
 
-### Using the plugin
+## Preparing the plugin
+
+### Add DOM elements
+
+SimpleJekyllSearch needs two `DOM` elements to work:
+
+- a search input field
+- a result container to display the results
+
+#### Give me the code
+
+Here is the code you can use with the default configuration:
 
 You need to place the following code within the layout where you want the search to appear. (See the configuration section below to customize it)
 
@@ -73,10 +84,13 @@ For example in  **_layouts/default.html**:
 
 <!-- script pointing to jekyll-search.js -->
 <script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
+
+<!-- or -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
 ```
 
 
-## Configuration
+## Usage
 
 Customize SimpleJekyllSearch by passing in your configuration options:
 
@@ -86,11 +100,6 @@ var sjs = SimpleJekyllSearch({
   resultsContainer: document.getElementById('results-container'),
   json: '/search.json'
 })
-
-/* to trigger search programmatically */
-setTimeout(function () {
-  sjs.search('Hel')
-}, 2000)
 ```
 
 ### returns { search }
@@ -99,8 +108,16 @@ A new instance of SimpleJekyllSearch returns an object, with the only property `
 
 `search` is a function used to simulate a user input and display the matching results. 
 
+E.g.:
+
+```
+var sjs = SimpleJekyllSearch({ ...options })
+sjs.search('Hello')
+```
+
 💡 it can be used to filter posts by tags or categories!
 
+## Options
 ### searchInput (Element) [required]
 
 The input element on which the plugin should listen for keyboard event and trigger the searching and rendering for articles.
