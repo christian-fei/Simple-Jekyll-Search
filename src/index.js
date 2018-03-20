@@ -99,6 +99,7 @@
 
   function search(query) {
     if (isValidQuery(query)) {
+      emptyResultsContainer()
       render(repository.search(query))
     }
   }
