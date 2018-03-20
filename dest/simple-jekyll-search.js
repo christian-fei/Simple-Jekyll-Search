@@ -394,6 +394,7 @@ var _$src_8 = {};
 
   function search(query) {
     if (isValidQuery(query)) {
+      emptyResultsContainer()
       render(_$Repository_4.search(query))
     }
   }
