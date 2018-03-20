@@ -4,6 +4,7 @@
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/simple-jekyll-search.js",
   "scripts": {
+    "cypress": "cypress",
     "browserify": "browserify -p browser-pack-flat/plugin src/index.js | node scripts/stamp.js > dest/simple-jekyll-search.js",
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "browser-pack-flat": "^3.0.5",
     "browserify": "^14.5.0",
+    "cypress": "^2.1.0",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "testling": "^1.7.1",
