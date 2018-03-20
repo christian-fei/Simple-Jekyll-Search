@@ -38,7 +38,7 @@ bower install --save simple-jekyll-search
 
 ### Create `search.json`
 
-Place the following code in a file called `search.json` in the **root** of your Jekyll blog.
+Place the following code in a file called `search.json` in the **root** of your Jekyll blog. (You can also get a copy [from here](/example/search.json))
 
 This file will be used as a small data source to perform the searches on the client side:
 
@@ -68,10 +68,8 @@ For example in  **_layouts/default.html**:
 
 ```html
 <!-- HTML elements for search -->
-<div id="search-container">
-  <input type="text" id="search-input" placeholder="search...">
-  <ul id="results-container"></ul>
-</div>
+<input type="text" id="search-input" placeholder="search...">
+<ul id="results-container"></ul>
 
 <!-- script pointing to jekyll-search.js -->
 <script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
