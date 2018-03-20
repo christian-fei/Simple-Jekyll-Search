@@ -68,7 +68,7 @@ For example in  **_layouts/default.html**:
 
 ```html
 <!-- HTML elements for search -->
-<input type="text" id="search-input" placeholder="search...">
+<input type="text" id="search-input" placeholder="Search blog posts..">
 <ul id="results-container"></ul>
 
 <!-- script pointing to jekyll-search.js -->
