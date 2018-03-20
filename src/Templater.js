@@ -10,7 +10,7 @@ options.pattern = /\{(.*?)\}/g
 options.template = ''
 options.middleware = function () {}
 
-function setOptions(_options) {
+function setOptions (_options) {
   options.pattern = _options.pattern || options.pattern
   options.template = _options.template || options.template
   if (typeof _options.middleware === 'function') {
@@ -18,7 +18,7 @@ function setOptions(_options) {
   }
 }
 
-function compile(data) {
+function compile (data) {
   return options.template.replace(options.pattern, function (match, prop) {
     var value = options.middleware(prop, data[prop], options.template)
     if (typeof value !== 'undefined') {

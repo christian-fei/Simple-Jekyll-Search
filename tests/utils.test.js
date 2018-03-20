@@ -1,4 +1,5 @@
 'use strict'
+/* globals test */
 
 const {equal, ok} = require('assert')
 

@@ -2,7 +2,7 @@
 
 module.exports = new LiteralSearchStrategy()
 
-function LiteralSearchStrategy() {
+function LiteralSearchStrategy () {
   this.matches = function (str, crit) {
     if (typeof str !== 'string') {
       return false

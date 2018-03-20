@@ -5,6 +5,10 @@
   "main": "dest/simple-jekyll-search.js",
   "scripts": {
     "cypress": "cypress",
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "prebuild": "npm run test",
+    "postbuild": "npm run copy-example-code",
     "browserify": "browserify -p browser-pack-flat/plugin src/index.js | node scripts/stamp.js > dest/simple-jekyll-search.js",
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
@@ -36,6 +40,7 @@
     "cypress": "^2.1.0",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
+    "standard": "^11.0.1",
     "testling": "^1.7.1",
     "uglify-js": "^3.3.16"
   },
@@ -54,5 +59,12 @@
   },
   "engines": {
     "node": ">=6.0"
+  },
+  "standard": {
+    "ignore": [
+      "cypress/**",
+      "example/**",
+      "dest/**"
+    ]
   }
 }

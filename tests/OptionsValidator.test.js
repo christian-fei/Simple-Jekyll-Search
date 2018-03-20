@@ -1,4 +1,5 @@
 'use strict'
+/* globals test */
 
 const {equal} = require('assert')
 const OptionsValidator = require('../src/OptionsValidator.js')

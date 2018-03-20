@@ -1,4 +1,5 @@
 'use strict'
+/* globals test beforeEach */
 
 const {equal} = require('assert')
 
@@ -35,7 +36,7 @@ test('Templater', () => {
     test('middleware gets parameter to return new replacement', () => {
       templater.setOptions({
         template: '{foo} - {bar}',
-        middleware(prop, value) {
+        middleware (prop, value) {
           if (prop === 'bar') {
             return value.replace(/^\//, '')
           }

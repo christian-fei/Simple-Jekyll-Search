@@ -1,4 +1,5 @@
 'use strict'
+/* globals test beforeEach afterEach */
 
 const {deepEqual} = require('assert')
 

@@ -6,14 +6,14 @@ module.exports = {
   load: load
 }
 
-function load(location, callback) {
+function load (location, callback) {
   var xhr = getXHR()
   xhr.open('GET', location, true)
   xhr.onreadystatechange = createStateChangeListener(xhr, callback)
   xhr.send()
 }
 
-function createStateChangeListener(xhr, callback) {
+function createStateChangeListener (xhr, callback) {
   return function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       try {
@@ -25,6 +25,6 @@ function createStateChangeListener(xhr, callback) {
   }
 }
 
-function getXHR() {
-  return window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+function getXHR () {
+  return window.XMLHttpRequest ? new window.XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
 }

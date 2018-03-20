@@ -1,4 +1,5 @@
 'use strict'
+/* globals test */
 
 const {equal} = require('assert')
 const FuzzySearchStrategy = require('../../src/SearchStrategies/FuzzySearchStrategy')
