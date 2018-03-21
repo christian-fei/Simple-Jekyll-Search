@@ -34,10 +34,12 @@
   "dependencies": {
     "fuzzysearch": "^1.0.3"
   },
+  "optionalDependencies": {
+    "cypress": "^2.1.0"
+  },
   "devDependencies": {
     "browser-pack-flat": "^3.0.8",
     "browserify": "^16.1.1",
-    "cypress": "^2.1.0",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "standard": "^11.0.1",

@@ -5,6 +5,9 @@ sudo: false
 node_js:
   - "8"
 
+install:
+  - npm i --no-optional
+
 deploy:
   provider: npm
   email: crifei93@gmail.com
