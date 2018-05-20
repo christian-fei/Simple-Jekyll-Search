@@ -27,13 +27,6 @@ Just 5 minutes to have a fully working searchable blog.
 npm install simple-jekyll-search
 ```
 
-### bower
-
-```sh
-bower install --save simple-jekyll-search
-```
-
-
 ## Getting started
 
 ### Create `search.json`
