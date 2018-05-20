@@ -1,5 +1,5 @@
 /*!
-  * Simple-Jekyll-Search v1.6.2 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Simple-Jekyll-Search v1.6.3 (https://github.com/christian-fei/Simple-Jekyll-Search)
   * Copyright 2015-2018, Christian Fei
   * Licensed under the MIT License.
   */
@@ -300,8 +300,9 @@ var _$src_8 = {};
     searchInput: null,
     resultsContainer: null,
     json: [],
+    success: Function.prototype,
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-    templateMiddleware: function () {},
+    templateMiddleware: Function.prototype,
     sortMiddleware: function () {
       return 0
     },
@@ -362,6 +363,7 @@ var _$src_8 = {};
   }
 
   function initWithJSON (json) {
+    options.success(json)
     _$Repository_4.put(json)
     registerInput()
   }

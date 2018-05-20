@@ -5,8 +5,9 @@
     searchInput: null,
     resultsContainer: null,
     json: [],
+    success: Function.prototype,
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-    templateMiddleware: function () {},
+    templateMiddleware: Function.prototype,
     sortMiddleware: function () {
       return 0
     },
@@ -67,6 +68,7 @@
   }
 
   function initWithJSON (json) {
+    options.success(json)
     repository.put(json)
     registerInput()
   }
