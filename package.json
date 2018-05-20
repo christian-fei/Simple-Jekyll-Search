@@ -38,13 +38,13 @@
     "cypress": "^2.1.0"
   },
   "devDependencies": {
-    "browser-pack-flat": "^3.0.8",
-    "browserify": "^16.1.1",
+    "browser-pack-flat": "^3.0.9",
+    "browserify": "^16.2.2",
     "m.test": "^0.0.57",
     "shx": "^0.2.2",
     "standard": "^11.0.1",
     "testling": "^1.7.1",
-    "uglify-js": "^3.3.16"
+    "uglify-js": "^3.3.25"
   },
   "testling": {
     "files": "src/*.test.js",
