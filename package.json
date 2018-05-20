@@ -13,8 +13,7 @@
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
     "test": "m.test tests/**",
-    "testling": "testling",
-    "copy-example-code": "shx cp dest/* example/js/",
+    "copy-example-code": "cp dest/* example/js/",
     "uglify": "uglifyjs --compress --mangle --ie8 --comments \"/^/*!/\" --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
   },
   "repository": {
@@ -41,23 +40,8 @@
     "browser-pack-flat": "^3.0.9",
     "browserify": "^16.2.2",
     "m.test": "^0.0.57",
-    "shx": "^0.2.2",
     "standard": "^11.0.1",
-    "testling": "^1.7.1",
     "uglify-js": "^3.3.25"
-  },
-  "testling": {
-    "files": "src/*.test.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/22..latest",
-      "firefox/16..latest",
-      "safari/latest",
-      "opera/11.0..latest",
-      "iphone/6",
-      "ipad/6",
-      "android-browser/latest"
-    ]
   },
   "engines": {
     "node": ">=8.0"
