@@ -8,6 +8,18 @@ A JavaScript library to add search functionality to any Jekyll blog.
 
 🚀 Check it out [on my website](https://christianfei.com/posts) and [read this guide](https://christianfei.com/posts/Use-Simple-Jekyll-Search-on-your-blog-in-these-easy-steps/) 📖 to get started!
 
+---
+
+### Promotion: [cryptosheet.cc](https://cryptosheet.cc)
+
+Cryptosheet is a service that gathers your **cryptocurrency transaction history, account balances and tickers** and then writes them to **your spreadsheet**! 📋
+
+**Never lose track** of past transaction and how much crypto you have in your various wallets!
+
+
+---
+
+
 ## Use case
 
 You have a blog, built with Jekyll, and want a lightweight search functionality on your blog, purely client-side?
