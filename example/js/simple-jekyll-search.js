@@ -271,11 +271,9 @@ var _$utils_9 = {
 function merge (defaultParams, mergeParams) {
   var mergedOptions = {}
   for (var option in defaultParams) {
-    if (Object.prototype.hasOwnProperty.call(defaultParams, option)) {
       mergedOptions[option] = defaultParams[option]
       if (typeof mergeParams[option] !== 'undefined') {
         mergedOptions[option] = mergeParams[option]
-      }
     }
   }
   return mergedOptions
@@ -357,10 +355,6 @@ var _$src_8 = {};
 
   // For backwards compatibility
   window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
-
-  if (typeof window.SimpleJekyllSearchInit === 'function') {
-    window.SimpleJekyllSearchInit.call(this, window.SimpleJekyllSearch)
-  }
 
   function initWithJSON (json) {
     options.success(json)

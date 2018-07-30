@@ -63,10 +63,6 @@
   // For backwards compatibility
   window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
 
-  if (typeof window.SimpleJekyllSearchInit === 'function') {
-    window.SimpleJekyllSearchInit.call(this, window.SimpleJekyllSearch)
-  }
-
   function initWithJSON (json) {
     options.success(json)
     repository.put(json)

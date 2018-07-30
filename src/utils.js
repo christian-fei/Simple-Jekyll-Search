@@ -8,13 +8,11 @@ module.exports = {
 function merge (defaultParams, mergeParams) {
   var mergedOptions = {}
   for (var option in defaultParams) {
-    if (Object.prototype.hasOwnProperty.call(defaultParams, option)) {
       mergedOptions[option] = defaultParams[option]
       if (typeof mergeParams[option] !== 'undefined') {
         mergedOptions[option] = mergeParams[option]
       }
     }
-  }
   return mergedOptions
 }
 
