@@ -118,7 +118,16 @@ function LiteralSearchStrategy () {
       return false
     }
     str = str.trim()
-    return str.toLowerCase().indexOf(crit.toLowerCase()) >= 0
+    
+    var search = crit.split(" ")
+    var match = true
+    for (var i = 0; i < search.length; i++) {
+        if(str.toLowerCase().indexOf(search[i].toLowerCase()) == -1) { 
+            match = false
+        }
+    }
+
+    return match
   }
 }
 
