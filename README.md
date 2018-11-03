@@ -10,14 +10,13 @@ A JavaScript library to add search functionality to any Jekyll blog.
 
 ## Use case
 
-You have a blog, built with Jekyll, and want a lightweight search functionality on your blog, purely client-side?
+You have a blog, built with Jekyll, and want a **lightweight search functionality** on your blog, purely client-side?
 
-No server configurations or databases to maintain.
+*No server configurations or databases to maintain*.
 
-Just 5 minutes to have a fully working searchable blog.
+Just **5 minutes** to have a **fully working searchable blog**.
 
 ---
-
 
 ## Installation
 
@@ -131,7 +130,7 @@ cd example; jekyll serve
 
 # in another tab
 
-npm run cypress
+npm run cypress -- run
 ```
 
 ## Contributors
