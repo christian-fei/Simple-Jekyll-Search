@@ -5,8 +5,7 @@ node_js:
 script:
   - npm i
   - npm t
-  - cd example && bundle install && bundle exec jekyll serve &
-  - cd ..
+  - (cd example; bundle install; bundle exec jekyll serve &)
   - npm run cypress run
 
 deploy:
