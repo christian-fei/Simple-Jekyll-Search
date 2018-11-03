@@ -6,7 +6,7 @@
 
 A JavaScript library to add search functionality to any Jekyll blog.
 
-🚀 Check it out [on my website](https://christianfei.com/posts) and [read this guide](https://christianfei.com/posts/Use-Simple-Jekyll-Search-on-your-blog-in-these-easy-steps/) 📖 to get started!
+🚀 [Read this guide](https://christianfei.com/posts/Use-Simple-Jekyll-Search-on-your-blog-in-these-easy-steps/) 📖 to get started!
 
 ---
 
