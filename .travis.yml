@@ -3,7 +3,7 @@ node_js:
   - "8"
 
 script:
-  - npm i
+  - npm i --no-optional
   - npm t
 
 deploy:
