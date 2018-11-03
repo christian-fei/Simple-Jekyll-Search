@@ -1,6 +1,6 @@
 {
   "name": "simple-jekyll-search",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Simple Jekyll site search using javascript and json",
   "main": "dest/simple-jekyll-search.js",
   "scripts": {
