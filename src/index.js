@@ -27,9 +27,6 @@
   })
   var utils = require('./utils')
 
-  /*
-    Public API
-  */
   window.SimpleJekyllSearch = function (_options) {
     var errors = optionsValidator.validate(_options)
     if (errors.length > 0) {
@@ -59,9 +56,6 @@
       search: search
     }
   }
-
-  // For backwards compatibility
-  window.SimpleJekyllSearch.init = window.SimpleJekyllSearch
 
   function initWithJSON (json) {
     options.success(json)
