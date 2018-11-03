@@ -4,10 +4,11 @@ module.exports = new LiteralSearchStrategy()
 
 function LiteralSearchStrategy () {
   this.matches = function (str, crit) {
-    if (typeof str !== 'string') {
-      return false
-    }
-    str = str.trim()
-    return str.toLowerCase().indexOf(crit.toLowerCase()) >= 0
+    if (!str) return false
+
+    str = str.trim().toLowerCase()
+    crit = crit.toLowerCase()
+
+    return crit.split(' ').filter(word => str.indexOf(word) >= 0).length > 0
   }
 }
