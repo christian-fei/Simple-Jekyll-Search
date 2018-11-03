@@ -3,6 +3,7 @@ node_js:
   - "8"
 
 install:
+  - npm i
   - npm t
   - cd example && bundle install && bundle exec jekyll serve &
   - cd ..
