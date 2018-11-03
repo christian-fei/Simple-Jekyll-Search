@@ -1,15 +1,16 @@
 language: node_js
-
-sudo: false
-
 node_js:
   - "8"
 
 install:
-  - npm i --no-optional
+  - npm t
+  - cd example && bundle install && bundle exec jekyll serve &
+  - cd ..
+  - npm run cypress run
 
 deploy:
   provider: npm
   email: crifei93@gmail.com
-  api_key:
-    secure: JQwJYppw11Gmu6Pcp5Pcl1HAX4S6g4ib/voLFI4IT9n1KRhzjXR03UufU61T7wybRAkTg2IfUi/T7IFB7Ey8c3U7jqK1LZBuGMMYGNgygzwClGaLrKlKshKnFGYRfB6UOHBV5zFGB0mtDxtiZohtdT9d/jWom6V4DpvAFUjwS0Y=
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
