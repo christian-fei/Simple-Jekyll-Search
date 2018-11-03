@@ -9,6 +9,8 @@ function LiteralSearchStrategy () {
     str = str.trim().toLowerCase()
     crit = crit.toLowerCase()
 
-    return crit.split(' ').filter(word => str.indexOf(word) >= 0).length > 0
+    return crit.split(' ').filter(function (word) {
+      return str.indexOf(word) >= 0
+    }).length > 0
   }
 }
