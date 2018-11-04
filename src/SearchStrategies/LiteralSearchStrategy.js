@@ -7,7 +7,7 @@ function LiteralSearchStrategy () {
     if (!str) return false
 
     str = str.trim().toLowerCase()
-    crit = crit.toLowerCase()
+    crit = crit.trim().toLowerCase()
 
     return crit.split(' ').filter(function (word) {
       return str.indexOf(word) >= 0
