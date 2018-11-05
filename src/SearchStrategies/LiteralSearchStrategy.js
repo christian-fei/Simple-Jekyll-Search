@@ -11,6 +11,6 @@ function LiteralSearchStrategy () {
 
     return crit.split(' ').filter(function (word) {
       return str.indexOf(word) >= 0
-    }).length == crit.split(' ').length
+    }).length === crit.split(' ').length
   }
 }
