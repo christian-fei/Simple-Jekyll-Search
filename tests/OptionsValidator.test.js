@@ -1,7 +1,7 @@
 'use strict'
 /* globals test */
 
-const {equal} = require('assert')
+const { strictEqual } = require('assert')
 const OptionsValidator = require('../src/OptionsValidator.js')
 
 test('OptionsValidator', () => {
@@ -11,7 +11,7 @@ test('OptionsValidator', () => {
       required: requiredOptions
     })
 
-    equal(optionsValidator.getRequiredOptions(), requiredOptions)
+    strictEqual(optionsValidator.getRequiredOptions(), requiredOptions)
   })
 
   test('#validate', () => {
@@ -26,7 +26,7 @@ test('OptionsValidator', () => {
         bar: ''
       })
 
-      equal(errors.length, 0)
+      strictEqual(errors.length, 0)
     })
     test('returns array with errors for invalid options', () => {
       const requiredOptions = ['foo', 'bar']
@@ -38,7 +38,7 @@ test('OptionsValidator', () => {
         foo: ''
       })
 
-      equal(errors.length, 1)
+      strictEqual(errors.length, 1)
     })
   })
 })

@@ -1,11 +1,12 @@
 'use strict'
 /* globals test beforeEach afterEach */
+/* eslint-disable node/no-deprecated-api */
 
-const {deepEqual} = require('assert')
+const { deepEqual } = require('assert')
 
-const barElement = {title: 'bar', content: 'bar'}
-const almostBarElement = {title: 'almostbar', content: 'almostbar'}
-const loremElement = {title: 'lorem', content: 'lorem ipsum'}
+const barElement = { title: 'bar', content: 'bar' }
+const almostBarElement = { title: 'almostbar', content: 'almostbar' }
+const loremElement = { title: 'lorem', content: 'lorem ipsum' }
 
 const data = [barElement, almostBarElement, loremElement]
 
@@ -17,7 +18,7 @@ test('Repository', () => {
   })
 
   test('limits the search results to one even if found more', () => {
-    repository.setOptions({limit: 1})
+    repository.setOptions({ limit: 1 })
     deepEqual(repository.search('bar'), [barElement])
   })
 
@@ -26,7 +27,7 @@ test('Repository', () => {
   })
 
   test('finds a fuzzy string', () => {
-    repository.setOptions({fuzzy: true})
+    repository.setOptions({ fuzzy: true })
     deepEqual(repository.search('lrm ism'), [loremElement])
   })
 

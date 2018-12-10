@@ -1,19 +1,19 @@
 'use strict'
 /* globals test beforeEach */
 
-const {equal} = require('assert')
+const { strictEqual } = require('assert')
 
 test('Templater', () => {
   let templater
 
   test('renders the template with the provided data', () => {
-    equal(templater.compile({foo: 'bar'}), 'bar')
+    strictEqual(templater.compile({ foo: 'bar' }), 'bar')
 
     templater.setOptions({
       template: '<a href="{url}">url</a>'
     })
 
-    equal(templater.compile({url: 'http://google.com'}), '<a href="http://google.com">url</a>')
+    strictEqual(templater.compile({ url: 'http://google.com' }), '<a href="http://google.com">url</a>')
   })
 
   test('replaces not found properties with the original pattern', () => {
@@ -21,7 +21,7 @@ test('Templater', () => {
     templater.setOptions({
       template
     })
-    equal(templater.compile({x: 'bar'}), template)
+    strictEqual(templater.compile({ x: 'bar' }), template)
   })
 
   test('allows custom patterns to be set', () => {
@@ -29,7 +29,7 @@ test('Templater', () => {
       template: '{{foo}}',
       pattern: /\{\{(.*?)\}\}/g
     })
-    equal(templater.compile({foo: 'bar'}), 'bar')
+    strictEqual(templater.compile({ foo: 'bar' }), 'bar')
   })
 
   test('middleware', () => {
@@ -43,9 +43,9 @@ test('Templater', () => {
         }
       })
 
-      const compiled = templater.compile({foo: 'foo', bar: '/leading/slash'})
+      const compiled = templater.compile({ foo: 'foo', bar: '/leading/slash' })
 
-      equal(compiled, 'foo - leading/slash')
+      strictEqual(compiled, 'foo - leading/slash')
     })
   })
 

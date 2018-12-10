@@ -1,28 +1,28 @@
 'use strict'
 /* globals test */
 
-const {equal} = require('assert')
+const { strictEqual } = require('assert')
 const FuzzySearchStrategy = require('../../src/SearchStrategies/FuzzySearchStrategy')
 
 test('FuzzySearchStrategy', () => {
   test('does not match words that don\'t contain the search criteria', () => {
-    equal(FuzzySearchStrategy.matches('fuzzy', 'fzyyy'), false)
-    equal(FuzzySearchStrategy.matches('react', 'angular'), false)
+    strictEqual(FuzzySearchStrategy.matches('fuzzy', 'fzyyy'), false)
+    strictEqual(FuzzySearchStrategy.matches('react', 'angular'), false)
 
-    equal(FuzzySearchStrategy.matches('what the heck', 'wth?'), false)
+    strictEqual(FuzzySearchStrategy.matches('what the heck', 'wth?'), false)
   })
 
   test('matches words containing the search criteria', () => {
-    equal(FuzzySearchStrategy.matches('fuzzy', 'fzy'), true)
-    equal(FuzzySearchStrategy.matches('react', 'rct'), true)
+    strictEqual(FuzzySearchStrategy.matches('fuzzy', 'fzy'), true)
+    strictEqual(FuzzySearchStrategy.matches('react', 'rct'), true)
 
-    equal(FuzzySearchStrategy.matches('what the heck', 'wth'), true)
+    strictEqual(FuzzySearchStrategy.matches('what the heck', 'wth'), true)
   })
 
   test('is case insensitive', () => {
-    equal(FuzzySearchStrategy.matches('Different Cases', 'dc'), true)
-    equal(FuzzySearchStrategy.matches('UPPERCASE', 'upprcs'), true)
-    equal(FuzzySearchStrategy.matches('lowercase', 'lc'), true)
-    equal(FuzzySearchStrategy.matches('DiFfErENt cASeS', 'dc'), true)
+    strictEqual(FuzzySearchStrategy.matches('Different Cases', 'dc'), true)
+    strictEqual(FuzzySearchStrategy.matches('UPPERCASE', 'upprcs'), true)
+    strictEqual(FuzzySearchStrategy.matches('lowercase', 'lc'), true)
+    strictEqual(FuzzySearchStrategy.matches('DiFfErENt cASeS', 'dc'), true)
   })
 })
