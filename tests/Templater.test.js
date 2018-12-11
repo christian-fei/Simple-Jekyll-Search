@@ -16,6 +16,16 @@ test('Templater', () => {
     strictEqual(templater.compile({ url: 'http://google.com' }), '<a href="http://google.com">url</a>')
   })
 
+  test('renders the template with the provided data and query', () => {
+    strictEqual(templater.compile({ foo: 'bar' }), 'bar')
+
+    templater.setOptions({
+      template: '<a href="{url}?query={query}">url</a>'
+    })
+
+    strictEqual(templater.compile({ url: 'http://google.com', query: 'bar' }), '<a href="http://google.com?query=bar">url</a>')
+  })
+
   test('replaces not found properties with the original pattern', () => {
     const template = '{foo}'
     templater.setOptions({

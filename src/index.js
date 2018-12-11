@@ -92,16 +92,17 @@
   function search (query) {
     if (isValidQuery(query)) {
       emptyResultsContainer()
-      render(repository.search(query))
+      render(repository.search(query), query)
     }
   }
 
-  function render (results) {
+  function render (results, query) {
     var len = results.length
     if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < len; i++) {
+      results[i].query = query
       appendToResultsContainer(templater.compile(results[i]))
     }
   }
