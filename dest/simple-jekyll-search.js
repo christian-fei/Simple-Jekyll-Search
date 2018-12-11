@@ -1,5 +1,5 @@
 /*!
-  * Simple-Jekyll-Search v1.7.1 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Simple-Jekyll-Search v1.7.2 (https://github.com/christian-fei/Simple-Jekyll-Search)
   * Copyright 2015-2018, Christian Fei
   * Licensed under the MIT License.
   */
@@ -117,11 +117,11 @@ function LiteralSearchStrategy () {
     if (!str) return false
 
     str = str.trim().toLowerCase()
-    crit = crit.toLowerCase()
+    crit = crit.trim().toLowerCase()
 
     return crit.split(' ').filter(function (word) {
       return str.indexOf(word) >= 0
-    }).length > 0
+    }).length === crit.split(' ').length
   }
 }
 
@@ -388,16 +388,17 @@ var _$src_8 = {};
   function search (query) {
     if (isValidQuery(query)) {
       emptyResultsContainer()
-      render(_$Repository_4.search(query))
+      render(_$Repository_4.search(query), query)
     }
   }
 
-  function render (results) {
+  function render (results, query) {
     var len = results.length
     if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < len; i++) {
+      results[i].query = query
       appendToResultsContainer(_$Templater_7.compile(results[i]))
     }
   }
