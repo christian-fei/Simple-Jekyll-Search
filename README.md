@@ -75,7 +75,7 @@ For example in  **_layouts/default.html**:
 <ul id="results-container"></ul>
 
 <!-- script pointing to jekyll-search.js -->
-<script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
+<script src="{{ site.baseurl }}/node_modules/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
 
 <!-- or -->
 <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
@@ -84,7 +84,7 @@ For example in  **_layouts/default.html**:
 
 ## Usage
 
-Customize SimpleJekyllSearch by passing in your configuration options:
+Somewhere in your page run SimpleJekyllSearch by passing in your configuration options (this can be in script tag for example):
 
 ```js
 var sjs = SimpleJekyllSearch({
