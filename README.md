@@ -75,8 +75,8 @@ For example in  **_layouts/default.html**:
 <!-- script pointing to jekyll-search.js -->
 <script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
 
-<!-- or -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- or without installing anything -->
+<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
 ```
 
 
