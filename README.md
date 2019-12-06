@@ -72,9 +72,6 @@ For example in  **_layouts/default.html**:
 <input type="text" id="search-input" placeholder="Search blog posts..">
 <ul id="results-container"></ul>
 
-<!-- script pointing to jekyll-search.js -->
-<script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
-
 <!-- or without installing anything -->
 <script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
 ```
