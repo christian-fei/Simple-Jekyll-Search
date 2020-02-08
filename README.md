@@ -142,3 +142,7 @@ Thanks to all [contributors](https://github.com/christian-fei/Simple-Jekyll-Sear
 [@kremalicious](https://github.com/kremalicious)
 [@tibotiber](https://github.com/tibotiber)
 and many others!
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/christian-fei/Simple-Jekyll-Search.svg)](https://starchart.cc/christian-fei/Simple-Jekyll-Search)
