@@ -27,7 +27,7 @@
   })
   var utils = require('./utils')
 
-  window.SimpleJekyllSearch = function (_options) {
+  var simpleJekyllSearch = function (_options) {
     var errors = optionsValidator.validate(_options)
     if (errors.length > 0) {
       throwError('You must specify the following required options: ' + requiredOptions)
@@ -57,8 +57,13 @@
     }
   }
 
+  window.SimpleJekyllSearch = function (_options) {
+    var search = simpleJekyllSearch(_options)
+    _options.success.call(search)
+    return search
+  }
+
   function initWithJSON (json) {
-    options.success(json)
     repository.put(json)
     registerInput()
   }
