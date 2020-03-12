@@ -16,6 +16,10 @@ Just **5 minutes** to have a **fully working searchable blog**.
 
 ---
 
+## Wiki
+
+**Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki) for all available options and help for troubleshooting**
+
 ## Installation
 
 ### npm
@@ -108,9 +112,6 @@ sjs.search('Hello')
 
 Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki#options) for the options!
 
-## Wiki
-
-Check out the [wiki](https://github.com/christian-fei/Simple-Jekyll-Search/wiki) for general discussions.
 
 
 ## Development
