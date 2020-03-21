@@ -37,7 +37,6 @@
     "cypress": "^2.1.0"
   },
   "devDependencies": {
-    "browser-pack-flat": "^3.4.2",
     "browserify": "^16.5.0",
     "m.test": "0.0.58",
     "standard": "^14.3.3",
