@@ -1,5 +1,5 @@
 /*!
-  * Simple-Jekyll-Search v1.7.7 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Simple-Jekyll-Search v1.7.8 (https://github.com/christian-fei/Simple-Jekyll-Search)
   * Copyright 2015-2020, Christian Fei
   * Licensed under the MIT License.
   */
