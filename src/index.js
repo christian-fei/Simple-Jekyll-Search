@@ -55,7 +55,7 @@
     var rv = {
       search: search
     }
-    
+
     options.success.call(rv)
     return rv
   }
