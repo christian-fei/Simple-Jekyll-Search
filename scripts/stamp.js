@@ -4,14 +4,11 @@
 
 'use strict'
 
-const path = require('path')
-
-const pkg = require(path.resolve('package.json'))
 const year = new Date().getFullYear()
 
 const stampTop =
 `/*!
-  * Simple-Jekyll-Search v${pkg.version} (${pkg.homepage})
+  * Simple-Jekyll-Search
   * Copyright 2015-${year}, Christian Fei
   * Licensed under the MIT License.
   */
