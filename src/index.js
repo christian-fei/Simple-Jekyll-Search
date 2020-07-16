@@ -83,7 +83,7 @@
   }
 
   function registerInput () {
-    options.searchInput.addEventListener('keyup', function (e) {
+    options.searchInput.addEventListener('input', function (e) {
       if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
         search(e.target.value)
