@@ -1,5 +1,5 @@
 /*!
-  * Simple-Jekyll-Search v1.7.8 (https://github.com/christian-fei/Simple-Jekyll-Search)
+  * Simple-Jekyll-Search
   * Copyright 2015-2020, Christian Fei
   * Licensed under the MIT License.
   */
@@ -323,7 +323,7 @@ var _$src_8 = {};
   })
   /* removed: var _$utils_9 = require('./utils') */;
 
-  var simpleJekyllSearch = function (_options) {
+  window.SimpleJekyllSearch = function (_options) {
     var errors = optionsValidator.validate(_options)
     if (errors.length > 0) {
       throwError('You must specify the following required options: ' + requiredOptions)
@@ -348,15 +348,12 @@ var _$src_8 = {};
       initWithURL(options.json)
     }
 
-    return {
+    var rv = {
       search: search
     }
-  }
 
-  window.SimpleJekyllSearch = function (_options) {
-    var search = simpleJekyllSearch(_options)
-    _options.success.call(search)
-    return search
+    typeof options.success === 'function' && options.success.call(rv)
+    return rv
   }
 
   function initWithJSON (json) {
@@ -382,7 +379,7 @@ var _$src_8 = {};
   }
 
   function registerInput () {
-    options.searchInput.addEventListener('keyup', function (e) {
+    options.searchInput.addEventListener('input', function (e) {
       if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
         search(e.target.value)
