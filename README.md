@@ -77,7 +77,7 @@ For example in  **_layouts/default.html**:
 <ul id="results-container"></ul>
 
 <!-- or without installing anything -->
-<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 ```
 
 
