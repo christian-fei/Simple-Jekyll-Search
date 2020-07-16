@@ -4,6 +4,7 @@ node_js:
 
 script:
   - npm i --no-optional
+  - git checkout .
   - npm t
 
 deploy:
