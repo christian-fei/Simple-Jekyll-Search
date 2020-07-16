@@ -56,7 +56,7 @@
       search: search
     }
 
-    options.success.call(rv)
+    typeof options.success === 'function' && options.success.call(rv)
     return rv
   }
 
