@@ -15,6 +15,8 @@ You have a blog, built with Jekyll, and want a **lightweight search functionalit
 
 Just **5 minutes** to have a **fully working searchable blog**.
 
+[![Get paid support on xscode](https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/xscode.png)](https://xscode.com/christian-fei/Simple-Jekyll-Search)
+
 ---
 
 ## Wiki
