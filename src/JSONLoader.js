@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function load (location, callback) {
-  var xhr = getXHR()
+  const xhr = getXHR()
   xhr.open('GET', location, true)
   xhr.onreadystatechange = createStateChangeListener(xhr, callback)
   xhr.send()

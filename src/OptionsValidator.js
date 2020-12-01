@@ -9,14 +9,14 @@ module.exports = function OptionsValidator (params) {
     return new OptionsValidator(params)
   }
 
-  var requiredOptions = params.required
+  const requiredOptions = params.required
 
   this.getRequiredOptions = function () {
     return requiredOptions
   }
 
   this.validate = function (parameters) {
-    var errors = []
+    const errors = []
     requiredOptions.forEach(function (requiredOptionName) {
       if (typeof parameters[requiredOptionName] === 'undefined') {
         errors.push(requiredOptionName)

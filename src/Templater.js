@@ -5,7 +5,7 @@ module.exports = {
   setOptions: setOptions
 }
 
-var options = {}
+const options = {}
 options.pattern = /\{(.*?)\}/g
 options.template = ''
 options.middleware = function () {}
@@ -20,7 +20,7 @@ function setOptions (_options) {
 
 function compile (data) {
   return options.template.replace(options.pattern, function (match, prop) {
-    var value = options.middleware(prop, data[prop], options.template)
+    const value = options.middleware(prop, data[prop], options.template)
     if (typeof value !== 'undefined') {
       return value
     }

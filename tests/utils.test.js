@@ -1,25 +1,15 @@
-'use strict'
-/* globals test */
+const test = require('ava')
+const utils = require('../src/utils')
 
-const { strictEqual, ok } = require('assert')
+test('merges objects', t => {
+  const defaultOptions = { foo: '', bar: '' }
+  const options = { bar: 'overwritten' }
+  const mergedOptions = utils.merge(defaultOptions, options)
 
-test('utils', () => {
-  const utils = require('../src/utils')
+  t.deepEqual(mergedOptions.foo, defaultOptions.foo)
+  t.deepEqual(mergedOptions.bar, options.bar)
+})
 
-  test('#merge', () => {
-    test('merges objects', () => {
-      const defaultOptions = { foo: '', bar: '' }
-      const options = { bar: 'overwritten' }
-      const mergedOptions = utils.merge(defaultOptions, options)
-
-      strictEqual(mergedOptions.foo, defaultOptions.foo)
-      strictEqual(mergedOptions.bar, options.bar)
-    })
-  })
-
-  test('#isJSON', () => {
-    test('returns true if is JSON object', () => {
-      ok(utils.isJSON({ foo: 'bar' }))
-    })
-  })
+test('returns true if is JSON object', t => {
+  t.true(utils.isJSON({ foo: 'bar' }))
 })

@@ -6,8 +6,8 @@ module.exports = {
 }
 
 function merge (defaultParams, mergeParams) {
-  var mergedOptions = {}
-  for (var option in defaultParams) {
+  const mergedOptions = {}
+  for (const option in defaultParams) {
     mergedOptions[option] = defaultParams[option]
     if (typeof mergeParams[option] !== 'undefined') {
       mergedOptions[option] = mergeParams[option]

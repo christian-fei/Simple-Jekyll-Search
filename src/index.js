@@ -1,7 +1,7 @@
 (function (window) {
   'use strict'
 
-  var options = {
+  let options = {
     searchInput: null,
     resultsContainer: null,
     json: [],
@@ -17,18 +17,18 @@
     exclude: []
   }
 
-  var requiredOptions = ['searchInput', 'resultsContainer', 'json']
+  const requiredOptions = ['searchInput', 'resultsContainer', 'json']
 
-  var templater = require('./Templater')
-  var repository = require('./Repository')
-  var jsonLoader = require('./JSONLoader')
-  var optionsValidator = require('./OptionsValidator')({
+  const templater = require('./Templater')
+  const repository = require('./Repository')
+  const jsonLoader = require('./JSONLoader')
+  const optionsValidator = require('./OptionsValidator')({
     required: requiredOptions
   })
-  var utils = require('./utils')
+  const utils = require('./utils')
 
   window.SimpleJekyllSearch = function (_options) {
-    var errors = optionsValidator.validate(_options)
+    const errors = optionsValidator.validate(_options)
     if (errors.length > 0) {
       throwError('You must specify the following required options: ' + requiredOptions)
     }
@@ -52,7 +52,7 @@
       initWithURL(options.json)
     }
 
-    var rv = {
+    const rv = {
       search: search
     }
 
@@ -99,11 +99,11 @@
   }
 
   function render (results, query) {
-    var len = results.length
+    const len = results.length
     if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       results[i].query = query
       appendToResultsContainer(templater.compile(results[i]))
     }

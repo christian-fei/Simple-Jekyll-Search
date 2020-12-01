@@ -12,7 +12,7 @@
     "browserify": "browserify -p browser-pack-flat/plugin src/index.js | node scripts/stamp.js > dest/simple-jekyll-search.js",
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
-    "test": "m.test tests/**",
+    "test": "ava",
     "start": "cd example; jekyll serve",
     "copy-example-code": "cp dest/* example/js/",
     "uglify": "uglifyjs --compress --mangle --ie8 --comments \"/^/*!/\" --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
@@ -32,15 +32,16 @@
   },
   "homepage": "https://github.com/christian-fei/Simple-Jekyll-Search",
   "dependencies": {
+    "cypress": "^2.1.0",
     "fuzzysearch": "^1.0.3"
   },
   "optionalDependencies": {
     "cypress": "^2.1.0"
   },
   "devDependencies": {
+    "ava": "^3.13.0",
     "browser-pack-flat": "^3.4.2",
     "browserify": "^16.5.0",
-    "m.test": "0.0.58",
     "standard": "^14.3.3",
     "uglify-js": "^3.8.0"
   },

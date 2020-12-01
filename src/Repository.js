@@ -7,15 +7,15 @@ module.exports = {
   setOptions: setOptions
 }
 
-var FuzzySearchStrategy = require('./SearchStrategies/FuzzySearchStrategy')
-var LiteralSearchStrategy = require('./SearchStrategies/LiteralSearchStrategy')
+const FuzzySearchStrategy = require('./SearchStrategies/FuzzySearchStrategy')
+const LiteralSearchStrategy = require('./SearchStrategies/LiteralSearchStrategy')
 
 function NoSort () {
   return 0
 }
 
-var data = []
-var opt = {}
+const data = []
+let opt = {}
 
 opt.fuzzy = false
 opt.limit = 10
@@ -50,9 +50,9 @@ function addObject (_data) {
 }
 
 function addArray (_data) {
-  var added = []
+  const added = []
   clear()
-  for (var i = 0, len = _data.length; i < len; i++) {
+  for (let i = 0, len = _data.length; i < len; i++) {
     if (isObject(_data[i])) {
       added.push(addObject(_data[i]))
     }
@@ -77,9 +77,9 @@ function setOptions (_opt) {
 }
 
 function findMatches (data, crit, strategy, opt) {
-  var matches = []
-  for (var i = 0; i < data.length && matches.length < opt.limit; i++) {
-    var match = findMatchesInObject(data[i], crit, strategy, opt)
+  const matches = []
+  for (let i = 0; i < data.length && matches.length < opt.limit; i++) {
+    const match = findMatchesInObject(data[i], crit, strategy, opt)
     if (match) {
       matches.push(match)
     }
@@ -88,7 +88,7 @@ function findMatches (data, crit, strategy, opt) {
 }
 
 function findMatchesInObject (obj, crit, strategy, opt) {
-  for (var key in obj) {
+  for (const key in obj) {
     if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
       return obj
     }
@@ -96,10 +96,10 @@ function findMatchesInObject (obj, crit, strategy, opt) {
 }
 
 function isExcluded (term, excludedTerms) {
-  var excluded = false
+  let excluded = false
   excludedTerms = excludedTerms || []
-  for (var i = 0, len = excludedTerms.length; i < len; i++) {
-    var excludedTerm = excludedTerms[i]
+  for (let i = 0, len = excludedTerms.length; i < len; i++) {
+    const excludedTerm = excludedTerms[i]
     if (!excluded && new RegExp(term).test(excludedTerm)) {
       excluded = true
     }

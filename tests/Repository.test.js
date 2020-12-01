@@ -1,8 +1,4 @@
-'use strict'
-/* globals test beforeEach afterEach */
-/* eslint-disable node/no-deprecated-api */
-
-const { deepEqual } = require('assert')
+const test = require('ava')
 
 const barElement = { title: 'bar', content: 'bar' }
 const almostBarElement = { title: 'almostbar', content: 'almostbar' }
@@ -10,53 +6,51 @@ const loremElement = { title: 'lorem', content: 'lorem ipsum' }
 
 const data = [barElement, almostBarElement, loremElement]
 
-test('Repository', () => {
-  let repository
+let repository
 
-  test('finds a simple string', () => {
-    deepEqual(repository.search('bar'), [barElement, almostBarElement])
-  })
+test.beforeEach(() => {
+  repository = require('../src/Repository.js')
+  repository.put(data)
+})
 
-  test('limits the search results to one even if found more', () => {
-    repository.setOptions({ limit: 1 })
-    deepEqual(repository.search('bar'), [barElement])
-  })
+test.afterEach(() => {
+  repository.clear()
+})
 
-  test('finds a long string', () => {
-    deepEqual(repository.search('lorem ipsum'), [loremElement])
-  })
+test('finds a simple string', t => {
+  t.deepEqual(repository.search('bar'), [barElement, almostBarElement])
+})
 
-  test('finds a fuzzy string', () => {
-    repository.setOptions({ fuzzy: true })
-    deepEqual(repository.search('lrm ism'), [loremElement])
-  })
+test('limits the search results to one even if found more', t => {
+  repository.setOptions({ limit: 1 })
+  t.deepEqual(repository.search('bar'), [barElement])
+})
 
-  test('returns empty search results when an empty criteria is provided', () => {
-    deepEqual(repository.search(''), [])
-  })
+test('finds a long string', t => {
+  t.deepEqual(repository.search('lorem ipsum'), [loremElement])
+})
 
-  test('excludes items from search', () => {
-    repository.setOptions({
-      exclude: ['almostbar']
-    })
-    deepEqual(repository.search('almostbar'), [])
-  })
+test('finds a fuzzy string', t => {
+  repository.setOptions({ fuzzy: true })
+  t.deepEqual(repository.search('lrm ism'), [loremElement])
+})
 
-  test('excludes items from search', () => {
-    repository.setOptions({
-      sort: (a, b) => {
-        return a.title.localeCompare(b.title)
-      }
-    })
-    deepEqual(repository.search('r'), [almostBarElement, barElement, loremElement])
-  })
+test('returns empty search results when an empty criteria is provided', t => {
+  t.deepEqual(repository.search(''), [])
+})
 
-  beforeEach(() => {
-    repository = require('../src/Repository.js')
-    repository.put(data)
+test('excludes items from search #1', t => {
+  repository.setOptions({
+    exclude: ['almostbar']
   })
+  t.deepEqual(repository.search('almostbar'), [])
+})
 
-  afterEach(() => {
-    repository.clear()
+test('excludes items from search #2', t => {
+  repository.setOptions({
+    sort: (a, b) => {
+      return a.title.localeCompare(b.title)
+    }
   })
+  t.deepEqual(repository.search('r'), [almostBarElement, barElement, loremElement])
 })
