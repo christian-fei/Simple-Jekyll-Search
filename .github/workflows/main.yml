@@ -15,8 +15,7 @@ jobs:
           npm t
       - name: start server for uat
         run: |
-          gem install jekyll
-          npm start &
+          npx http-server example -p 4000 
       - name: uat
         uses: cypress-io/github-action@v2
         with:
