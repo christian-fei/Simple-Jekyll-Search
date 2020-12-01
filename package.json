@@ -13,6 +13,7 @@
     "build": "npm run browserify && npm run uglify",
     "dist": "npm run build && npm run copy-example-code",
     "test": "m.test tests/**",
+    "start": "cd example; jekyll serve",
     "copy-example-code": "cp dest/* example/js/",
     "uglify": "uglifyjs --compress --mangle --ie8 --comments \"/^/*!/\" --output dest/simple-jekyll-search.min.js dest/simple-jekyll-search.js"
   },
