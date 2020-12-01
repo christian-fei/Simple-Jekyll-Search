@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/christian-fei/Simple-Jekyll-Search",
   "dependencies": {
-    "cypress": "^2.1.0",
     "fuzzysearch": "^1.0.3"
   },
   "devDependencies": {
