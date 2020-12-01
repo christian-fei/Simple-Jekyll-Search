@@ -35,9 +35,6 @@
     "cypress": "^2.1.0",
     "fuzzysearch": "^1.0.3"
   },
-  "optionalDependencies": {
-    "cypress": "^2.1.0"
-  },
   "devDependencies": {
     "ava": "^3.13.0",
     "browser-pack-flat": "^3.4.2",
