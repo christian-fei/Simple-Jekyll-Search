@@ -20,7 +20,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: false
-          cache-key: node-v${{ matrix.node }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}
+          # cache-key: node-v${{ matrix.node }}-on-${{ runner.os }}-hash-${{ hashFiles('package-lock.json') }}
       - name: publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
