@@ -117,6 +117,12 @@ Enable fuzzy search to allow less restrictive matching.
 
 Pass in a list of terms you want to exclude (terms will be matched against a regex, so urls, words are allowed).
 
+### debounceTime (Number) [optional]
+
+Limit how many times the search function can be executed over the given time window. This is especially useful to improve the user experience when searching
+over a large dataset (either with rare terms ou because the number of posts to display is large). If no `debounceTime` is provided a search will be triggered
+on each keystroke.
+
 
 ---
 

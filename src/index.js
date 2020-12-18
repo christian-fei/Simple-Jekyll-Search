@@ -14,7 +14,18 @@
     noResultsText: 'No results found',
     limit: 10,
     fuzzy: false,
+    debounceTime: null,
     exclude: []
+  }
+
+  let debounceTimerHandle
+  const debounce = function (func, delayMillis) {
+    if (delayMillis) {
+      clearTimeout(debounceTimerHandle)
+      debounceTimerHandle = setTimeout(func, delayMillis)
+    } else {
+      func.call()
+    }
   }
 
   const requiredOptions = ['searchInput', 'resultsContainer', 'json']
@@ -87,7 +98,7 @@
     options.searchInput.addEventListener('input', function (e) {
       if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
-        search(e.target.value)
+        debounce(function () { search(e.target.value) }, options.debounceTime)
       }
     })
   }
