@@ -21,6 +21,7 @@ opt.fuzzy = false
 opt.limit = 10
 opt.searchStrategy = opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
 opt.sort = NoSort
+opt.exclude = []
 
 function put (data) {
   if (isObject(data)) {
@@ -74,6 +75,7 @@ function setOptions (_opt) {
   opt.limit = _opt.limit || 10
   opt.searchStrategy = _opt.fuzzy ? FuzzySearchStrategy : LiteralSearchStrategy
   opt.sort = _opt.sort || NoSort
+  opt.exclude = _opt.exclude || []
 }
 
 function findMatches (data, crit, strategy, opt) {
@@ -96,13 +98,11 @@ function findMatchesInObject (obj, crit, strategy, opt) {
 }
 
 function isExcluded (term, excludedTerms) {
-  let excluded = false
-  excludedTerms = excludedTerms || []
   for (let i = 0, len = excludedTerms.length; i < len; i++) {
     const excludedTerm = excludedTerms[i]
-    if (!excluded && new RegExp(term).test(excludedTerm)) {
-      excluded = true
+    if (new RegExp(excludedTerm).test(term)) {
+      return true
     }
   }
-  return excluded
+  return false
 }
