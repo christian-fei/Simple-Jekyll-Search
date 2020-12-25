@@ -43,7 +43,8 @@
     repository.setOptions({
       fuzzy: options.fuzzy,
       limit: options.limit,
-      sort: options.sortMiddleware
+      sort: options.sortMiddleware,
+      exclude: options.exclude
     })
 
     if (utils.isJSON(options.json)) {
