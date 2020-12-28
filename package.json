@@ -35,12 +35,12 @@
     "fuzzysearch": "^1.0.3"
   },
   "devDependencies": {
-    "ava": "^3.13.0",
+    "ava": "^3.14.0",
     "browser-pack-flat": "^3.4.2",
-    "browserify": "^16.5.0",
-    "cypress": "^6.0.1",
-    "standard": "^14.3.3",
-    "uglify-js": "^3.8.0"
+    "browserify": "^17.0.0",
+    "cypress": "^6.2.0",
+    "standard": "^16.0.3",
+    "uglify-js": "^3.12.3"
   },
   "standard": {
     "ignore": [
