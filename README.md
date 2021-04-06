@@ -255,7 +255,7 @@ with
 
 If this doesn't work when using Github pages you can try `jsonify` to make sure the content is json compatible:
 
-```json
+```js
 "content": {{ page.content | jsonify }}
 ```
 
