@@ -131,16 +131,16 @@ on each keystroke.
 - There is a filter plugin in the _plugins folder which should remove most characters that cause invalid JSON. To use it, add the simple_search_filter.rb file to your _plugins folder, and use `remove_chars` as a filter.
 
 For example: in search.json, replace
-```
+```json
 "content"  : "{{ page.content | strip_html | strip_newlines }}"
 ```
 with
-```
+```json
 "content"  : "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
 ```
 
 If this doesn't work when using Github pages you can try ```jsonify``` to make sure the content is json compatible:
-```
+```json
 "content"   : {{ page.content | jsonify }}
 ```
 **Note: you don't need to use quotes ' " ' in this since ```jsonify``` automatically inserts them.**
@@ -156,7 +156,7 @@ If this doesn't work when using Github pages you can try ```jsonify``` to make s
 
 Replace 'search.json' with the following code:
 
-```
+```yaml
 ---
 layout: null
 ---
