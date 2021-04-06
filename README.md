@@ -32,7 +32,7 @@ Place the following code in a file called `search.json` in the **root** of your 
 
 This file will be used as a small data source to perform the searches on the client side:
 
-```
+```yaml
 ---
 layout: none
 ---
@@ -97,7 +97,7 @@ A new instance of SimpleJekyllSearch returns an object, with the only property `
 
 E.g.:
 
-```
+```js
 var sjs = SimpleJekyllSearch({ ...options })
 sjs.search('Hello')
 ```
@@ -255,7 +255,7 @@ with
 
 If this doesn't work when using Github pages you can try `jsonify` to make sure the content is json compatible:
 
-```
+```json
 "content": {{ page.content | jsonify }}
 ```
 
@@ -266,7 +266,7 @@ If this doesn't work when using Github pages you can try `jsonify` to make sure 
 
 Replace `search.json` with the following code:
 
-```raw
+```yaml
 ---
 layout: none
 ---
@@ -306,7 +306,7 @@ layout: none
 
 #### Acceptance tests
 
-```
+```bash
 cd example; jekyll serve
 
 # in another tab
