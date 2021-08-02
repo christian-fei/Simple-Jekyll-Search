@@ -15,7 +15,8 @@
     limit: 10,
     fuzzy: false,
     debounceTime: null,
-    exclude: []
+    exclude: [],
+    onSearch: Function.prototype
   }
 
   let debounceTimerHandle
@@ -107,6 +108,8 @@
     if (isValidQuery(query)) {
       emptyResultsContainer()
       render(repository.search(query), query)
+
+      typeof options.onSearch === 'function' && options.onSearch.call()
     }
   }
 
