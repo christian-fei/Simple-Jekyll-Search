@@ -16,7 +16,8 @@
     fuzzy: false,
     debounceTime: null,
     exclude: [],
-    onSearch: Function.prototype
+    onSearch: Function.prototype,
+    formSubmit: null
   }
 
   let debounceTimerHandle
