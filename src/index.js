@@ -76,7 +76,7 @@
 
   function initWithJSON (json) {
     repository.put(json)
-    
+
     if (options.formSubmit != null) {
       handleSubmit()
     } else {
@@ -101,13 +101,11 @@
     options.resultsContainer.innerHTML += text
   }
 
-
-  function handleSubmit() {
+  function handleSubmit () {
     options.formSubmit.addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-        emptyResultsContainer()
-        debounce(function () { search(options.searchInput.value) }, options.debounceTime)
+      e.preventDefault()
+      emptyResultsContainer()
+      debounce(function () { search(options.searchInput.value) }, options.debounceTime)
     })
   }
 
