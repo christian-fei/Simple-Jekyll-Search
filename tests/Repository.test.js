@@ -54,3 +54,29 @@ test('excludes items from search #2', t => {
   })
   t.deepEqual(repository.search('r'), [almostBarElement, barElement, loremElement])
 })
+
+test('sort order for more candidates than limit', t => {
+  const expectedResult1 = { title: 'JavaScript', content: 'JavaScript Awesome' }
+  const expectedResult2 = { title: 'JavaScript', content: 'JavaScript Cool' }
+  const expectedResult3 = { title: 'JavaScript', content: 'JavaScript Easy' }
+  const items = [
+    { title: 'JavaScript', content: 'JavaScript Fun' },
+    { title: 'JavaScript', content: 'JavaScript Rocks' },
+    expectedResult3,
+    { title: 'JavaScript', content: 'JavaScript Powerful' },
+    { title: 'JavaScript', content: 'JavaScript Works' },
+    { title: 'JavaScript', content: 'JavaScript For frontend and backend' },
+    expectedResult2,
+    { title: 'JavaScript', content: 'JavaScript For Jekyll' },
+    expectedResult1
+  ]
+
+  for (let i = 0; i < 5; i++) {
+    // irrespective of the insertion order, the result order should not change
+    repository.clear()
+    items.sort((a, b) => Math.random() - 0.5)// shuffle items
+    repository.put(items)
+    repository.setOptions({ limit: 3, sort: (a, b) => a.content.localeCompare(b.content) })
+    t.deepEqual(repository.search('JavaScript'), [expectedResult1, expectedResult2, expectedResult3])
+  }
+})

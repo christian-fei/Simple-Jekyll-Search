@@ -65,7 +65,7 @@ function search (crit) {
   if (!crit) {
     return []
   }
-  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
+  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort).slice(0, opt.limit)
 }
 
 function setOptions (_opt) {
@@ -80,7 +80,7 @@ function setOptions (_opt) {
 
 function findMatches (data, crit, strategy, opt) {
   const matches = []
-  for (let i = 0; i < data.length && matches.length < opt.limit; i++) {
+  for (let i = 0; i < data.length; i++) {
     const match = findMatchesInObject(data[i], crit, strategy, opt)
     if (match) {
       matches.push(match)
